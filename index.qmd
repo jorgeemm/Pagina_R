@@ -1,6 +1,19 @@
 ---
 title: "Apuntes de R"
+about:
+  template: marquee
+  image: 01_img/logoRStudio.jpg
+  links:
+    - icon: github
+      text: Github J
+      href: https://github.com/jorgeemm
+    - icon: github
+      text: Github I
+      href: https://github.com/irenebravojb
 ---
+
+
+*Aquí te escribes algo para la intro o cambias la foto o lo que quieras*
 
 ::: info
 ## Comentarios y anotaciones

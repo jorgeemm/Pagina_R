@@ -7,6 +7,9 @@ execute:
 
 website:
   title: "Página R"
+  tools: 
+    - icon: github
+      href: https://github.com/jorgeemm/Pagina_R
   favicon: 01_img/icono.png
   bread-crumbs: false # Para que elimie de la parte superior las indicaciones de dónde se está (P.ej., que no aparezca: Análisis de datos > Análisis bivariado > Ttest )
   reader-mode: true # La pestañita que aparece arriba para ocultar todos las tablas de contenido
