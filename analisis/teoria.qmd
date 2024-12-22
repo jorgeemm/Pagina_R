@@ -3,8 +3,7 @@ title: "Teoría"
 ---
 
 ```{r include=FALSE}
-library(tidyverse)
-library(pacman)
+setwd(here::here())
 source("00_datos/source.R")
 ```
 

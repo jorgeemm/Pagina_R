@@ -2,6 +2,11 @@
 title: "Regresión logística"
 ---
 
+```{r message=FALSE, warning=FALSE, include=FALSE}
+setwd(here::here())
+source("00_datos/source.r")
+```
+
 ## Análisis de clasificación
 
 La clasificación supervisada es una tarea muy frecuente en todas las áreas de análisis de datos. Existe un gran número de algoritmos desarrollados tanto por la estadística (regresión logística, análisis discriminante) como por la inteligencia artificial (redes neuronales, árboles de decisión, redes bayesianas) diseñados para realizar las tareas propias de la clasificación.
@@ -86,9 +91,7 @@ Como de costumbre, abrimos fichero “Limpieza de datos” en su versión más r
 
 A partir de la variable intención de voto (´INTENCIONG\`), vamos a crear nuestra variable dependiente de intención voto VOX (**intovox**).
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
-source("00_datos/source.r")
-```
+
 
 ```{r}
 # Intención de voto

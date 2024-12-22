@@ -1,6 +1,5 @@
 ---
 title: "Gráficos de barras"
-page_id: g_barras
 ---
 
 ## Barras divididas según una tercera variable

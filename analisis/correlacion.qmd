@@ -3,6 +3,7 @@ title: "Análisis de correlación"
 ---
 
 ```{r include=FALSE}
+setwd(here::here())
 source("00_datos/source.R")
 ```
 

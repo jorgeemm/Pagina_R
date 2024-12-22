@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: _site
 
-execute: 
+execute:
   freeze: auto
 
 website:
@@ -17,7 +17,16 @@ website:
     hypothesis:
       theme: clean
       openSidebar: false
-      
+    giscus:
+      repo: jorgeemm/Pagina_R
+      repo-id: "R_kgDONhBVEg"
+      category: "General"
+      category-id: "DIC_kwDONhBVEs4Clcdh"
+      mapping: "pathname"
+      language: es
+      theme:
+        light: light
+        dark: dark_dimmed
       
 # El menú de navegación superior se escribe del siguiente modo  
   navbar:

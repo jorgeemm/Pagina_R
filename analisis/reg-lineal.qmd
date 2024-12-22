@@ -3,6 +3,7 @@ title: "Lineal simple"
 ---
 
 ```{r include=FALSE}
+setwd(here::here())
 source("00_datos/source.R")
 ```
 
@@ -217,13 +218,13 @@ stargazer(reg.lineal,
 
 ## Teoría
 
-### **Objetivos**:
+### Objetivos:
 
 -   **Estimar/predecir** los valores que adoptará la variable dependiente (VD) a partir de valores conocidos del conjunto de variables independientes (VIs).
 -   **Cuantificar** la relación de dependencia. Es decir, determinar qué proporción de varianza de la VD queda explicada por la suma de VIs.
 -   **Determinar el grado de confianza** con que se puede afirmar que la relación observada en los datos muestras se da en la población.
 
-### **Regresión lineal simple**
+### Regresión lineal simple
 
 Cuando hacemos una regresión lineal modelamos una variable continua **y** como una función matemática de una o más variables **xi**, de manera que podamos usar ese modelo de regresión para predecir **y** cuando solo conozcamos **xi**. Hablamos de regresión simple cuando sólo están involucradas dos variables. En este caso, la ecuación de regresión se puede generalizar de la siguiente manera:
 
@@ -241,17 +242,17 @@ $$\hat{y} = \hat{\beta}_1 + \hat{\beta}_2 + u$$ donde **β1** es la ordenada en 
 
 </center>
 
-### **Mínimos Cuadrados Ordinarios (MCO)**
+### Mínimos Cuadrados Ordinarios (MCO)
 
 Mediante la regresión lineal de una variable y sobre una variable x, buscamos una función que sea una aproximación de una nube de puntos (x~i~, y~i~). Por una nube de puntos, sin embargo, pasan infinitas rectas. Para conocer cuál es la más adecuada, se emplea el método de MCO (OLS en inglés) para estimar los parámetros del modelo (*β~i~*).El método de los mínimos cuadrados se utiliza para calcular la recta de regresión lineal que minimiza los residuos, esto es, las diferencias entre los valores reales observados (yi) y los valores estimados por la recta (\hat{y}~i~).
 
-### **Bondad de ajuste del modelo**
+### Bondad de ajuste del modelo
 
 El método de mínimos cuadrados selecciona la línea que más se ajusta a nuestras observaciones. Sin embargo, que esa recta sea la mejor, no quiere decir que sea necesariamente buena. Para determinar la bondad de ajuste de nuestro modelo vamos a utilizar el Coeficiente de Determinación R^2^.
 
 El coeficiente de determinación explica cuánta varianza de la variable dependiente podemos explicar con nuestro modelo. Su valor puede oscilar entre 0 y 1. Cuanto mayor sea su valor, más preciso será el modelo de regresión. A menudo se interpreta como un porcentaje.
 
-### **Supuestos de la regresión**
+### Supuestos de la regresión
 
 Para ver si un modelo de regresión lineal ajustado es valido, debemos comprobar que se cumplen estas tres condiciones sobre los residuos:
 

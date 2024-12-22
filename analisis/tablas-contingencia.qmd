@@ -3,6 +3,7 @@ title: "Tablas de contingencia"
 ---
 
 ```{r include=FALSE}
+setwd(here::here())
 source("00_datos/source.R")
 ```
 

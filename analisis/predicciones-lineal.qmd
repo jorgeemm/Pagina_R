@@ -3,6 +3,7 @@ title: "Predicciones"
 ---
 
 ```{r include=FALSE}
+setwd(here::here())
 source("00_datos/source.R")
 ```
 
@@ -33,17 +34,15 @@ Vamos a ver un ejemplo. Para ello, abrimos el dataset QoG2017 (*Quality of Gover
 -   mad_gdppc (GDP per capita) = gdp
 
 ```{r}
-qog2017 <- read_dta("00_datos/QoG_basic_2017.dta")
+dim(datos_reg)
 
-dim(qog2017)
-
-qog2017 <- qog2017 %>%
+datos_reg <- datos_reg %>%
   mutate(cpi = ti_cpi,
          gdp = mad_gdppc)
 
-summary(qog2017$cpi)
+summary(datos_reg$cpi)
 
-summary(qog2017$gdp)
+summary(datos_reg$gdp)
 
 ```
 
@@ -54,7 +53,7 @@ Para que todo funcione bien **es necesario que la base de datos no contenga NAs*
 
 ```{r}
 myvars <- c("cpi", "gdp")          # creo un vector con las variables de interés
-qog2017.red<-qog2017[myvars]       # creo un nuevo dataframe con las variables de interés
+qog2017.red<-datos_reg[myvars]       # creo un nuevo dataframe con las variables de interés
 qog2017.red<- na.omit(qog2017.red) # elimino los casos perdidos del nuevo dataframe
 summary(qog2017.red)               # compruebo que el nuevo dataset contiene únicamente las variables de interés
 dim(qog2017.red)

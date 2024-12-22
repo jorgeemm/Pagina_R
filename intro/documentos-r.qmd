@@ -2,23 +2,8 @@
 title: "Documentos de R"
 ---
 
-```{=html}
-<style>
-body {
-text-align: justify}
-</style>
-```
-
-```{r setup, include=FALSE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE,
-                      fig.align = 'center', # Para que los gráficos de los comandos estén centrados en la página
-                      out.width = '60%') # Para modificar el tamaño de los gráficos (en este caso hacerlos algo más pequeños)
-```
-
 ```{r include=FALSE}
-setwd("C:/Users/Lenovo/OneDrive/Escritorio/Apuntes_R")
-library(tidyverse)
-library(pacman)
+setwd(here::here())
 source("00_datos/source.R")
 ```
 
