@@ -2,7 +2,7 @@
 title: "Apuntes de R"
 about:
   template: marquee
-  image: 01_img/logoRStudio.jpg
+  image: 01_img/logoRStudio.png
   links:
     - icon: github
       text: Github J
