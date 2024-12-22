@@ -1,0 +1,139 @@
+project:
+  type: website
+  output-dir: _site
+
+execute: 
+  freeze: auto
+
+website:
+  title: "Página R"
+  favicon: 01_img/icono.png
+  bread-crumbs: false # Para que elimie de la parte superior las indicaciones de dónde se está (P.ej., que no aparezca: Análisis de datos > Análisis bivariado > Ttest )
+  reader-mode: true # La pestañita que aparece arriba para ocultar todos las tablas de contenido
+  page-navigation: true # Para que al final de cada página aparezca una opción de ir a la siguiente página o a la anterior.
+  back-to-top-navigation: true # Para que al final de cada página aparezca una opción para subir otra vez al principio.
+  search: true # Para añadir la lupa a la página
+  comments: 
+    hypothesis:
+      theme: clean
+      openSidebar: false
+      
+      
+# El menú de navegación superior se escribe del siguiente modo  
+  navbar:
+    left:
+      - text: "Introducción a R" # El título del apartado del índice
+        href: index.qmd         # El archivo de referencia que se abrirá cuando se pulse sobre esa pestaña
+      - text: "Bases de datos y variables"
+        href: dg-var/ficheros-datos.qmd
+      - text: "Análisis de datos"
+        href: descriptivo.qmd      
+      - text: "Gráficos"
+        href: graficos/g-intro.qmd      
+      - text: "Otros"
+        href: otros.qmd
+
+
+
+# El menú lateral se escribe así:
+  sidebar:
+    - title: "Introducción a R" # Al escribir la opción title, todas las instrucciones y documentos siguientes se aplicarán dentro de la pestaña superior que tiene el mismo nombre.
+                                # Es la forma de añadir una subsecció lateral dentro de las pestañas superiores, pero solo para una parte de los archivos, en lugar de mostrarlos todos.
+      contents: 
+        - index.qmd
+        - intro/introduccion.qmd
+        - intro/documentos-r.qmd
+        - intro/flujos-trabajo.qmd
+        - intro/operaciones-basicas.qmd
+
+    - title: "Bases de datos y variables"
+      contents:
+        - df-var/ficheros-datos.qmd
+        - df-var/edicion-variables.qmd
+      
+    - title: "Análisis de datos"
+      contents:
+        - analisis/descriptivo.qmd
+        - section: "Análisis bivariado"
+          contents:
+            - analisis/teoria.qmd
+            - analisis/ttest.qmd
+            - analisis/correlacion.qmd
+            - analisis/tablas-contingencia.qmd
+        - section: "Regresiones"
+          contents:
+            - analisis/reg-lineal.qmd
+            - analisis/reg-multiple.qmd
+            - analisis/predicciones.qmd
+            - analisis/reg-logistica.qmd
+ 
+    - title: "Gráficos"
+      contents:
+        - graficos/g-intro.qmd
+        - graficos/g-lineas.qmd
+        - graficos/g-barras.qmd
+        - graficos/g-mancuernas.qmd
+        - graficos/g-otros.qmd
+        
+    - title: "Otros"
+      contents:
+        - otros.qmd
+
+format:
+  html:
+    theme: # Se puede añadir una opción para poner la página en modo claro o modo oscuro
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-title: "Contenido"    
+    language: es              
+    include-in-header:
+      - text: |
+          <style>
+          /* Estilos para todo el documento */
+          body {
+            text-align: justify;
+          }
+          /* Estilos específicos para la tabla de contenidos */
+          .toc-actions, .toc .nav, .toc .nav > li > a {
+            text-align: left !important;
+          }
+          </style>
+      - text: |
+          <script>
+          // Añadir funcionalidad de zoom para imágenes
+          document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('img.zoomable').forEach(function(img) {
+              img.addEventListener('click', function() {
+                this.classList.toggle('zoomed');
+              });
+            });
+          });
+          </script>
+ 
+# Configuración global de knitr
+knitr:
+  opts_chunk: 
+    echo: true
+    message: false
+    warning: false
+    fig.align: center
+    out.width: "60%"
+
+editor: visual
+
+
+
+# Cuando se ha creado un nuevo documento o actualizado alguno se debe escribir en el terminal lo siguiente: quarto render nombre_documento.qmd
+# Esto sirve para generar el archivo html que es el que se usa para que funcione la página.
+# En el terminal se puede usar también directamente quarto render, que ejecuta todos los documentos de quarto del proyecto.
+# Esta opción es peor porque tarda más y si solo has cambiado algún archivo concreto no tiene demasiado sentido.
+
+### Cuando se han creado los nuevos html, se actualiza el github en la rama main y así se actualizará la página automáticamente.
+
+#### Probar también alguna vez la siguiente serie de comandos para ver si así no hace falta abrir la aplicación de GitHub.
+## quarto render documento.qmd
+## git add docs
+## git commit -m "Publish site to docs/"
+## git push
