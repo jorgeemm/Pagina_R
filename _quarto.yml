@@ -34,14 +34,13 @@ website:
       - text: "Introducción a R" # El título del apartado del índice
         href: index.qmd         # El archivo de referencia que se abrirá cuando se pulse sobre esa pestaña
       - text: "Bases de datos y variables"
-        href: dg-var/ficheros-datos.qmd
+        href: df-var/ficheros-datos.qmd
       - text: "Análisis de datos"
-        href: descriptivo.qmd      
+        href: analisis/descriptivo.qmd      
       - text: "Gráficos"
         href: graficos/g-intro.qmd      
       - text: "Otros"
         href: otros.qmd
-
 
 
 # El menú lateral se escribe así:
