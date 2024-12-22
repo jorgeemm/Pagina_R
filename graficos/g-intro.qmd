@@ -2,7 +2,7 @@
 title: "Ejemplos"
 ---
 
-## [Gráficos de líneas:](g_lineas.html)
+## [Gráficos de líneas:](g-lineas.html)
 
 ::: {layout-ncol="2"}
 ![](01_img/lineas_relleno.png){.zoomable fig-align="right" width="375"}
@@ -10,7 +10,7 @@ title: "Ejemplos"
 ![](01_img/lineas_valoracion.png){.zoomable fig-align="left" width="375"}
 :::
 
-## [Gráficos de barras:](g_barras.html)
+## [Gráficos de barras:](g-barras.html)
 
 ::: {layout-ncol="2"}
 ![](01_img/barras_dobles_ideol.png){.zoomable fig-align="right" width="375"}
@@ -18,7 +18,7 @@ title: "Ejemplos"
 ![](01_img/barras_dobles.png){.zoomable fig-align="left" width="375"}
 :::
 
-## [Gráficos de mancuernas:](g_mancuernas.html)
+## [Gráficos de mancuernas:](g-mancuernas.html)
 
 ::: {layout-ncol="2"}
 ![](01_img/puntos_posicion_partidos.png){.zoomable fig-align="right" width="375"}
@@ -26,7 +26,7 @@ title: "Ejemplos"
 ![](0_img/puntos_posicion_edad_ideol.png){.zoomable fig-align="left" width="375"}
 :::
 
-## [Otros gráficos:](g_otros.html)
+## [Otros gráficos:](g-otros.html)
 
 ::: {layout-ncol="3"}
 ![](01_img/puntos_barras.png){.zoomable fig-align="center" width="375"}

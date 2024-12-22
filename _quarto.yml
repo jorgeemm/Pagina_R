@@ -7,9 +7,6 @@ execute:
 
 website:
   title: "Página R"
-  tools: 
-    - icon: github
-      href: https://github.com/jorgeemm/Pagina_R
   favicon: 01_img/icono.png
   bread-crumbs: false # Para que elimie de la parte superior las indicaciones de dónde se está (P.ej., que no aparezca: Análisis de datos > Análisis bivariado > Ttest )
   reader-mode: true # La pestañita que aparece arriba para ocultar todos las tablas de contenido
@@ -33,6 +30,9 @@ website:
       
 # El menú de navegación superior se escribe del siguiente modo  
   navbar:
+    tools: 
+      - icon: github
+        href: https://github.com/jorgeemm/Pagina_R
     left:
       - text: "Introducción a R" # El título del apartado del índice
         href: index.qmd         # El archivo de referencia que se abrirá cuando se pulse sobre esa pestaña

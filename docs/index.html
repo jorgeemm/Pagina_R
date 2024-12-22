@@ -35,7 +35,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -129,11 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./dg-var/ficheros-datos.qmd"> 
+    <a class="nav-link" href="./df-var/ficheros-datos.html"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./descriptivo.qmd"> 
+    <a class="nav-link" href="./analisis/descriptivo.html"> 
 <span class="menu-text">Análisis de datos</span></a>
   </li>  
   <li class="nav-item">
@@ -146,7 +145,8 @@ document.addEventListener('DOMContentLoaded', function() {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/jorgeemm/Pagina_R" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -211,36 +211,28 @@ document.addEventListener('DOMContentLoaded', function() {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contenido</h2>
-   
   <ul>
   <li><a href="#comentarios-y-anotaciones" id="toc-comentarios-y-anotaciones" class="nav-link active" data-scroll-target="#comentarios-y-anotaciones">Comentarios y anotaciones</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-about-marquee">
+  <div class="about-image-container">
+    <img src="01_img/logoRStudio.jpg" class="about-image " style="width: 100%;">
+  </div>
+  <div class="about-contents">
+    <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title d-none d-lg-block">Apuntes de R</h1>
 </div>
-
-
-
 <div class="quarto-title-meta">
-
-    
-  
-    
   </div>
-  
+</header> <main class="content" id="quarto-document-content">
 
-
-</header>
-
-
+<p><em>Aquí te escribes algo para la intro o cambias la foto o lo que quieras</em></p>
 <section id="comentarios-y-anotaciones" class="level2 info">
-<h2 class="anchored" data-anchor-id="comentarios-y-anotaciones">Comentarios y anotaciones</h2>
+<h2 data-anchor-id="comentarios-y-anotaciones">Comentarios y anotaciones</h2>
 <p>Este sitio ofrece dos formas de interactuar con el contenido:</p>
 <ol type="1">
 <li><p><strong>Anotaciones específicas</strong>: Usa el botón de Hypothesis (➚) en la esquina superior derecha para subrayar y comentar partes específicas del texto.</p></li>
@@ -249,8 +241,21 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
+    <div class="about-footer"><div class="about-links">
+  <a href="https://github.com/jorgeemm" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">Github J</span>
+  </a>
+  <a href="https://github.com/irenebravojb" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">Github I</span>
+  </a>
+</div>
+</div>
+  </div>
+</div>
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -415,13 +420,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
