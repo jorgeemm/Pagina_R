@@ -11,16 +11,3 @@ about:
       text: Github I
       href: https://github.com/irenebravojb
 ---
-
-
-*Aquí te escribes algo para la intro o cambias la foto o lo que quieras*
-
-::: info
-## Comentarios y anotaciones
-
-Este sitio ofrece dos formas de interactuar con el contenido:
-
-1.  **Anotaciones específicas**: Usa el botón de Hypothesis (➚) en la esquina superior derecha para subrayar y comentar partes específicas del texto.
-
-2.  **Comentarios generales**: Usa la sección de comentarios de Giscus al final de cada página para discusiones generales. Necesitarás una cuenta de GitHub para comentar.
-:::
