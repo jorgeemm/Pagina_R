@@ -91,7 +91,6 @@ format:
     theme: # Se puede añadir una opción para poner la página en modo claro o modo oscuro
       light: flatly
       dark: darkly
-    include-after-body: custom-toggle.js
     title-block-banner: "#f0f3f5"
     title-block-banner-color: "black"
     css: styles.css

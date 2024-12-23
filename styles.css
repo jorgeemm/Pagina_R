@@ -13,4 +13,3 @@ img.zoomable.zoomed {
   z-index: 10;
   cursor: zoom-out; /* Cambia el cursor para indicar que se puede deshacer el zoom */
 }
-

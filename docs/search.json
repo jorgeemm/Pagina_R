@@ -907,17 +907,6 @@
     ]
   },
   {
-    "objectID": "index.html#comentarios-y-anotaciones",
-    "href": "index.html#comentarios-y-anotaciones",
-    "title": "Apuntes de R",
-    "section": "Comentarios y anotaciones",
-    "text": "Comentarios y anotaciones\nEste sitio ofrece dos formas de interactuar con el contenido:\n\nAnotaciones específicas: Usa el botón de Hypothesis (➚) en la esquina superior derecha para subrayar y comentar partes específicas del texto.\nComentarios generales: Usa la sección de comentarios de Giscus al final de cada página para discusiones generales. Necesitarás una cuenta de GitHub para comentar.",
-    "crumbs": [
-      "Introducción a R",
-      "Apuntes de R"
-    ]
-  },
-  {
     "objectID": "intro/flujos-trabajo.html",
     "href": "intro/flujos-trabajo.html",
     "title": "Flujos de trabajo",

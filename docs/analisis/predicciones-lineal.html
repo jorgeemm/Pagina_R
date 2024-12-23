@@ -595,28 +595,6 @@ Tuning parameter 'intercept' was held constant at a value of TRUE</code></pre>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-document.addEventListener("DOMContentLoaded", function () {
-  const toggleButton = document.querySelector(".quarto-theme-toggle");
-
-  if (toggleButton) {
-    // Cambia el ícono según el tema actual
-    const updateIcon = () =&gt; {
-      const isDark = document.documentElement.classList.contains("theme-dark");
-      const icon = toggleButton.querySelector("i");
-      if (icon) {
-        icon.className = isDark ? "bi bi-brightness-high" : "bi bi-moon-stars";
-      }
-    };
-
-    // Inicializa el ícono al cargar la página
-    updateIcon();
-
-    // Actualiza el ícono al hacer clic
-    toggleButton.addEventListener("click", () =&gt; {
-      setTimeout(updateIcon, 10); // Espera un poco para que el tema cambie
-    });
-  }
-});
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
