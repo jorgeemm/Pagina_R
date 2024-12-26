@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -38,12 +72,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f3c2ea88cadbcfb37ba28ffa2c97cfc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ae2d0dcda2edce4ab590422bb373b64f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -135,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../df-var/ficheros-datos.html"> 
+    <a class="nav-link" href="../df-var/ficheros-datos.qmd"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
@@ -234,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <li><a href="#qué-es-r-studio" id="toc-qué-es-r-studio" class="nav-link active" data-scroll-target="#qué-es-r-studio">¿Qué es R Studio?</a></li>
   <li><a href="#instalar-paquetes" id="toc-instalar-paquetes" class="nav-link" data-scroll-target="#instalar-paquetes">Instalar paquetes</a></li>
   <li><a href="#recomendaciones" id="toc-recomendaciones" class="nav-link" data-scroll-target="#recomendaciones">Recomendaciones</a></li>
+  <li><a href="#el-uso-del-pipe" id="toc-el-uso-del-pipe" class="nav-link" data-scroll-target="#el-uso-del-pipe">El uso del pipe (%&gt;% |&gt;)</a></li>
   <li><a href="#atajos" id="toc-atajos" class="nav-link" data-scroll-target="#atajos">Atajos</a></li>
   </ul>
 </nav>
@@ -250,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="01_img/ventanas_rstudio.png" class="img-fluid figure-img"></p>
+<p><img src="ventanas_rstudio.png" class="img-fluid figure-img"></p>
 <figcaption>Ventanas de R Studio</figcaption>
 </figure>
 </div>
@@ -297,6 +332,26 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="recomendaciones" class="level2">
 <h2 class="anchored" data-anchor-id="recomendaciones">Recomendaciones</h2>
 <p>Al comenzar un nuevo trabajo en R, conviene crear un proyecto nuevo en el que se quiera trabajara, y mantener este ordenado. También es recomendable guardar todos los códigos de forma estructurada, de modo que tanto otras personas como tu yo del futuro puedan saber para qué sirven cada una de las cosas que se han añadido.</p>
+</section>
+<section id="el-uso-del-pipe" class="level2">
+<h2 class="anchored" data-anchor-id="el-uso-del-pipe">El uso del pipe (%&gt;% |&gt;)</h2>
+<p>El pipe permite encadenar funciones, por lo que permite reducir el código que se debe escribir a la hora de usar varias funciones seguidas. Esto simplifica el trabajo y facilita la lectura del código, además de permitir tener un documento de trabajo más limpio.</p>
+<ul>
+<li><p>Existen dos tipos de pipe: <strong>%&gt;%</strong> y <strong>|&gt;</strong>. Se puede seleccionar cuál se prefiere por defecto desde las <em>Global Options</em>: <em>Code</em> -&gt; <em>Editing</em> -&gt; <em>Native pipe operator</em>.</p></li>
+<li><p>Se puede añadir rápidamente con el siguiente atajo del teclado: <strong>ctrl + shift + m</strong></p></li>
+</ul>
+<p>Funcionamiento del pipe:</p>
+<ul>
+<li><p>Ejecutar código de izquierda a derecha. Es decir, sirve para ejecutar un nuevo comando (<em>dcha.</em>) a partir del comando ya ejecutado (<em>izq.</em>)</p></li>
+<li><p>Evita tener que guardar objetos para los pasos intermedios</p></li>
+<li><p>Ej.: primero se crea un vector (sin guardarlo en el environment), después realiza la media de dicho vector y, por último, redondea este nuevo valor con 2 decimales</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>() <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.25</code></pre>
+</div>
+</div></li>
+</ul>
 </section>
 <section id="atajos" class="level2">
 <h2 class="anchored" data-anchor-id="atajos">Atajos</h2>
@@ -545,8 +600,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -657,7 +710,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -824,25 +876,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
           }
-        });
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;

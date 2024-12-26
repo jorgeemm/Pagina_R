@@ -55,8 +55,17 @@ website:
 
     - title: "Bases de datos y variables"
       contents:
-        - df-var/ficheros-datos.qmd
-        - df-var/edicion-variables.qmd
+        - section: "Bases de datos"
+          contents:
+            - df-var/apertura-datos.qmd
+            - df-var/edicion-df.qmd
+            - df-var/unir-df.qmd
+        - section: "Edición de variables"
+          contents:
+            - df-var/edicion-variables.qmd
+            - df-var/categoricas.qmd
+        - df-var/group_by.qmd
+        - df-var/casos-perdidos.qmd
       
     - title: "Análisis de datos"
       contents:
@@ -81,10 +90,7 @@ website:
         - graficos/g-barras.qmd
         - graficos/g-mancuernas.qmd
         - graficos/g-otros.qmd
-        
-    - title: "Otros"
-      contents:
-        - otros.qmd
+
 
 format:
   html:
@@ -95,8 +101,15 @@ format:
     title-block-banner-color: "black"
     css: styles.css
     toc: true
-    toc-title: "Contenido"    
-    language: es              
+    toc-title: "Contenido"
+    code-annotations: hover # Para que las anotaciones en el código (# <1>) aparezcan solo al pasar el ratón por encima, y no estén siempre debajo del chunk
+    language: 
+      es:
+        callout-tip-title: "Consejo"
+        callout-note-title: "Nota"
+        callout-warning-title: "Advertencia"
+        callout-important-title: "Importante"
+        callout-caution-title: "Precaución"
     include-in-header:
       - text: |
           <style>

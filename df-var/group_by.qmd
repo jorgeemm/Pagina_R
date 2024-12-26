@@ -1,0 +1,46 @@
+---
+title: "La función group_by"
+---
+
+```{r include=FALSE}
+setwd(here::here())
+source("00_datos/source.R")
+```
+
+## Utilidad del comando
+
+`group_by` es un comando del paquete `tidyverse` que permite agrupar todas las observaciones de una base de datos a partir de los valores concretos de una de sus variables. Esto lo vuelve un comando de gran utilidad a la hora de modificar y crear nuevas bases de datos a partir de las ya existentes, o para crear nuevas variables. También es muy útil a la hora de obtener resúmenes de la información existente.
+
+El comando por sí solo no genera ninguna transformación visible en la base de datos, pero sí lo hace invisiblemente. Por eso, después de realizar las transformaciones necesarias a partir del `group_by` es necesario desagrupar para evitar posibles problemas futuros. Para esto se usa la función `ungruop()`.
+
+## summarise
+
+En unión con `group_by`, permite cambiar el nivel de observación de la base de datos original a partir de una nueva variable de agrupación.
+
+-   Es de gran utilidad para obtener valores resumen.
+
+-   Se debe tener en cuenta la existencia o no de valores perdidos en la variable que se está estudiando (en caso de existir, se debe añadir al comando la opción `na.rm=T`).
+
+-   **El comando siempre requiere crear nuevas variables**
+
+-   Ej.: Si tenemos en una base de datos (encuesta, nivel de observación individuos) una pregunta sobre el partido al que votan y otra sobre la posición ideológica individual, podemos conocer la media ideológica de los votantes de cada partido del siguiente modo:
+
+    ```{r}
+    datos %>% group_by(recuerdo19) %>% summarise(m_ideol=mean(ideol, na.rm=T))
+    ```
+
+### Principales funciones:
+
+-   Contar el número de casos: `n()`
+
+-   Suma: `sum()`
+
+-   Media: `mean()`
+
+-   Desviación estándar: `sd()`
+
+-   Mediana: `median()`
+
+-   Valor máximo: `max()`
+
+-   Valor mínimo: `min()`

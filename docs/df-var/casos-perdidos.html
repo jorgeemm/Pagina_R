@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ficheros de datos (dataframe) – Página R</title>
+<title>Casos perdidos (NA) – Página R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,19 +30,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../df-var/edicion-variables.html" rel="next">
+<link href="../df-var/group_by.html" rel="prev">
 <link href="../01_img/icono.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f3c2ea88cadbcfb37ba28ffa2c97cfc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ae2d0dcda2edce4ab590422bb373b64f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -168,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../df-var/ficheros-datos.html" aria-current="page"> 
+    <a class="nav-link" href="../df-var/ficheros-datos.qmd"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
@@ -197,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Ficheros de datos (dataframe)</h1>
+          <h1 class="quarto-secondary-nav-title">Casos perdidos (NA)</h1>
         </a>     
     </div>
   </nav>
@@ -206,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Ficheros de datos (dataframe)</h1>
+      <h1 class="title d-none d-lg-block">Casos perdidos (NA)</h1>
                       </div>
   </div>
     
@@ -224,16 +190,68 @@ document.addEventListener('DOMContentLoaded', function() {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bases de datos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/apertura-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apertura y visualización del contenido</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/edicion-df.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edición de bases de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/unir-df.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unir bases de datos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Edición de variables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/edicion-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edición de variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/categoricas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variables categóricas / factor</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../df-var/ficheros-datos.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Ficheros de datos (dataframe)</span></a>
+  <a href="../df-var/group_by.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">La función group_by</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../df-var/edicion-variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Edición de variables</span></a>
+  <a href="../df-var/casos-perdidos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Casos perdidos (NA)</span></a>
   </div>
 </li>
     </ul>
@@ -241,21 +259,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contenido</h2>
-   
-  <ul>
-  <li><a href="#apertura-de-ficheros" id="toc-apertura-de-ficheros" class="nav-link active" data-scroll-target="#apertura-de-ficheros">1. Apertura de ficheros</a></li>
-  <li><a href="#visualizar-el-contenido-de-un-dataframe" id="toc-visualizar-el-contenido-de-un-dataframe" class="nav-link" data-scroll-target="#visualizar-el-contenido-de-un-dataframe">2. Visualizar el contenido de un dataframe</a></li>
-  <li><a href="#modificar-el-fichero" id="toc-modificar-el-fichero" class="nav-link" data-scroll-target="#modificar-el-fichero">3. Modificar el fichero</a>
-  <ul class="collapse">
-  <li><a href="#filter-seleccionar-casos-filas" id="toc-filter-seleccionar-casos-filas" class="nav-link" data-scroll-target="#filter-seleccionar-casos-filas">Filter: seleccionar casos (filas)</a></li>
-  <li><a href="#select-seleccionar-variables" id="toc-select-seleccionar-variables" class="nav-link" data-scroll-target="#select-seleccionar-variables">Select: seleccionar variables</a></li>
-  <li><a href="#ordenar-las-variables" id="toc-ordenar-las-variables" class="nav-link" data-scroll-target="#ordenar-las-variables">Ordenar las variables</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -264,246 +269,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-<section id="apertura-de-ficheros" class="level2">
-<h2 class="anchored" data-anchor-id="apertura-de-ficheros">1. Apertura de ficheros</h2>
-<p>Para poder abrir un fichero no basta con el comando, sino que estos se deben guardar dentro de un nuevo objeto:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Ficheros de texto plano (.csv, .txt, tsv, etc)</strong></p>
-<p>Se necisita abrir la librería readr: <code>library(readr)</code>. El comando a utilizar varía en función del separador del archivo:</p>
-<ul>
-<li><code>read_csv()</code> para ficheros csv delimitados por coma (,).</li>
-<li><code>read_csv2()</code> para ficheros csv delimitados por punto y coma (;).</li>
-<li><code>read_tsv()</code> lee ficheros separados por tabulador</li>
-<li><code>read_delim()</code> lee ficheros sin delimitador</li>
-<li><code>read_fwf()</code> lee ficheros de ancho fijo</li>
-<li><code>read_table()</code> lee ficheros separados por espacio</li>
-</ul>
-<p>Si las columnas tienen nombre, se debe especificar dentro de la función:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"filename"</span>, <span class="at">col_names=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Ficheros de excel</strong></p>
-<p>Cuando los datos están un fichero <strong>.xlsx</strong>, utilizamos función <code>read_excel()</code> del paquete <strong>readxl</strong></p>
-<p>Si los datos están la primera hoja del fichero <em>mi_excel.xlsx</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"mi_excel.xlsx"</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Si los datos están en una hoja llamada “mi_hoja”</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.excel</span>(<span class="st">"mi_excel.xlsx"</span>, <span class="at">sheetName =</span> <span class="st">"mi_hoja"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Lectura de datos desde ficheros SPSS, Stata y SAS</strong></p>
-<p>Una de las opciones existentes es la función <code>haven()</code> del paquete <strong>haven</strong> nos permite abrir ficheros en formatoStata/SPSS/SAS. Por ejemplo:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"filename.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Las funciones <code>read_spss()</code> y <code>read_sas()</code> tienen la misma sintaxis.</p>
-<p><br></p>
-<p><strong>Apertura manual de los ficheros</strong></p>
-<p>Cuando los ficheros se abren así, lo mejor es copiar el comando que se ha empleado y copiarlo en un chunk del rmd o el script en el que se esté trabajando, para que cuando se quiera volver a abrir el archivo sea más rapido hacerlo.</p>
-<hr>
-</section>
-<section id="visualizar-el-contenido-de-un-dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="visualizar-el-contenido-de-un-dataframe">2. Visualizar el contenido de un dataframe</h2>
-<ul>
-<li><code>View(datos)</code> → abre una nueva pestaña con la base de datos.</li>
-<li><code>glimpse(datos)</code> (del paquete tydiverse) → muestra el número de filas y de columnas, el nombre de las variables, su clase y los primeros valores de cada una de ellas.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 29,201
-Columns: 10
-$ ESTUDIO  &lt;dbl+lbl&gt; 3411, 3411, 3411, 3411, 3411, 3411, 3411, 3411, 3411, 341…
-$ REGISTRO &lt;dbl&gt; 492777, 70655, 46423, 103464, 112810, 126567, 137692, 182178,…
-$ CUES     &lt;dbl&gt; 29043, 5848, 3893, 8711, 9517, 10736, 11573, 14839, 16793, 17…
-$ CCAA     &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-$ PROV     &lt;dbl+lbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, …
-$ MUN      &lt;dbl+lbl&gt;  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  …
-$ CAPITAL  &lt;dbl+lbl&gt; 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, …
-$ TAMUNI   &lt;dbl+lbl&gt; 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, …
-$ ENTREV   &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-$ TIPO_TEL &lt;dbl+lbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …</code></pre>
-</div>
-</div>
-<ul>
-<li><code>dim(datos)</code> → permite conocer el número de filas y de columnas.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 29201   228</code></pre>
-</div>
-</div>
-<ul>
-<li><code>summary(datos)</code> → muestra los descriptivos principales de cada una de las variables del dataframe (media y cuartiles).</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>    ESTUDIO        REGISTRO           CUES            CCAA       
- Min.   :3411   Min.   :   229   Min.   :    1   Min.   : 1.000  
- 1st Qu.:3411   1st Qu.: 86385   1st Qu.: 7301   1st Qu.: 4.000  
- Median :3411   Median :177688   Median :14601   Median : 9.000  
- Mean   :3411   Mean   :206694   Mean   :14601   Mean   : 8.062  
- 3rd Qu.:3411   3rd Qu.:307076   3rd Qu.:21901   3rd Qu.:12.000  
- Max.   :3411   Max.   :494973   Max.   :29201   Max.   :19.000  
-      PROV      
- Min.   : 1.00  
- 1st Qu.:11.00  
- Median :26.00  
- Mean   :24.67  
- 3rd Qu.:36.00  
- Max.   :52.00  </code></pre>
-</div>
-</div>
-<ul>
-<li><code>colnames(datos)</code> → lista con el nombre de todas las variables.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "ESTUDIO"  "REGISTRO" "CUES"     "CCAA"     "PROV"     "MUN"     
- [7] "CAPITAL"  "TAMUNI"   "ENTREV"   "TIPO_TEL" "sexo"     "edad"    
-[13] "P0A"      "ECOPER"   "ECOESP"  </code></pre>
-</div>
-</div>
-<ul>
-<li><code>describe(datos)</code> (del paquete psych).</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>         vars     n      mean        sd median   trimmed       mad  min    max
-ESTUDIO     1 29201   3411.00      0.00   3411   3411.00      0.00 3411   3411
-REGISTRO    2 29201 206693.59 142972.42 177688 196970.89 155275.66  229 494973
-CUES        3 29201  14601.00   8429.75  14601  14601.00  10822.98    1  29201
-CCAA        4 29201      8.06      4.66      9      7.98      4.45    1     19
-PROV        5 29201     24.67     14.30     26     24.43     17.79    1     52
-MUN         6 29201     37.74     66.98      0     20.88      0.00    0    297
-CAPITAL     7 29201      2.44      0.79      3      2.54      0.00    1      3
-TAMUNI      8 29201      3.78      1.64      4      3.75      1.48    1      7
-ENTREV      9 29201      0.00      0.00      0      0.00      0.00    0      0
-TIPO_TEL   10 29201      1.74      0.44      2      1.80      0.00    1      2
-          range  skew kurtosis     se
-ESTUDIO       0   NaN      NaN   0.00
-REGISTRO 494744  0.48    -0.89 836.67
-CUES      29200  0.00    -1.20  49.33
-CCAA         18 -0.10    -0.93   0.03
-PROV         51  0.10    -1.17   0.08
-MUN         297  2.30     4.96   0.39
-CAPITAL       2 -0.94    -0.77   0.00
-TAMUNI        6  0.15    -0.76   0.01
-ENTREV        0   NaN      NaN   0.00
-TIPO_TEL      1 -1.08    -0.83   0.00</code></pre>
-</div>
-</div>
-<ul>
-<li><code>str(datos)</code> → metadatos de cada una de las variables (lo que sale si le das al triángulo verde que aparece junto al nombre de la base de datos del environment).</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>tibble [29,201 × 5] (S3: tbl_df/tbl/data.frame)
- $ ESTUDIO : dbl+lbl [1:29201] 3411, 3411, 3411, 3411, 3411, 3411, 3411, 3411, 3411...
-   ..@ label        : chr "Código del estudio"
-   ..@ format.spss  : chr "F4.0"
-   ..@ display_width: int 4
-   ..@ labels       : Named num 3411
-   .. ..- attr(*, "names")= chr "3411"
- $ REGISTRO: num [1:29201] 492777 70655 46423 103464 112810 ...
-  ..- attr(*, "label")= chr "Número de registro"
-  ..- attr(*, "format.spss")= chr "F6.0"
-  ..- attr(*, "display_width")= int 6
- $ CUES    : num [1:29201] 29043 5848 3893 8711 9517 ...
-  ..- attr(*, "label")= chr "Cuestionario"
-  ..- attr(*, "format.spss")= chr "F5.0"
-  ..- attr(*, "display_width")= int 5
- $ CCAA    : dbl+lbl [1:29201] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
-   ..@ label        : chr "Comunidad autónoma"
-   ..@ format.spss  : chr "F2.0"
-   ..@ display_width: int 2
-   ..@ labels       : Named num [1:19] 1 2 3 4 5 6 7 8 9 10 ...
-   .. ..- attr(*, "names")= chr [1:19] "Andalucía" "Aragón" "Asturias (Principado de)" "Balears (Illes)" ...
- $ PROV    : dbl+lbl [1:29201] 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4...
-   ..@ label        : chr "Provincia"
-   ..@ format.spss  : chr "F2.0"
-   ..@ display_width: int 2
-   ..@ labels       : Named num [1:52] 1 2 3 4 33 5 6 7 8 9 ...
-   .. ..- attr(*, "names")= chr [1:52] "Araba/Álava" "Albacete" "Alicante/Alacant" "Almería" ...
- - attr(*, "label")= chr "fileNameJDS"</code></pre>
-</div>
-</div>
-<ul>
-<li><code>head(datos, 10)</code> → muestra las variables, su clase, los 10 primeros valores de cada uno de ellos.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 228
-   ESTUDIO     REGISTRO  CUES CCAA       PROV    MUN     CAPITAL TAMUNI  ENTREV 
-   &lt;dbl+lbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl+lbl&gt;  &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
- 1 3411 [3411]   492777 29043 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 1 [Men… 0 [Ano…
- 2 3411 [3411]    70655  5848 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 1 [Men… 0 [Ano…
- 3 3411 [3411]    46423  3893 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
- 4 3411 [3411]   103464  8711 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
- 5 3411 [3411]   112810  9517 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
- 6 3411 [3411]   126567 10736 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
- 7 3411 [3411]   137692 11573 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
- 8 3411 [3411]   182178 14839 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
- 9 3411 [3411]   216764 16793 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
-10 3411 [3411]   237655 17918 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
-# ℹ 219 more variables: TIPO_TEL &lt;dbl+lbl&gt;, sexo &lt;dbl+lbl&gt;, edad &lt;dbl+lbl&gt;,
-#   P0A &lt;dbl+lbl&gt;, ECOPER &lt;dbl+lbl&gt;, ECOESP &lt;dbl+lbl&gt;, MEDIO_1 &lt;dbl+lbl&gt;,
-#   MEDIO_2 &lt;dbl+lbl&gt;, LEEPRENSA &lt;dbl+lbl&gt;, VETELE &lt;dbl+lbl&gt;,
-#   OYERADIO &lt;dbl+lbl&gt;, PRENSA &lt;dbl+lbl&gt;, P3AR &lt;dbl+lbl&gt;, TELEVISION &lt;dbl+lbl&gt;,
-#   P3BR &lt;dbl+lbl&gt;, RADIO &lt;dbl+lbl&gt;, P3CR &lt;dbl+lbl&gt;, GESTIONGOB &lt;dbl+lbl&gt;,
-#   GESTIONOPO &lt;dbl+lbl&gt;, PROBVOTO &lt;dbl+lbl&gt;, VOTOCORREO &lt;dbl+lbl&gt;,
-#   PROBPARTIDOS_1 &lt;dbl+lbl&gt;, PROBPARTIDOS_2 &lt;dbl+lbl&gt;, …</code></pre>
-</div>
-</div>
-<hr>
-</section>
-<section id="modificar-el-fichero" class="level2">
-<h2 class="anchored" data-anchor-id="modificar-el-fichero">3. Modificar el fichero</h2>
-<section id="filter-seleccionar-casos-filas" class="level3">
-<h3 class="anchored" data-anchor-id="filter-seleccionar-casos-filas">Filter: seleccionar casos (filas)</h3>
-<p>Se usa el comando <code>filter</code>, del paquete dplyr (en tidyverse). Se establecen una serie de condiciones lógicas a partir de las cuales la función retendrá únicamente los casos (filas) que cumplen con dicha condición (<em>condiciones como ==, &gt;, %in%</em>).</p>
-<p>Ej.: en una base de datos donde los casos son municipios, seleccionar solo aquellos pertenecientes a Murcia o Almería:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>datos_2prov <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Provincia<span class="sc">==</span><span class="st">"Almería"</span> <span class="sc">|</span> Provincia<span class="sc">==</span><span class="st">"Murcia"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>datos_2prov <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(id_provincia <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">35</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Si se quieren seleccionar todos los casos menos los que cumplen una determinada excepción, se usa ! antes de la condición. En el siguiente ejemplo, quedarán en la base de datos todos los casos menos los de Cs y Otros:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="sc">!</span>(datos<span class="sc">$</span>recuerdo <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Cs"</span>,<span class="st">"Otros"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Al usar tanto este comando como el select, conviene guardar los cambios dentro de un nuevo objeto y dejar el dataset original sin modificar.</em></p>
-</section>
-<section id="select-seleccionar-variables" class="level3">
-<h3 class="anchored" data-anchor-id="select-seleccionar-variables">Select: seleccionar variables</h3>
-<p>Se usa el comando <code>select</code>, del paquete dplyr. Esta función permite reducir el número de columnas, por lo que resulta de gran utilidad cuando tenemos datasets con muchas variables y solo vamos a trabajar con algunas de ellas.</p>
-<p>Seleccionar una columna: <code>select(datos, nombre_variable)</code>.</p>
-<p>Este comando permite seleccionar más de una variable a la vez: <code>select(datos, x1, x2, x3)</code>.</p>
-<p>También se pueden eliminar una o varias variables que no se quieran en el dataset: <code>select(datos, -variable)</code></p>
-</section>
-<section id="ordenar-las-variables" class="level3">
-<h3 class="anchored" data-anchor-id="ordenar-las-variables">Ordenar las variables</h3>
-<p><strong>Variable numérica:</strong></p>
-<ul>
-<li>Orden ascendente:
-<ul>
-<li>Opción 1: <code>datos %&gt;% arrange(variable)</code></li>
-<li>Opción 2: <code>datos &lt;- datos[order(datos$variable), ]</code></li>
-</ul></li>
-<li>Orden descendente:
-<ul>
-<li>Opción 1: <code>datos %&gt;% arrange(desc(variable))</code></li>
-<li>Opción 2: <code>datos &lt;- datos[order(-datos$variable), ]</code></li>
-</ul></li>
-<li>Se pueden ordenar los datos por dos variables simultáneamente:
-<ul>
-<li>Opción 1: <code>datos &lt;- datos %&gt;% arrange(var1, var1)</code></li>
-<li>Opción 2: <code>datos &lt;- datos[order(datos$var1, datos$var2), ]</code></li>
-</ul></li>
-</ul>
-<p><strong>Variable categórica:</strong></p>
-<ul>
-<li>Se usan los mismos comandos anteriores para ordenar por orden alfabético ascendente o descendente</li>
-<li>Orden personalizado: <code>mutate(variable = fct_relevel(variable, c("categoría1", "cat2", "catn")))</code> Ej.:</li>
-</ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">partido =</span> <span class="fu">fct_relevel</span>(party, <span class="fu">c</span>(<span class="st">"PP"</span>, <span class="st">"PSOE"</span>, <span class="st">"VOX"</span>, <span class="st">"SUMAR"</span>, <span class="st">"Otros"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
 
 
-</section>
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -732,8 +499,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -844,7 +609,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1011,25 +775,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
           }
-        });
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;
@@ -1076,11 +879,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-alt-theme" value="dark_dimmed">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../df-var/group_by.html" class="pagination-link" aria-label="La función group_by">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">La función group_by</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../df-var/edicion-variables.html" class="pagination-link" aria-label="Edición de variables">
-        <span class="nav-page-text">Edición de variables</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

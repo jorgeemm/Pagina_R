@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,19 +64,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../df-var/ficheros-datos.html" rel="prev">
+<link href="../df-var/categoricas.html" rel="next">
+<link href="../df-var/unir-df.html" rel="prev">
 <link href="../01_img/icono.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f3c2ea88cadbcfb37ba28ffa2c97cfc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ae2d0dcda2edce4ab590422bb373b64f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -168,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../df-var/ficheros-datos.html" aria-current="page"> 
+    <a class="nav-link" href="../df-var/ficheros-datos.qmd"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
@@ -224,16 +225,68 @@ document.addEventListener('DOMContentLoaded', function() {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bases de datos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/apertura-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apertura y visualización del contenido</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/edicion-df.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edición de bases de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/unir-df.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unir bases de datos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Edición de variables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/edicion-variables.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Edición de variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/categoricas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variables categóricas / factor</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../df-var/ficheros-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ficheros de datos (dataframe)</span></a>
+  <a href="../df-var/group_by.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">La función group_by</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../df-var/edicion-variables.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Edición de variables</span></a>
+  <a href="../df-var/casos-perdidos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Casos perdidos (NA)</span></a>
   </div>
 </li>
     </ul>
@@ -246,18 +299,17 @@ document.addEventListener('DOMContentLoaded', function() {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#renombrar-una-variable" id="toc-renombrar-una-variable" class="nav-link active" data-scroll-target="#renombrar-una-variable">1. Renombrar una variable</a></li>
-  <li><a href="#recodificar-una-variable-o-crear-una-nueva" id="toc-recodificar-una-variable-o-crear-una-nueva" class="nav-link" data-scroll-target="#recodificar-una-variable-o-crear-una-nueva">2. Recodificar una variable (o crear una nueva)</a>
+  <li><a href="#renombrar-una-variable" id="toc-renombrar-una-variable" class="nav-link active" data-scroll-target="#renombrar-una-variable">Renombrar una variable</a></li>
+  <li><a href="#recodificar-una-variable-o-crear-una-nueva" id="toc-recodificar-una-variable-o-crear-una-nueva" class="nav-link" data-scroll-target="#recodificar-una-variable-o-crear-una-nueva">Recodificar una variable (o crear una nueva)</a>
   <ul class="collapse">
   <li><a href="#pasos-previos" id="toc-pasos-previos" class="nav-link" data-scroll-target="#pasos-previos">Pasos previos</a></li>
-  <li><a href="#crear-una-nueva-variable-a-partir-de-operaciones-sobre-otras-existentes" id="toc-crear-una-nueva-variable-a-partir-de-operaciones-sobre-otras-existentes" class="nav-link" data-scroll-target="#crear-una-nueva-variable-a-partir-de-operaciones-sobre-otras-existentes">Crear una nueva variable a partir de operaciones sobre otras existentes</a></li>
+  <li><a href="#nueva-variable-a-partir-de-operaciones-sobre-otras-existentes" id="toc-nueva-variable-a-partir-de-operaciones-sobre-otras-existentes" class="nav-link" data-scroll-target="#nueva-variable-a-partir-de-operaciones-sobre-otras-existentes">Nueva variable a partir de operaciones sobre otras existentes</a></li>
   <li><a href="#el-comando-case_when" id="toc-el-comando-case_when" class="nav-link" data-scroll-target="#el-comando-case_when">El comando case_when</a></li>
   <li><a href="#el-comando-ifelse" id="toc-el-comando-ifelse" class="nav-link" data-scroll-target="#el-comando-ifelse">El comando ifelse</a></li>
   <li><a href="#variables-categóricas" id="toc-variables-categóricas" class="nav-link" data-scroll-target="#variables-categóricas">Variables categóricas</a></li>
   <li><a href="#ejemplos-útiles" id="toc-ejemplos-útiles" class="nav-link" data-scroll-target="#ejemplos-útiles">Ejemplos útiles</a></li>
   <li><a href="#otras-opciones-de-mutate" id="toc-otras-opciones-de-mutate" class="nav-link" data-scroll-target="#otras-opciones-de-mutate">Otras opciones de mutate</a></li>
   </ul></li>
-  <li><a href="#añadir-etiquetas-a-la-variable" id="toc-añadir-etiquetas-a-la-variable" class="nav-link" data-scroll-target="#añadir-etiquetas-a-la-variable">3. Añadir etiquetas a la variable</a></li>
   </ul>
 </nav>
     </div>
@@ -269,9 +321,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <section id="renombrar-una-variable" class="level2">
-<h2 class="anchored" data-anchor-id="renombrar-una-variable">1. Renombrar una variable</h2>
+<h2 class="anchored" data-anchor-id="renombrar-una-variable">Renombrar una variable</h2>
 <p><strong>Opción 1</strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> <span class="fu">rename</span>(Datos, <span class="at">nombre_nuevo =</span> nombre_viejo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">rename</span>(datos, <span class="at">nombre_nuevo =</span> nombre_viejo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Opción 2</strong>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">nombre_nuevo =</span> nombre_viejo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Se puede cambiar el nombre de varias variables a la vez:</p>
@@ -301,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <hr>
 </section>
 <section id="recodificar-una-variable-o-crear-una-nueva" class="level2">
-<h2 class="anchored" data-anchor-id="recodificar-una-variable-o-crear-una-nueva">2. Recodificar una variable (o crear una nueva)</h2>
+<h2 class="anchored" data-anchor-id="recodificar-una-variable-o-crear-una-nueva">Recodificar una variable (o crear una nueva)</h2>
 <p>Para poder recodificar y crear varaibles se usa el comando <code>mutate</code> (<em>de dplyr</em>). Este es de gran utilidad si se usa junto a comandos que permiten añadir condiciones lógicas como <code>ifelse</code> o <code>case_when</code>.</p>
 <section id="pasos-previos" class="level3">
 <h3 class="anchored" data-anchor-id="pasos-previos">Pasos previos</h3>
@@ -327,8 +379,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 </section>
-<section id="crear-una-nueva-variable-a-partir-de-operaciones-sobre-otras-existentes" class="level3">
-<h3 class="anchored" data-anchor-id="crear-una-nueva-variable-a-partir-de-operaciones-sobre-otras-existentes">Crear una nueva variable a partir de operaciones sobre otras existentes</h3>
+<section id="nueva-variable-a-partir-de-operaciones-sobre-otras-existentes" class="level3">
+<h3 class="anchored" data-anchor-id="nueva-variable-a-partir-de-operaciones-sobre-otras-existentes">Nueva variable a partir de operaciones sobre otras existentes</h3>
 <ul>
 <li>Ej1.: calcular la edad de los encuestados a partir del año de nacimiento</li>
 </ul>
@@ -342,18 +394,41 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 <section id="el-comando-case_when" class="level3">
 <h3 class="anchored" data-anchor-id="el-comando-case_when">El comando case_when</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edad =</span> <span class="fu">case_when</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    edad <span class="sc">==</span> <span class="dv">29</span> <span class="sc">~</span> <span class="dv">30</span>, <span class="co"># reemplaza 29 por 30</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    edad <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">3</span>, <span class="co"># reemplaza 2 por 3</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> edad)) <span class="co"># Mantiene iguales los valores que no cambian.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Permite crear nuevas variables a partir de secuencias lógicas múltiples.</p>
+<div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-11-1"><a href="#annotated-cell-11-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-11-2"><a href="#annotated-cell-11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edad =</span> <span class="fu">case_when</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="1">1</button><span id="annotated-cell-11-3" class="code-annotation-target"><a href="#annotated-cell-11-3" aria-hidden="true" tabindex="-1"></a>    edad <span class="sc">==</span> <span class="dv">29</span> <span class="sc">~</span> <span class="dv">30</span>,</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="2">2</button><span id="annotated-cell-11-4" class="code-annotation-target"><a href="#annotated-cell-11-4" aria-hidden="true" tabindex="-1"></a>    edad <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="3">3</button><span id="annotated-cell-11-5" class="code-annotation-target"><a href="#annotated-cell-11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> edad))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-11" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-lines="3" data-code-annotation="1">Reemplaza 29 por 30</span>
+</dd>
+<dt data-target-cell="annotated-cell-11" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-lines="4" data-code-annotation="2">Reemplaza 2 por 3</span>
+</dd>
+<dt data-target-cell="annotated-cell-11" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-lines="5" data-code-annotation="3">Mantiene iguales los valores que no cambian</span>
+</dd>
+</dl>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">clase_rec =</span> <span class="fu">case_when</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    clase <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span>, <span class="co"># Si 'clase' es 2 o 3, asigna "0"</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> clase)) </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Datos<span class="sc">$</span>clase_rec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-12"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-12-1"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-12-2"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">clase_rec =</span> <span class="fu">case_when</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1">1</button><span id="annotated-cell-12-3" class="code-annotation-target"><a href="#annotated-cell-12-3" aria-hidden="true" tabindex="-1"></a>    clase <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="annotated-cell-12-4"><a href="#annotated-cell-12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> clase)) </span>
+<span id="annotated-cell-12-5"><a href="#annotated-cell-12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-12-6"><a href="#annotated-cell-12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Datos<span class="sc">$</span>clase_rec)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-12" data-code-lines="3" data-code-annotation="1">Si ‘clase’ es 2 o 3, asigna “0”</span>
+</dd>
+</dl>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   0   1 
@@ -365,12 +440,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="el-comando-ifelse" class="level3">
 <h3 class="anchored" data-anchor-id="el-comando-ifelse">El comando ifelse</h3>
 <p>El comando ifelse es una secuencia lógica con tres elementos. Un primer número, que es la categoría que se quiere transformar, un segundo número, que es en el que se transforma, y una tercera condición para el resto de valores. Esta puede ser otro número, NA o otra secuencia de ifelse.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edad =</span> <span class="fu">ifelse</span>(edad <span class="sc">==</span> <span class="dv">29</span>, <span class="dv">30</span>, <span class="fu">ifelse</span>(edad <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">3</span>, edad)))</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">clase_rec2 =</span> <span class="fu">ifelse</span>(clase <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(clase <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">0</span>, <span class="cn">NA</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edad =</span> <span class="fu">ifelse</span>(edad <span class="sc">==</span> <span class="dv">29</span>, <span class="dv">30</span>, <span class="fu">ifelse</span>(edad <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">3</span>, edad)))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">clase_rec2 =</span> <span class="fu">ifelse</span>(clase <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(clase <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">0</span>, <span class="cn">NA</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="variables-categóricas" class="level3">
 <h3 class="anchored" data-anchor-id="variables-categóricas">Variables categóricas</h3>
@@ -378,63 +453,73 @@ document.addEventListener('DOMContentLoaded', function() {
 <ol type="1">
 <li>Transformándolas en una variable numérica:</li>
 </ol>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Por separado:</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexo =</span> <span class="fu">as.numeric</span>(sexo)) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexo =</span> <span class="fu">case_when</span>(</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> sexo</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A la vez:</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span> </span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">as.numeric</span>(sexo) <span class="ot">=</span> <span class="fu">case_when</span>(</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> sexo</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Por separado:</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexo =</span> <span class="fu">as.numeric</span>(sexo)) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexo =</span> <span class="fu">case_when</span>(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> sexo</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A la vez:</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span> </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">as.numeric</span>(sexo) <span class="ot">=</span> <span class="fu">case_when</span>(</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> sexo</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Es la opción más útil si se quiere modificar una variable con muchas categorías</em></p>
 <ol start="2" type="1">
 <li>Escribiendo las etiquetas entre ““:</li>
 </ol>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexo =</span> <span class="fu">case_when</span>(</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="st">"female"</span> <span class="sc">~</span> <span class="st">"mujer"</span>,  </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="st">"male"</span> <span class="sc">~</span> <span class="st">"hombre"</span>,   </span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> sexo                  </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexo =</span> <span class="fu">case_when</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="st">"female"</span> <span class="sc">~</span> <span class="st">"mujer"</span>,  </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    sexo <span class="sc">==</span> <span class="st">"male"</span> <span class="sc">~</span> <span class="st">"hombre"</span>,   </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> sexo                  </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Esta opción es la más cómoda si la variable tiene pocas categorías.</em></p>
 <ol start="3" type="1">
 <li>Especificando los niveles que se quieren modificar:</li>
 </ol>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estudios_universitarios =</span> <span class="fu">case_when</span>(</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    estudios <span class="sc">%in%</span> <span class="fu">levels</span>(estudios)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="sc">~</span> <span class="dv">0</span>,  <span class="co"># Agrupar niveles 1 a 5 en 0</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    estudios <span class="sc">%in%</span> <span class="fu">levels</span>(estudios)[<span class="dv">6</span>] <span class="sc">~</span> <span class="dv">1</span>,    <span class="co"># Agrupar nivel 6 en 1 </span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>                           </span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Esta opción es útil si se quiere convertir en cardiotónico una variable categórica con muchas categorías, aunque la primera opción es igual de buena en estos casos</em></p>
+<div class="sourceCode" id="annotated-cell-16"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-16-1"><a href="#annotated-cell-16-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-16-2"><a href="#annotated-cell-16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estudios_universitarios =</span> <span class="fu">case_when</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1">1</button><span id="annotated-cell-16-3" class="code-annotation-target"><a href="#annotated-cell-16-3" aria-hidden="true" tabindex="-1"></a>    estudios <span class="sc">%in%</span> <span class="fu">levels</span>(estudios)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="sc">~</span> <span class="dv">0</span>,</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2">2</button><span id="annotated-cell-16-4" class="code-annotation-target"><a href="#annotated-cell-16-4" aria-hidden="true" tabindex="-1"></a>    estudios <span class="sc">%in%</span> <span class="fu">levels</span>(estudios)[<span class="dv">6</span>] <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="annotated-cell-16-5"><a href="#annotated-cell-16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>                           </span>
+<span id="annotated-cell-16-6"><a href="#annotated-cell-16-6" aria-hidden="true" tabindex="-1"></a>  ))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-lines="3" data-code-annotation="1">Agrupar niveles 1 a 5 en 0</span>
+</dd>
+<dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-lines="4" data-code-annotation="2">Transformar el nivel 6 en 1</span>
+</dd>
+</dl>
+<p><em>Esta opción es útil si se quiere convertir en dicotómica una variable con muchas categorías, aunque la primera opción es igual de buena en estos casos</em></p>
 </section>
 <section id="ejemplos-útiles" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplos-útiles">Ejemplos útiles</h3>
 <p>Otros ejemplos de recodificar variables:</p>
 <ul>
-<li>Se pueden utilizar símbolos lógicos como el &gt;,&lt;,|,&amp; etc a la hora de recodificar variables</li>
+<li>Se pueden utilizar símbolos lógicos como el &gt;, &lt;, |, &amp; etc a la hora de recodificar variables</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">&lt;-</span>datos <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">municipio_cat=</span><span class="fu">ifelse</span>(población<span class="sc">&gt;=</span><span class="dv">20000</span>,<span class="st">"Ciudad"</span>,<span class="st">"Pueblo"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">as.factor</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">&lt;-</span>datos <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">municipio_cat=</span><span class="fu">ifelse</span>(población<span class="sc">&gt;=</span><span class="dv">20000</span>,<span class="st">"Ciudad"</span>,<span class="st">"Pueblo"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">as.factor</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>También se pueden realizar operaciones entre variables al mismo tiempo que se recodifican. Ej.: calcular el apoyo en cada municipio a los partidos principales:</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>elec23 <span class="ot">&lt;-</span> elec23 <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">apoyo =</span> <span class="fu">case_when</span>(</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    CA<span class="sc">==</span><span class="st">"Galicia"</span> <span class="sc">~</span> PP<span class="sc">+</span>BNG<span class="sc">+</span>PSOE<span class="sc">+</span>SUMAR<span class="sc">+</span>VOX,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    CA<span class="sc">==</span><span class="st">"Cataluña"</span> <span class="sc">~</span> PP<span class="sc">+</span>PSOE<span class="sc">+</span>SUMAR<span class="sc">+</span>VOX<span class="sc">+</span>JxCAT<span class="sc">+</span>ERC,</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    CA<span class="sc">==</span><span class="st">"País Vasco"</span> <span class="sc">~</span> PP<span class="sc">+</span>PSOE<span class="sc">+</span>SUMAR<span class="sc">+</span>VOX<span class="sc">+</span>PNV<span class="sc">+</span>BILDU,</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    T <span class="sc">~</span> PP<span class="sc">+</span>PSOE<span class="sc">+</span>SUMAR<span class="sc">+</span>VOX),</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">apoyo=</span>apoyo<span class="sc">/</span>Votantes<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>elec23 <span class="ot">&lt;-</span> elec23 <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">apoyo =</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    CA<span class="sc">==</span><span class="st">"Galicia"</span> <span class="sc">~</span> PP<span class="sc">+</span>BNG<span class="sc">+</span>PSOE<span class="sc">+</span>SUMAR<span class="sc">+</span>VOX,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    CA<span class="sc">==</span><span class="st">"Cataluña"</span> <span class="sc">~</span> PP<span class="sc">+</span>PSOE<span class="sc">+</span>SUMAR<span class="sc">+</span>VOX<span class="sc">+</span>JxCAT<span class="sc">+</span>ERC,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    CA<span class="sc">==</span><span class="st">"País Vasco"</span> <span class="sc">~</span> PP<span class="sc">+</span>PSOE<span class="sc">+</span>SUMAR<span class="sc">+</span>VOX<span class="sc">+</span>PNV<span class="sc">+</span>BILDU,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    T <span class="sc">~</span> PP<span class="sc">+</span>PSOE<span class="sc">+</span>SUMAR<span class="sc">+</span>VOX),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">apoyo=</span>apoyo<span class="sc">/</span>Votantes<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="otras-opciones-de-mutate" class="level3">
 <h3 class="anchored" data-anchor-id="otras-opciones-de-mutate">Otras opciones de mutate</h3>
@@ -459,62 +544,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul></li>
 </ol>
 <hr>
-</section>
-</section>
-<section id="añadir-etiquetas-a-la-variable" class="level2">
-<h2 class="anchored" data-anchor-id="añadir-etiquetas-a-la-variable">3. Añadir etiquetas a la variable</h2>
-<p>Ver las etiquetas de una variable: <code>attr(datos$var, "labels")</code>:</p>
-<p><strong>Para cambiar las etiquetas se usa el comando factor</strong> <em>(de dyplr)</em></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">factor</span>(variable, </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Etiqueta1"</span>,<span class="st">"Etiqueta2"</span>,<span class="st">"Eriqueta3"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>levels</code> = c(1,2,3) indica el conjunto de números correspondientes con los valores de cada categoría de la variable.</li>
-<li><code>labels</code> =c(“Etiqueta1”…) indica las etiquetas correspondientes con cada valor especificado anteriormente. Por ejemplo, en este caso a la categoría de la variable que se identifica con un 1 se le asignaría la etiqueta “Etiqueta1”.</li>
-<li>Ej. de cómo añadir etiquetas:</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(datos<span class="sc">$</span>mujer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    0     1 
-15023 14178 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mujer =</span> <span class="fu">factor</span>(mujer, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Hombre"</span>,<span class="st">"Mujer"</span>))) </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(datos<span class="sc">$</span>mujer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Hombre  Mujer 
- 15023  14178 </code></pre>
-</div>
-</div>
-<p>Si se quiere etiquetar algún carácter de una variable numérica sin transformarla en factor, se puede usar el siguiente comando:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">val_labels</span>(datos<span class="sc">$</span>variable) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Etiqueta1 =</span> <span class="dv">0</span>, <span class="at">Etiqueta2 =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Este comando también es útil en el caso de escalas: por ejemplo, en la escala de ideología del 1 al 10 para poner que el 1 es extrema izquierda y el 10 extrema derecha, pero dejarlo como numérico y sin necesidad de etiquetar todas las categorías.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(datos<span class="sc">$</span>ideol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "numeric"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">val_labels</span>(datos<span class="sc">$</span>ideol) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Extrema_izq =</span> <span class="dv">1</span>, <span class="at">Extrema_dcha =</span> <span class="dv">10</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(datos<span class="sc">$</span>ideol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "haven_labelled" "vctrs_vctr"     "double"        </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">val_labels</span>(datos<span class="sc">$</span>ideol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Extrema_izq Extrema_dcha 
-           1           10 </code></pre>
-</div>
-</div>
-<hr>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -744,8 +776,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -856,7 +886,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1023,25 +1052,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
           }
-        });
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;
@@ -1088,11 +1156,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-alt-theme" value="dark_dimmed">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../df-var/ficheros-datos.html" class="pagination-link" aria-label="Ficheros de datos (dataframe)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Ficheros de datos (dataframe)</span>
+      <a href="../df-var/unir-df.html" class="pagination-link" aria-label="Unir bases de datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Unir bases de datos</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../df-var/categoricas.html" class="pagination-link" aria-label="Variables categóricas / factor">
+        <span class="nav-page-text">Variables categóricas / factor</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

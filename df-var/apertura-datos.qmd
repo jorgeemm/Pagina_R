@@ -1,0 +1,162 @@
+---
+title: "Apertura y visualización del contenido"
+---
+
+```{r include=FALSE}
+setwd(here::here())
+source("00_datos/source.R")
+```
+
+## Apertura de *data.frames*
+
+Para poder abrir un fichero no basta con el comando, sino que estos se deben guardar dentro de un nuevo objeto:
+
+``` r
+datos<- read_csv("filename")
+```
+
+### Ficheros de texto plano (.csv, .txt, tsv, etc)
+
+Se necisita abrir la librería readr: `library(readr)`. El comando a utilizar varía en función del separador del archivo:
+
+-   `read_csv()` para ficheros csv delimitados por coma (,).
+-   `read_csv2()` para ficheros csv delimitados por punto y coma (;).
+-   `read_tsv()` lee ficheros separados por tabulador
+-   `read_delim()` lee ficheros sin delimitador
+-   `read_fwf()` lee ficheros de ancho fijo
+-   `read_table()` lee ficheros separados por espacio
+
+Si las columnas tienen nombre, se debe especificar dentro de la función:
+
+``` r
+data<-read_csv("filename", col_names=FALSE)
+```
+
+### Ficheros de excel
+
+Cuando los datos están un fichero **.xlsx**, utilizamos función `read_excel()` del paquete **readxl**
+
+Si los datos están la primera hoja del fichero *mi_excel.xlsx*
+
+``` r
+library(readxl)
+datos <- read_excel("mi_excel.xlsx", 1)
+```
+
+Si los datos están en una hoja llamada "mi_hoja"
+
+``` r
+datos <- read.excel("mi_excel.xlsx", sheetName = "mi_hoja") 
+```
+
+### Ficheros SPSS, Stata y SAS
+
+Una de las opciones existentes es la función `haven()` del paquete **haven** nos permite abrir ficheros en formato Stata/SPSS/SAS. Por ejemplo:
+
+``` r
+library(haven)
+datos <- read_dta("filename.dta")
+```
+
+Las funciones `read_spss()` y `read_sas()` tienen la misma sintaxis.
+
+<br>
+
+### Apertura manual de los ficheros
+
+Cuando los ficheros se abren así, lo mejor es copiar el comando que se ha empleado (aparece en el recuadro inferior derecho de la pestaña que se abre) y copiarlo en un chunk del rmd o el script en el que se esté trabajando, para que cuando se quiera volver a abrir el archivo sea más rápido hacerlo.
+
+### Abrir archivos desde GitHub
+
+Abrir datos desde un repositorio de GitHub puede resultar útil para evitar tener que descargar los datos correspondientes en el ordenador, sino que con esta opción se pueden abrir directamente desde Internet.
+
+#### Si el repositorios es público:
+
+``` r
+# Antes abir la librería necesaria para el formato de df al que se quiera acceder
+
+data <- read.csv("https://raw.githubusercontent.com/usuario-del-repositorio/nombre-repo/main/ruta/archivo.csv")
+```
+
+#### Si el repositorios es privado (y tuyo):
+
+1.  Instalar/abrir las librerías necesarias
+
+    ``` r
+    library(usethis)
+    library(gh)
+    library(gitcreds)
+    library(httr)
+    ```
+
+2.  Crear y configurar el token de GitHub (solo es necesario hacerlo una vez):
+
+    ``` r
+    # Comando para crear el token:
+    usethis::create_github_token()
+
+    # Verificar que la autenticación funciona
+    gh::gh_whoami("tu_token")
+    ```
+
+    Para mayor comodidad y seguridad, se puede guardar el token en .Renviron. De este modo, no sería necesario copiarlo entero cada vez que se quiera usar, sino que sería suficiente con escribir "github_pat". Para guardarlo se deben seguir los siguientes pasos:
+
+    -   Ejecutar el siguiente comando: `usethis::edit_r_environ()`
+    -   En la pestaña nueva que se abra en R, escribir lo siguiente: `github_pat=tu_token_aquí` *(el token sin comillas, directamente)*.
+    -   Guardar los cambios en el archivo y reiniciar R.
+
+3.  Leer los datos del repositorio
+
+    ``` r
+    data <- read_dta(content(GET("https://raw.githubusercontent.com/usuario-del-repositorio/nombre-repo/main/ruta/archivo.dta", add_headers(Authorization = paste("token", github_pat))), "raw"))
+    ```
+
+------------------------------------------------------------------------
+
+## Visualizar el contenido del df
+
+-   `View(datos)` → abre una nueva pestaña con la base de datos.
+-   `glimpse(datos)` (del paquete tydiverse) → muestra el número de filas y de columnas, el nombre de las variables, su clase y los primeros valores de cada una de ellas.
+
+```{r echo=FALSE, warning=FALSE}
+glimpse(select(datos, 1:10))
+```
+
+-   `dim(datos)` → permite conocer el número de filas y de columnas.
+
+```{r echo=FALSE}
+dim(datos)
+```
+
+-   `summary(datos)` → muestra los descriptivos principales de cada una de las variables del dataframe (media y cuartiles).
+
+```{r echo=FALSE}
+summary(select(datos, 1:5))
+```
+
+-   `colnames(datos)` → lista con el nombre de todas las variables.
+
+```{r echo=FALSE}
+colnames(select(datos, 1:15))
+```
+
+-   `describe(datos)` (del paquete psych).
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(psych)
+describe(select(datos, 1:10))
+```
+
+-   `str(datos)` → metadatos de cada una de las variables (lo que sale si le das al triángulo verde que aparece junto al nombre de la base de datos del environment).
+
+```{r echo=FALSE}
+str(select(datos, 1:5))
+```
+
+-   `head(datos, 10)` → muestra las variables, su clase, los 10 primeros valores de cada uno de ellos.
+
+```{r echo=FALSE}
+head(datos,10)
+```
+
+------------------------------------------------------------------------

@@ -1,8 +1,9 @@
 ---
-title: "Otras cosas"
+title: "Otros"
 ---
 
 ```{r include=FALSE}
+setwd(here::here())
 source("00_datos/source.R")
 ```
 
@@ -74,8 +75,7 @@ funcionpotencia <- function(x,y){
 
 ``` r
 tabla <- function(x,y){
-  tabla_decimal <- table(x,y) %>% prop.table %>% round(4)
-  tabla_porcentaje <- tabla_decimal*100
+  tabla_porcentaje <- table(x,y) %>% prop.table(2) %>% round(4)*100
   return(tabla_porcentaje)
 }
 ```

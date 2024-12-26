@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tablas de contingencia – Página R</title>
+<title>Apertura y visualización del contenido – Página R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../analisis/reg-lineal.html" rel="next">
-<link href="../analisis/correlacion.html" rel="prev">
+<link href="../df-var/edicion-df.html" rel="next">
 <link href="../01_img/icono.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -143,35 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -202,7 +172,7 @@ window.Quarto = {
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../analisis/descriptivo.html" aria-current="page"> 
+    <a class="nav-link" href="../analisis/descriptivo.html"> 
 <span class="menu-text">Análisis de datos</span></a>
   </li>  
   <li class="nav-item">
@@ -227,7 +197,7 @@ window.Quarto = {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Tablas de contingencia</h1>
+          <h1 class="quarto-secondary-nav-title">Apertura y visualización del contenido</h1>
         </a>     
     </div>
   </nav>
@@ -236,7 +206,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Tablas de contingencia</h1>
+      <h1 class="title d-none d-lg-block">Apertura y visualización del contenido</h1>
                       </div>
   </div>
     
@@ -254,16 +224,10 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../analisis/descriptivo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Análisis descriptivo</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Análisis bivariado</span></a>
+ <span class="menu-text">Bases de datos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -271,26 +235,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analisis/teoria.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Teoría</span></a>
+  <a href="../df-var/apertura-datos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Apertura y visualización del contenido</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analisis/ttest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">T-test</span></a>
+  <a href="../df-var/edicion-df.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edición de bases de datos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analisis/correlacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Análisis de correlación</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../analisis/tablas-contingencia.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Tablas de contingencia</span></a>
+  <a href="../df-var/unir-df.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unir bases de datos</span></a>
   </div>
 </li>
       </ul>
@@ -298,7 +256,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Regresiones</span></a>
+ <span class="menu-text">Edición de variables</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -306,30 +264,30 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analisis/reg-lineal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lineal simple</span></a>
+  <a href="../df-var/edicion-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edición de variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analisis/reg-multiple.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lineal múltiple</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../analisis/predicciones-lineal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Predicciones</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../analisis/reg-logistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regresión logística</span></a>
+  <a href="../df-var/categoricas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variables categóricas / factor</span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/group_by.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">La función group_by</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../df-var/casos-perdidos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Casos perdidos (NA)</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -340,16 +298,15 @@ window.Quarto = {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#en-r" id="toc-en-r" class="nav-link active" data-scroll-target="#en-r">1. En R</a>
+  <li><a href="#apertura-de-data.frames" id="toc-apertura-de-data.frames" class="nav-link active" data-scroll-target="#apertura-de-data.frames">Apertura de <em>data.frames</em></a>
   <ul class="collapse">
-  <li><a href="#la-función-table" id="toc-la-función-table" class="nav-link" data-scroll-target="#la-función-table">La función table</a></li>
-  <li><a href="#otras-tablas" id="toc-otras-tablas" class="nav-link" data-scroll-target="#otras-tablas">Otras tablas</a></li>
+  <li><a href="#ficheros-de-texto-plano-.csv-.txt-tsv-etc" id="toc-ficheros-de-texto-plano-.csv-.txt-tsv-etc" class="nav-link" data-scroll-target="#ficheros-de-texto-plano-.csv-.txt-tsv-etc">Ficheros de texto plano (.csv, .txt, tsv, etc)</a></li>
+  <li><a href="#ficheros-de-excel" id="toc-ficheros-de-excel" class="nav-link" data-scroll-target="#ficheros-de-excel">Ficheros de excel</a></li>
+  <li><a href="#ficheros-spss-stata-y-sas" id="toc-ficheros-spss-stata-y-sas" class="nav-link" data-scroll-target="#ficheros-spss-stata-y-sas">Ficheros SPSS, Stata y SAS</a></li>
+  <li><a href="#apertura-manual-de-los-ficheros" id="toc-apertura-manual-de-los-ficheros" class="nav-link" data-scroll-target="#apertura-manual-de-los-ficheros">Apertura manual de los ficheros</a></li>
+  <li><a href="#abrir-archivos-desde-github" id="toc-abrir-archivos-desde-github" class="nav-link" data-scroll-target="#abrir-archivos-desde-github">Abrir archivos desde GitHub</a></li>
   </ul></li>
-  <li><a href="#teoría" id="toc-teoría" class="nav-link" data-scroll-target="#teoría">2. Teoría</a>
-  <ul class="collapse">
-  <li><a href="#el-análisis-de-los-residuos" id="toc-el-análisis-de-los-residuos" class="nav-link" data-scroll-target="#el-análisis-de-los-residuos">El análisis de los residuos</a></li>
-  <li><a href="#chi2" id="toc-chi2" class="nav-link" data-scroll-target="#chi2">Chi2</a></li>
-  </ul></li>
+  <li><a href="#visualizar-el-contenido-del-df" id="toc-visualizar-el-contenido-del-df" class="nav-link" data-scroll-target="#visualizar-el-contenido-del-df">Visualizar el contenido del df</a></li>
   </ul>
 </nav>
     </div>
@@ -360,247 +317,236 @@ window.Quarto = {
 
 
 
-<section id="en-r" class="level2">
-<h2 class="anchored" data-anchor-id="en-r">1. En R</h2>
-<p>Permite conocer la relación existente entre variables categóricas. Para ello nos valemos de las tablas de contingencia, donde se muestran las frecuencias de dos variables.</p>
-<section id="la-función-table" class="level3">
-<h3 class="anchored" data-anchor-id="la-función-table">La función table</h3>
+<section id="apertura-de-data.frames" class="level2">
+<h2 class="anchored" data-anchor-id="apertura-de-data.frames">Apertura de <em>data.frames</em></h2>
+<p>Para poder abrir un fichero no basta con el comando, sino que estos se deben guardar dentro de un nuevo objeto:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="ficheros-de-texto-plano-.csv-.txt-tsv-etc" class="level3">
+<h3 class="anchored" data-anchor-id="ficheros-de-texto-plano-.csv-.txt-tsv-etc">Ficheros de texto plano (.csv, .txt, tsv, etc)</h3>
+<p>Se necisita abrir la librería readr: <code>library(readr)</code>. El comando a utilizar varía en función del separador del archivo:</p>
+<ul>
+<li><code>read_csv()</code> para ficheros csv delimitados por coma (,).</li>
+<li><code>read_csv2()</code> para ficheros csv delimitados por punto y coma (;).</li>
+<li><code>read_tsv()</code> lee ficheros separados por tabulador</li>
+<li><code>read_delim()</code> lee ficheros sin delimitador</li>
+<li><code>read_fwf()</code> lee ficheros de ancho fijo</li>
+<li><code>read_table()</code> lee ficheros separados por espacio</li>
+</ul>
+<p>Si las columnas tienen nombre, se debe especificar dentro de la función:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"filename"</span>, <span class="at">col_names=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ficheros-de-excel" class="level3">
+<h3 class="anchored" data-anchor-id="ficheros-de-excel">Ficheros de excel</h3>
+<p>Cuando los datos están un fichero <strong>.xlsx</strong>, utilizamos función <code>read_excel()</code> del paquete <strong>readxl</strong></p>
+<p>Si los datos están la primera hoja del fichero <em>mi_excel.xlsx</em></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"mi_excel.xlsx"</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Si los datos están en una hoja llamada “mi_hoja”</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.excel</span>(<span class="st">"mi_excel.xlsx"</span>, <span class="at">sheetName =</span> <span class="st">"mi_hoja"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ficheros-spss-stata-y-sas" class="level3">
+<h3 class="anchored" data-anchor-id="ficheros-spss-stata-y-sas">Ficheros SPSS, Stata y SAS</h3>
+<p>Una de las opciones existentes es la función <code>haven()</code> del paquete <strong>haven</strong> nos permite abrir ficheros en formato Stata/SPSS/SAS. Por ejemplo:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"filename.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Las funciones <code>read_spss()</code> y <code>read_sas()</code> tienen la misma sintaxis.</p>
+<p><br></p>
+</section>
+<section id="apertura-manual-de-los-ficheros" class="level3">
+<h3 class="anchored" data-anchor-id="apertura-manual-de-los-ficheros">Apertura manual de los ficheros</h3>
+<p>Cuando los ficheros se abren así, lo mejor es copiar el comando que se ha empleado (aparece en el recuadro inferior derecho de la pestaña que se abre) y copiarlo en un chunk del rmd o el script en el que se esté trabajando, para que cuando se quiera volver a abrir el archivo sea más rápido hacerlo.</p>
+</section>
+<section id="abrir-archivos-desde-github" class="level3">
+<h3 class="anchored" data-anchor-id="abrir-archivos-desde-github">Abrir archivos desde GitHub</h3>
+<p>Abrir datos desde un repositorio de GitHub puede resultar útil para evitar tener que descargar los datos correspondientes en el ordenador, sino que con esta opción se pueden abrir directamente desde Internet.</p>
+<section id="si-el-repositorios-es-público" class="level4">
+<h4 class="anchored" data-anchor-id="si-el-repositorios-es-público">Si el repositorios es público:</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Antes abir la librería necesaria para el formato de df al que se quiera acceder</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/usuario-del-repositorio/nombre-repo/main/ruta/archivo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="si-el-repositorios-es-privado-y-tuyo" class="level4">
+<h4 class="anchored" data-anchor-id="si-el-repositorios-es-privado-y-tuyo">Si el repositorios es privado (y tuyo):</h4>
 <ol type="1">
-<li>Crear la tabla con las dos variables y guardarla:</li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">table</span>(datos<span class="sc">$</span>var1, datos<span class="sc">$</span>var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ej.:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">table</span>(datos<span class="sc">$</span>situ_lab, datos<span class="sc">$</span>hombre)  <span class="co"># (filas, columnas)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tabla</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                   
-                    Mujer Hombre
-  Trabajador/a       7552   9549
-  Pensionista        3515   3854
-  Desempleado/a      1424    846
-  Estudiante          502    617
-  Trabajo doméstico   994     30
-  Otra situación      182    113</code></pre>
-</div>
-</div>
-<p><em>La primera variable son las filas de la tabla y la segunda las columnas. La variable con menos categorías se pone en las columnas porque así es más sencillo de visualizar e interpretar, creando una tabla que se extiende de forma vertical en lugar de horizontal (mejor la primera tabla que la segunda).</em></p>
-<ol start="2" type="1">
-<li>Crear la tabla de frecuencias:</li>
-</ol>
+<li><p>Instalar/abrir las librerías necesarias</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gh)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Crear y configurar el token de GitHub (solo es necesario hacerlo una vez):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comando para crear el token:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar que la autenticación funciona</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>gh<span class="sc">::</span><span class="fu">gh_whoami</span>(<span class="st">"tu_token"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Para mayor comodidad y seguridad, se puede guardar el token en .Renviron. De este modo, no sería necesario copiarlo entero cada vez que se quiera usar, sino que sería suficiente con escribir “github_pat”. Para guardarlo se deben seguir los siguientes pasos:</p>
 <ul>
-<li><code>prop.table(tabla)</code> Porcentaje de tabla (el % sobre el total)</li>
-<li><code>prop.table(tabla, 1)</code> Porcentajes de fila (el 100% lo suman las filas)</li>
-<li><code>prop.table(tabla, 2)</code> Porcentajes de columna (el 100% lo suman las columnas) Para leer estas tablas adecuadamente, hay que fijarse si el 100% lo suman las filas, las columnas o toda la tabla.</li>
-</ul>
-<p>Ej.:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tabla)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                   
-                          Mujer      Hombre
-  Trabajador/a      0.258825142 0.327267119
-  Pensionista       0.120467475 0.132085818
-  Desempleado/a     0.048803893 0.028994448
-  Estudiante        0.017204743 0.021146069
-  Trabajo doméstico 0.034066763 0.001028172
-  Otra situación    0.006237576 0.003872781</code></pre>
-</div>
-</div>
-<p>Indica el porcentaje de cada subgrupo sobre el total de la muestra. Por ejemplo, de esta tabla se puede deducir que del total de la población un 25% son mujeres trabajadoras.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tabla, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                   
-                         Mujer     Hombre
-  Trabajador/a      0.44161160 0.55838840
-  Pensionista       0.47699824 0.52300176
-  Desempleado/a     0.62731278 0.37268722
-  Estudiante        0.44861483 0.55138517
-  Trabajo doméstico 0.97070312 0.02929688
-  Otra situación    0.61694915 0.38305085</code></pre>
-</div>
-</div>
-<p>Indica la composición de género de cada una de las situaciones laborales. Por ejemplo, de los trabajadores un 44% son mujeres y un 56% hombres.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tabla, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                   
-                          Mujer      Hombre
-  Trabajador/a      0.532994566 0.636218269
-  Pensionista       0.248076787 0.256779266
-  Desempleado/a     0.100501094 0.056366180
-  Estudiante        0.035429459 0.041108668
-  Trabajo doméstico 0.070153151 0.001998801
-  Otra situación    0.012844943 0.007528816</code></pre>
-</div>
-</div>
-<p>Indica el perfil laboral dentro de cada género. Por ejemplo, un 54% de las mujeres son trabajadoras, mientras que un 63% de los hombres son trabajadores.</p>
-</section>
-<section id="otras-tablas" class="level3">
-<h3 class="anchored" data-anchor-id="otras-tablas">Otras tablas</h3>
-<p>Otros dos comandos para realizar tablas de contingencia son <code>xtabls</code>y <code>CrossTable</code>. Estos comandos resultan más útiles cuando, a parte de las frecuencias y los porcentajes, se quieren conocer también otros estadísticos como el Chi<sup>2</sup> o los residuos.</p>
-<p><strong>Es mejor usar la función <code>CrossTable</code>.</strong></p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><code>CrossTable()</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><code>xtabs()</code></a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gmodels)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tabla3 <span class="ot">&lt;-</span> <span class="fu">CrossTable</span>(datos<span class="sc">$</span>var1, datos<span class="sc">$</span>var2, <span class="co">#Las variables</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">digits =</span> <span class="dv">1</span>, <span class="co">#El número de decimales de la tabla</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                     <span class="co">#Otras opciones de la tabla,</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">format =</span> <span class="st">"SPSS"</span>) <span class="co">#El formato de salida de la tabla</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ej.:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(datos<span class="sc">$</span>situ_lab, datos<span class="sc">$</span>hombre, <span class="at">digits=</span><span class="dv">1</span>, <span class="at">expected=</span>T, <span class="at">asresid=</span><span class="cn">TRUE</span>, <span class="at">chisq=</span><span class="cn">TRUE</span>, <span class="at">prop.chisq=</span>F, <span class="at">format=</span><span class="st">"SPSS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-   Cell Contents
-|-------------------------|
-|                   Count |
-|         Expected Values |
-|             Row Percent |
-|          Column Percent |
-|           Total Percent |
-|           Adj Std Resid |
-|-------------------------|
-
-Total Observations in Table:  29178 
-
-                  | datos$hombre 
-   datos$situ_lab |    Mujer  |   Hombre  | Row Total | 
-------------------|-----------|-----------|-----------|
-     Trabajador/a |     7552  |     9549  |    17101  | 
-                  |   8304.3  |   8796.7  |           | 
-                  |     44.2% |     55.8% |     58.6% | 
-                  |     53.3% |     63.6% |           | 
-                  |     25.9% |     32.7% |           | 
-                  |    -17.9  |     17.9  |           | 
-------------------|-----------|-----------|-----------|
-      Pensionista |     3515  |     3854  |     7369  | 
-                  |   3578.4  |   3790.6  |           | 
-                  |     47.7% |     52.3% |     25.3% | 
-                  |     24.8% |     25.7% |           | 
-                  |     12.0% |     13.2% |           | 
-                  |     -1.7  |      1.7  |           | 
-------------------|-----------|-----------|-----------|
-    Desempleado/a |     1424  |      846  |     2270  | 
-                  |   1102.3  |   1167.7  |           | 
-                  |     62.7% |     37.3% |      7.8% | 
-                  |     10.1% |      5.6% |           | 
-                  |      4.9% |      2.9% |           | 
-                  |     14.1  |    -14.1  |           | 
-------------------|-----------|-----------|-----------|
-       Estudiante |      502  |      617  |     1119  | 
-                  |    543.4  |    575.6  |           | 
-                  |     44.9% |     55.1% |      3.8% | 
-                  |      3.5% |      4.1% |           | 
-                  |      1.7% |      2.1% |           | 
-                  |     -2.5  |      2.5  |           | 
-------------------|-----------|-----------|-----------|
-Trabajo doméstico |      994  |       30  |     1024  | 
-                  |    497.3  |    526.7  |           | 
-                  |     97.1% |      2.9% |      3.5% | 
-                  |      7.0% |      0.2% |           | 
-                  |      3.4% |      0.1% |           | 
-                  |     31.6  |    -31.6  |           | 
-------------------|-----------|-----------|-----------|
-   Otra situación |      182  |      113  |      295  | 
-                  |    143.3  |    151.7  |           | 
-                  |     61.7% |     38.3% |      1.0% | 
-                  |      1.3% |      0.8% |           | 
-                  |      0.6% |      0.4% |           | 
-                  |      4.5  |     -4.5  |           | 
-------------------|-----------|-----------|-----------|
-     Column Total |    14169  |    15009  |    29178  | 
-                  |     48.6% |     51.4% |           | 
-------------------|-----------|-----------|-----------|
-
- 
-Statistics for All Table Factors
-
-
-Pearson's Chi-squared test 
-------------------------------------------------------------
-Chi^2 =  1308.347     d.f. =  5     p =  9.930323e-281 
-
-
- 
-       Minimum expected frequency: 143.2537 </code></pre>
-</div>
-</div>
-<p><em>Para comprobar qué opciones se pueden aplicar a la tabla, conviene mirar <code>?(CrossTable)</code></em></p>
-<p>Ej. de interpretación de los residuos ajustados: en la celda de mujer y trabajadoras, los residuos ajustados son de -17,9. Esta cifra es inferior a -3,27, por lo que podemos decir que con un nivel de confianza del 99,9% las mujeres se encuentran infrarepresentadas (el símbolo es negativo) dentro del grupo de los trabajadores.</p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tabla2 <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>var1<span class="sc">+</span>var2, <span class="at">data =</span> datos) <span class="co">#Crear y guardar la tabla</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ftable</span>(tabla2) <span class="co">#Visualizar la tabla</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tabla2) <span class="co">#Para ver los estadísticos de la tabla (como el chi2 y el p-valor)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ej.:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tabla2 <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>situ_lab<span class="sc">+</span>hombre, <span class="at">data=</span>datos)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ftable</span>(tabla2) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                  hombre Mujer Hombre
-situ_lab                             
-Trabajador/a              7552   9549
-Pensionista               3515   3854
-Desempleado/a             1424    846
-Estudiante                 502    617
-Trabajo doméstico          994     30
-Otra situación             182    113</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tabla2) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Call: xtabs(formula = ~situ_lab + hombre, data = datos)
-Number of cases in table: 29178 
-Number of factors: 2 
-Test for independence of all factors:
-    Chisq = 1308.3, df = 5, p-value = 9.93e-281</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
+<li>Ejecutar el siguiente comando: <code>usethis::edit_r_environ()</code></li>
+<li>En la pestaña nueva que se abra en R, escribir lo siguiente: <code>github_pat=tu_token_aquí</code> <em>(el token sin comillas, directamente)</em>.</li>
+<li>Guardar los cambios en el archivo y reiniciar R.</li>
+</ul></li>
+<li><p>Leer los datos del repositorio</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="fu">content</span>(<span class="fu">GET</span>(<span class="st">"https://raw.githubusercontent.com/usuario-del-repositorio/nombre-repo/main/ruta/archivo.dta"</span>, <span class="fu">add_headers</span>(<span class="at">Authorization =</span> <span class="fu">paste</span>(<span class="st">"token"</span>, github_pat))), <span class="st">"raw"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
 <hr>
 </section>
 </section>
-<section id="teoría" class="level2">
-<h2 class="anchored" data-anchor-id="teoría">2. Teoría</h2>
-<p>Las hipótesis a comprobar en una tabla de contingencia son:</p>
-<ul>
-<li>H<sub>0</sub>= no existe asociación entre las variables (son independientes)</li>
-<li>H<sub>1</sub>= sí existe asociación entre las variables</li>
-</ul>
-<p>Para saber si existe relación entre las variables debemos fijarnos en:</p>
-<section id="el-análisis-de-los-residuos" class="level3">
-<h3 class="anchored" data-anchor-id="el-análisis-de-los-residuos">El análisis de los residuos</h3>
-<p>A la hora de examinar la asociación entre variable categóricas es importante diferenciar entre:</p>
-<ul>
-<li>Frecuencia observada: la frecuencia en la muestra</li>
-<li>Frecuencia esperada: la frecuencia que observaríamos en el caso de que <strong>no hubiera relación entre las 2 variables</strong></li>
-<li>Residuo: diferencia entre el valor observado y el esperado, que manifiesta dependencia entre pares de valores cuando es distinto de cero. Cuanto mayor sea el residuo, mayor será la probabilidad de que la muestra provenga de una población en la que las variables estén relacionadas. Para determinar si el valor de los residuos es significativo, es necesario estandarizarlos.</li>
-</ul>
-<p>Si el residuo ajustado es mayor (en términos absolutos) que el valor crítico para un determinado nivel de confianza (1,96 para el 95%), se puede decir que la diferencia entre los valores esperados y los ajustados para una celda concreta de la tabla es significativa. En función de si el signo de estos residuos es positivo o negativo, sabremos si la relación establecida en la celda es de sobrerrepresentación dentro de la muestra (signo +) o de infrarrepresentación (signo -). <em>(Hay un ejemplo de esto al final de la explicación de CrossTables en R)</em></p>
 </section>
-<section id="chi2" class="level3">
-<h3 class="anchored" data-anchor-id="chi2">Chi2</h3>
-<p>El chi-cuadrado (χ²) es una prueba estadística que se utiliza para comparar frecuencias observadas con frecuencias esperadas, a fin de determinar si hay una diferencia significativa entre ellas. Se emplea comúnmente para analizar tablas de contingencia y evaluar si dos variables categóricas están relacionadas. El𝜒2 se define como:</p>
-<p><span class="math display">\[\chi^2 = \sum \frac {(O - E)^2}{E}\]</span> Donde:</p>
+<section id="visualizar-el-contenido-del-df" class="level2">
+<h2 class="anchored" data-anchor-id="visualizar-el-contenido-del-df">Visualizar el contenido del df</h2>
 <ul>
-<li>O = Frecuencias observadas</li>
-<li>E = Frecuencias esperadas</li>
+<li><code>View(datos)</code> → abre una nueva pestaña con la base de datos.</li>
+<li><code>glimpse(datos)</code> (del paquete tydiverse) → muestra el número de filas y de columnas, el nombre de las variables, su clase y los primeros valores de cada una de ellas.</li>
 </ul>
-<p>Por ser suma de cuadrados, se cumple que 𝜒2≥0:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 29,201
+Columns: 10
+$ ESTUDIO  &lt;dbl+lbl&gt; 3411, 3411, 3411, 3411, 3411, 3411, 3411, 3411, 3411, 341…
+$ REGISTRO &lt;dbl&gt; 492777, 70655, 46423, 103464, 112810, 126567, 137692, 182178,…
+$ CUES     &lt;dbl&gt; 29043, 5848, 3893, 8711, 9517, 10736, 11573, 14839, 16793, 17…
+$ CCAA     &lt;dbl+lbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ PROV     &lt;dbl+lbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, …
+$ MUN      &lt;dbl+lbl&gt;  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  …
+$ CAPITAL  &lt;dbl+lbl&gt; 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, …
+$ TAMUNI   &lt;dbl+lbl&gt; 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, …
+$ ENTREV   &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ TIPO_TEL &lt;dbl+lbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …</code></pre>
+</div>
+</div>
 <ul>
-<li>𝜒2=0 cuando las variables son independientes</li>
-<li>𝜒2 crece a medida que aumenta la dependencia entre las variables</li>
+<li><code>dim(datos)</code> → permite conocer el número de filas y de columnas.</li>
 </ul>
-<p>Sabemos que el valor de chi-cuadrado (χ²) es lo suficientemente alto para ser significativo comparándolo con un valor crítico de una tabla de chi-cuadrado, o mediante su p-valor.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 29201   228</code></pre>
+</div>
+</div>
+<ul>
+<li><code>summary(datos)</code> → muestra los descriptivos principales de cada una de las variables del dataframe (media y cuartiles).</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>    ESTUDIO        REGISTRO           CUES            CCAA       
+ Min.   :3411   Min.   :   229   Min.   :    1   Min.   : 1.000  
+ 1st Qu.:3411   1st Qu.: 86385   1st Qu.: 7301   1st Qu.: 4.000  
+ Median :3411   Median :177688   Median :14601   Median : 9.000  
+ Mean   :3411   Mean   :206694   Mean   :14601   Mean   : 8.062  
+ 3rd Qu.:3411   3rd Qu.:307076   3rd Qu.:21901   3rd Qu.:12.000  
+ Max.   :3411   Max.   :494973   Max.   :29201   Max.   :19.000  
+      PROV      
+ Min.   : 1.00  
+ 1st Qu.:11.00  
+ Median :26.00  
+ Mean   :24.67  
+ 3rd Qu.:36.00  
+ Max.   :52.00  </code></pre>
+</div>
+</div>
+<ul>
+<li><code>colnames(datos)</code> → lista con el nombre de todas las variables.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ESTUDIO"  "REGISTRO" "CUES"     "CCAA"     "PROV"     "MUN"     
+ [7] "CAPITAL"  "TAMUNI"   "ENTREV"   "TIPO_TEL" "sexo"     "edad"    
+[13] "P0A"      "ECOPER"   "ECOESP"  </code></pre>
+</div>
+</div>
+<ul>
+<li><code>describe(datos)</code> (del paquete psych).</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>         vars     n      mean        sd median   trimmed       mad  min    max
+ESTUDIO     1 29201   3411.00      0.00   3411   3411.00      0.00 3411   3411
+REGISTRO    2 29201 206693.59 142972.42 177688 196970.89 155275.66  229 494973
+CUES        3 29201  14601.00   8429.75  14601  14601.00  10822.98    1  29201
+CCAA        4 29201      8.06      4.66      9      7.98      4.45    1     19
+PROV        5 29201     24.67     14.30     26     24.43     17.79    1     52
+MUN         6 29201     37.74     66.98      0     20.88      0.00    0    297
+CAPITAL     7 29201      2.44      0.79      3      2.54      0.00    1      3
+TAMUNI      8 29201      3.78      1.64      4      3.75      1.48    1      7
+ENTREV      9 29201      0.00      0.00      0      0.00      0.00    0      0
+TIPO_TEL   10 29201      1.74      0.44      2      1.80      0.00    1      2
+          range  skew kurtosis     se
+ESTUDIO       0   NaN      NaN   0.00
+REGISTRO 494744  0.48    -0.89 836.67
+CUES      29200  0.00    -1.20  49.33
+CCAA         18 -0.10    -0.93   0.03
+PROV         51  0.10    -1.17   0.08
+MUN         297  2.30     4.96   0.39
+CAPITAL       2 -0.94    -0.77   0.00
+TAMUNI        6  0.15    -0.76   0.01
+ENTREV        0   NaN      NaN   0.00
+TIPO_TEL      1 -1.08    -0.83   0.00</code></pre>
+</div>
+</div>
+<ul>
+<li><code>str(datos)</code> → metadatos de cada una de las variables (lo que sale si le das al triángulo verde que aparece junto al nombre de la base de datos del environment).</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [29,201 × 5] (S3: tbl_df/tbl/data.frame)
+ $ ESTUDIO : dbl+lbl [1:29201] 3411, 3411, 3411, 3411, 3411, 3411, 3411, 3411, 3411...
+   ..@ label        : chr "Código del estudio"
+   ..@ format.spss  : chr "F4.0"
+   ..@ display_width: int 4
+   ..@ labels       : Named num 3411
+   .. ..- attr(*, "names")= chr "3411"
+ $ REGISTRO: num [1:29201] 492777 70655 46423 103464 112810 ...
+  ..- attr(*, "label")= chr "Número de registro"
+  ..- attr(*, "format.spss")= chr "F6.0"
+  ..- attr(*, "display_width")= int 6
+ $ CUES    : num [1:29201] 29043 5848 3893 8711 9517 ...
+  ..- attr(*, "label")= chr "Cuestionario"
+  ..- attr(*, "format.spss")= chr "F5.0"
+  ..- attr(*, "display_width")= int 5
+ $ CCAA    : dbl+lbl [1:29201] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+   ..@ label        : chr "Comunidad autónoma"
+   ..@ format.spss  : chr "F2.0"
+   ..@ display_width: int 2
+   ..@ labels       : Named num [1:19] 1 2 3 4 5 6 7 8 9 10 ...
+   .. ..- attr(*, "names")= chr [1:19] "Andalucía" "Aragón" "Asturias (Principado de)" "Balears (Illes)" ...
+ $ PROV    : dbl+lbl [1:29201] 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4...
+   ..@ label        : chr "Provincia"
+   ..@ format.spss  : chr "F2.0"
+   ..@ display_width: int 2
+   ..@ labels       : Named num [1:52] 1 2 3 4 33 5 6 7 8 9 ...
+   .. ..- attr(*, "names")= chr [1:52] "Araba/Álava" "Albacete" "Alicante/Alacant" "Almería" ...
+ - attr(*, "label")= chr "fileNameJDS"</code></pre>
+</div>
+</div>
+<ul>
+<li><code>head(datos, 10)</code> → muestra las variables, su clase, los 10 primeros valores de cada uno de ellos.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 228
+   ESTUDIO     REGISTRO  CUES CCAA       PROV    MUN     CAPITAL TAMUNI  ENTREV 
+   &lt;dbl+lbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl+lbl&gt;  &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
+ 1 3411 [3411]   492777 29043 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 1 [Men… 0 [Ano…
+ 2 3411 [3411]    70655  5848 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 1 [Men… 0 [Ano…
+ 3 3411 [3411]    46423  3893 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
+ 4 3411 [3411]   103464  8711 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
+ 5 3411 [3411]   112810  9517 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
+ 6 3411 [3411]   126567 10736 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
+ 7 3411 [3411]   137692 11573 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
+ 8 3411 [3411]   182178 14839 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
+ 9 3411 [3411]   216764 16793 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
+10 3411 [3411]   237655 17918 1 [Andalu… 4 [Alm… 0 [Mun… 3 [Otr… 3 [10.… 0 [Ano…
+# ℹ 219 more variables: TIPO_TEL &lt;dbl+lbl&gt;, sexo &lt;dbl+lbl&gt;, edad &lt;dbl+lbl&gt;,
+#   P0A &lt;dbl+lbl&gt;, ECOPER &lt;dbl+lbl&gt;, ECOESP &lt;dbl+lbl&gt;, MEDIO_1 &lt;dbl+lbl&gt;,
+#   MEDIO_2 &lt;dbl+lbl&gt;, LEEPRENSA &lt;dbl+lbl&gt;, VETELE &lt;dbl+lbl&gt;,
+#   OYERADIO &lt;dbl+lbl&gt;, PRENSA &lt;dbl+lbl&gt;, P3AR &lt;dbl+lbl&gt;, TELEVISION &lt;dbl+lbl&gt;,
+#   P3BR &lt;dbl+lbl&gt;, RADIO &lt;dbl+lbl&gt;, P3CR &lt;dbl+lbl&gt;, GESTIONGOB &lt;dbl+lbl&gt;,
+#   GESTIONOPO &lt;dbl+lbl&gt;, PROBVOTO &lt;dbl+lbl&gt;, VOTOCORREO &lt;dbl+lbl&gt;,
+#   PROBPARTIDOS_1 &lt;dbl+lbl&gt;, PROBPARTIDOS_2 &lt;dbl+lbl&gt;, …</code></pre>
+</div>
+</div>
 <hr>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1210,13 +1156,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-alt-theme" value="dark_dimmed">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../analisis/correlacion.html" class="pagination-link" aria-label="Análisis de correlación">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Análisis de correlación</span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../analisis/reg-lineal.html" class="pagination-link" aria-label="Lineal simple">
-        <span class="nav-page-text">Lineal simple</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../df-var/edicion-df.html" class="pagination-link" aria-label="Edición de bases de datos">
+        <span class="nav-page-text">Edición de bases de datos</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

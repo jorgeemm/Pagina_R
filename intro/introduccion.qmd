@@ -11,7 +11,7 @@ source("00_datos/source.R")
 
 <center>
 
-![Ventanas de R Studio](01_img/ventanas_rstudio.png)
+![Ventanas de R Studio](ventanas_rstudio.png)
 
 </center>
 
@@ -58,6 +58,26 @@ Tanto `install.packages` como `p_load` sirven únicamente para paquetes que est�
 ## Recomendaciones
 
 Al comenzar un nuevo trabajo en R, conviene crear un proyecto nuevo en el que se quiera trabajara, y mantener este ordenado. También es recomendable guardar todos los códigos de forma estructurada, de modo que tanto otras personas como tu yo del futuro puedan saber para qué sirven cada una de las cosas que se han añadido.
+
+## El uso del pipe (%\>% \|\>)
+
+El pipe permite encadenar funciones, por lo que permite reducir el código que se debe escribir a la hora de usar varias funciones seguidas. Esto simplifica el trabajo y facilita la lectura del código, además de permitir tener un documento de trabajo más limpio.
+
+-   Existen dos tipos de pipe: **%\>%** y **\|\>**. Se puede seleccionar cuál se prefiere por defecto desde las *Global Options*: *Code* -\> *Editing* -\> *Native pipe operator*.
+
+-   Se puede añadir rápidamente con el siguiente atajo del teclado: **ctrl + shift + m**
+
+Funcionamiento del pipe:
+
+-   Ejecutar código de izquierda a derecha. Es decir, sirve para ejecutar un nuevo comando (*dcha.*) a partir del comando ya ejecutado (*izq.*)
+
+-   Evita tener que guardar objetos para los pasos intermedios
+
+-   Ej.: primero se crea un vector (sin guardarlo en el environment), después realiza la media de dicho vector y, por último, redondea este nuevo valor con 2 decimales
+
+    ```{r}
+    c(4,6,8,3) %>% mean() %>% round(2)
+    ```
 
 ## Atajos
 

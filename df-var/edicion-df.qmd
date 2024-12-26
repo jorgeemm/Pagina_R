@@ -1,0 +1,71 @@
+---
+title: "Edición de bases de datos"
+---
+
+```{r include=FALSE}
+setwd(here::here())
+source("00_datos/source.R")
+```
+
+## Modificar el fichero
+
+### Filter: seleccionar casos
+
+Se usa el comando `filter`, del paquete `dplyr` (en `tidyverse`). Se establecen una serie de condiciones lógicas a partir de las cuales la función retendrá únicamente los casos (filas) que cumplen con dicha condición (*condiciones como ==, \>, %in%, etc.*).
+
+Ej.: en una base de datos donde los casos son municipios, seleccionar solo aquellos pertenecientes a Murcia o Almería:
+
+``` r
+# Opción 1
+datos_filtrados <- datos %>% 
+  filter(Provincia=="Almería" | Provincia=="Murcia")
+
+# Opción 2  
+datos_filtrados <- datos %>% 
+  filter(id_provincia %in% c(5,35))
+```
+
+Si se quieren seleccionar todos los casos menos los que cumplen una determinada excepción, se usa ! antes de la condición. En el siguiente ejemplo, quedarán en la base de datos todos los casos menos los de Cs y Otros:
+
+``` r
+filter(!(datos$recuerdo %in% c("Cs","Otros")))
+```
+
+::: callout-tip
+Al usar tanto *filter* como *select*, conviene guardar los cambios dentro de un nuevo objeto y dejar el dataset original sin modificar.
+:::
+
+### Select: seleccionar variables
+
+Se usa el comando `select`, del paquete `dplyr`. Esta función permite reducir el número de columnas, por lo que resulta de gran utilidad cuando tenemos bases de datos con muchas variables y solo vamos a trabajar con algunas de ellas.
+
+Seleccionar una columna: `select(datos, nombre_variable)`.
+
+Este comando permite seleccionar más de una variable a la vez: `select(datos, x1, x2, x3)`.
+
+También se pueden eliminar una o varias variables que no se quieran en el dataset: `select(datos, -variable)`
+
+### Ordenar las variables
+
+**Variable numérica:**
+
+-   Orden ascendente:
+    -   Opción 1: `datos %>% arrange(variable)`
+    -   Opción 2: `datos <- datos[order(datos$variable), ]`
+-   Orden descendente:
+    -   Opción 1: `datos %>% arrange(desc(variable))`
+    -   Opción 2: `datos <- datos[order(-datos$variable), ]`
+-   Se pueden ordenar los datos por dos variables simultáneamente:
+    -   Opción 1: `datos <- datos %>% arrange(var1, var1)`
+    -   Opción 2: `datos <- datos[order(datos$var1, datos$var2), ]`
+
+**Variable categórica:**
+
+-   Se usan los comandos anteriores para ordenar por orden alfabético ascendente o descendente
+-   Orden personalizado: `mutate(variable = fct_relevel(variable, c("categoría1", "cat2", "catn")))` Ej.:
+
+``` r
+mutate(partido = fct_relevel(party, c("PP", "PSOE", "VOX", "SUMAR", "Otros")))
+```
+
+------------------------------------------------------------------------
