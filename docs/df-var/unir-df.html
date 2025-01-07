@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -135,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../df-var/ficheros-datos.qmd"> 
+    <a class="nav-link active" href="../df-var/apertura-datos.html" aria-current="page"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
@@ -266,7 +300,11 @@ document.addEventListener('DOMContentLoaded', function() {
    
   <ul>
   <li><a href="#añadir-casos-unión-vertical" id="toc-añadir-casos-unión-vertical" class="nav-link active" data-scroll-target="#añadir-casos-unión-vertical">Añadir casos (unión vertical)</a></li>
-  <li><a href="#añadir-variables-unión-horizontal" id="toc-añadir-variables-unión-horizontal" class="nav-link" data-scroll-target="#añadir-variables-unión-horizontal">Añadir variables (unión horizontal)</a></li>
+  <li><a href="#añadir-variables-unión-horizontal" id="toc-añadir-variables-unión-horizontal" class="nav-link" data-scroll-target="#añadir-variables-unión-horizontal">Añadir variables (unión horizontal)</a>
+  <ul class="collapse">
+  <li><a href="#principales-argumentos" id="toc-principales-argumentos" class="nav-link" data-scroll-target="#principales-argumentos">Principales argumentos</a></li>
+  <li><a href="#funciones" id="toc-funciones" class="nav-link" data-scroll-target="#funciones">Funciones</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -279,13 +317,96 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <section id="añadir-casos-unión-vertical" class="level2">
 <h2 class="anchored" data-anchor-id="añadir-casos-unión-vertical">Añadir casos (unión vertical)</h2>
+<p>Se usa el comando <code>bind_rows</code>, del paquete <code>dplyr</code> (en tidyverse). Añade las filas de una base de datos a las de otra, teniendo en cuenta lo siguiente:</p>
+<ul>
+<li><p><strong>Si el nombre de alguna variable coincide</strong> en ambos df, <strong>los fusiona en una única columna</strong>, añadiendo juntos los valores de ambas bases de datos.</p></li>
+<li><p><strong>Si existen variables de distinto nombre</strong>, <strong>rellena con NA</strong> los valores del df donde esta no existe.</p></li>
+</ul>
+<p>Ejemplo:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">var1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">var2 =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">var1 =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">var2 =</span> <span class="fu">c</span>(<span class="st">"w"</span>, <span class="st">"v"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">var1 =</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">var3 =</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"n"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>union_df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df1, df2, df3)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(union_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  var1 var2 var3
+1    1    x &lt;NA&gt;
+2    2    y &lt;NA&gt;
+3    3    z &lt;NA&gt;
+4    4    w &lt;NA&gt;
+5    5    v &lt;NA&gt;
+6    6 &lt;NA&gt;    m
+7    7 &lt;NA&gt;    n</code></pre>
+</div>
+</div>
+<p>Para verificar si el nombre de las variables en los df son iguales se usa el siguiente comando. El comando se debe ejecutar dos veces cambiando el nombre de las variables, para ver así qué variables están en el primer df pero no en el segundo, y lo contrario.</p>
+<ul>
+<li>Variables que están en df1 pero no en df3:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(<span class="fu">names</span>(df1), <span class="fu">names</span>(df3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "var2"</code></pre>
+</div>
+</div>
+<ul>
+<li>Variables que están en df3 pero no en df1:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(<span class="fu">names</span>(df3), <span class="fu">names</span>(df1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "var3"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Conviene crear una nueva variable en cada df antes de unirlos que indique la procedencia de los datos (ej.: el nombre del df, el año, el mes…)</p>
+</div>
+</div>
 <hr>
 </section>
 <section id="añadir-variables-unión-horizontal" class="level2">
 <h2 class="anchored" data-anchor-id="añadir-variables-unión-horizontal">Añadir variables (unión horizontal)</h2>
+<p>Se usan las funciones <code>_join()</code> de <code>dplyr</code>. El objetivo final es tener una base de datos ampliada con un número mayor de variables. Para que funciones, debe haber al menos una variable común en ambos df. Estas son conocidas como claves, y pueden ser:</p>
+<ul>
+<li><strong>Primary key</strong> es la variable que permite identificar cada una de las filas (algo único para cada fila). Siempre tiene que exitir.</li>
+<li><strong>Foreing key</strong>: cualquier variable que sea común en dos bases de datos y que por tanto permita unirlas.</li>
+</ul>
+<p>Es recomendable trabajar con marcos de datos donde foreign key identifique la unidad de observación de la base de datos.</p>
+<p>Existen varias funciones que permiten la unión horizontal, y varían en función del número de observaciones que se conservan tras la fusión.</p>
+<section id="principales-argumentos" class="level3">
+<h3 class="anchored" data-anchor-id="principales-argumentos">Principales argumentos</h3>
+<ul>
+<li>x = : indica una de las bases de datos.</li>
+<li>y = : indica la otra base de datos.</li>
+<li>by = : indica la(s) variable(s) que permiten unir las bases de datos. Si no se especifica by = , R detecta las variables comunes entre marcos de datos (menos recomendable).</li>
+<li>keep = : T o F, para indicar si se quieren preservar la(s) variable(s) especificadas en el argumento by.</li>
+</ul>
+</section>
+<section id="funciones" class="level3">
+<h3 class="anchored" data-anchor-id="funciones">Funciones</h3>
+<ul>
+<li><p><code>left_join()</code>: añade la información de los datos <strong><em>y</em></strong> al marco <strong><em>x</em></strong>. Se mantienen todas las observaciones de x, añadiendo únicamente la información de las variables de y para las que existen coincidencias en x.</p></li>
+<li><p><code>right_join()</code>: similar a left_join, pero añadiendo los datos de <strong><em>x</em></strong> al df <strong><em>y</em></strong>.</p></li>
+<li><p><code>inner_join()</code>: se mantienen solo las observaciones de <strong><em>x</em></strong> e <strong><em>y</em></strong> donde existen coincidencias en ambos df, combinando todas las variables de ambos marcos.</p></li>
+<li><p><code>full_join()</code>: combina toda la información de las dos bases de datos, tanto en el número de variables como de casos, incluso cuando no existen coincidencias entre <strong><em>x</em></strong> e <strong><em>y</em></strong>.</p></li>
+</ul>
+<p><em>inner_join() es una opción más conservadora full_join(), ya que en el caso de haber algún caso que no sea común lo omite, mientras que en el segundo se unen todos los casos.</em></p>
 <hr>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

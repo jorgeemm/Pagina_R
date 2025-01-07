@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../df-var/ficheros-datos.qmd"> 
+    <a class="nav-link active" href="../df-var/apertura-datos.html" aria-current="page"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
@@ -300,7 +300,11 @@ document.addEventListener('DOMContentLoaded', function() {
    
   <ul>
   <li><a href="#añadir-etiquetas" id="toc-añadir-etiquetas" class="nav-link active" data-scroll-target="#añadir-etiquetas">Añadir etiquetas</a></li>
-  <li><a href="#editar-el-texto-stringr" id="toc-editar-el-texto-stringr" class="nav-link" data-scroll-target="#editar-el-texto-stringr">Editar el texto (Stringr)</a></li>
+  <li><a href="#edición-de-factores-forcast" id="toc-edición-de-factores-forcast" class="nav-link" data-scroll-target="#edición-de-factores-forcast">Edición de factores (forcast)</a></li>
+  <li><a href="#editar-el-texto-stringr" id="toc-editar-el-texto-stringr" class="nav-link" data-scroll-target="#editar-el-texto-stringr">Editar el texto (stringr)</a>
+  <ul class="collapse">
+  <li><a href="#chuleta-stringr" id="toc-chuleta-stringr" class="nav-link" data-scroll-target="#chuleta-stringr">Chuleta stringr</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -311,6 +315,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+<p>Un factor es una variable categórica compuesta por dos elementos, los valores numéricos (levels) y las valores de texto o etiquetas asociadas a dichos números (labels). Este tipo de variables son especialmente relevantes cuando se están empleando variables categóricas <strong>ordinales</strong>. El orden establecido en los levels será el empleado tanto a la hora de realizar gráficos o tablas como durante los análisis de regresión (siendo el número más bajo el que se usará como categoría de referencia).</p>
+<p>Los factores se pueden crear tanto a partir de variables numéricas como de carácter. Para ello se usan las funciones <code>factor</code>, <code>as.factor</code> y <code>as_factor</code>. Por defecto, estos comandos establecen los niveles de las categorías en función del orden alfabético. Por ello es más recomendable establecer los levels de forma manual, especialmente si estos son relevantes.</p>
 <section id="añadir-etiquetas" class="level2">
 <h2 class="anchored" data-anchor-id="añadir-etiquetas">Añadir etiquetas</h2>
 <p>Ver las etiquetas de una variable: <code>attr(datos$var, "labels")</code>:</p>
@@ -364,10 +370,76 @@ Hombre  Mujer
 </div>
 <hr>
 </section>
+<section id="edición-de-factores-forcast" class="level2">
+<h2 class="anchored" data-anchor-id="edición-de-factores-forcast">Edición de factores (forcast)</h2>
+<p>Para modificar variables de tipo factor se usa el paquete <code>forcast</code>, incluido en <code>tidyverse</code>. Algunas de sus funciones son:</p>
+<section id="reordenar-los-levels" class="level4">
+<h4 class="anchored" data-anchor-id="reordenar-los-levels">Reordenar los levels</h4>
+<p>La función <code>fct_recode</code> permite cambiar los nombres de las categorías.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">var=</span><span class="fu">fct_recode</span>(var, <span class="st">"nuevo_nombre1"</span><span class="ot">=</span><span class="st">"nombre_original1"</span>, <span class="st">"nuevo_nombre2"</span><span class="ot">=</span><span class="st">"nombre_original2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Para <strong>cambiar el orden manualmente</strong> se usa el comando <code>fct_relevel</code>. Opciones:</p>
+<ul>
+<li><p>Indicar solo un nivel como el primero, manteniendo el resto iguales:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">var=</span><span class="fu">fct_relevel</span>(var,<span class="st">"categoría_1"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Modificar el orden de todas las categorías:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">var=</span><span class="fu">fct_relevel</span>(var, <span class="fu">c</span>(<span class="st">"cat_1"</span>, <span class="st">"cat_2"</span>, <span class="st">"cat_3"</span>))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p>Reordenar las categorías según su frecuencia (habitual cuando se quiere graficar ordenando de mayor a menor). La función es <code>fct_infreq</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">var=</span><span class="fu">fct_infreq</span>(var))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>El nuevo orden también se puede establecer según la frecuencia de una segunda variable:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">var=</span><span class="fu">fct_infreq</span>(var, var2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p><code>fct_lump</code> sirve para disminuir el número de categorías, convirtiendo las menos frecuentes en la categoría “otros”. Sus argumentos son:</p>
+<ul>
+<li><code>n</code> para indicar el número de categorías que quieres que tenga la variable final</li>
+<li><code>prop</code> para conservar únicamente las categorías que representen más de un x% de la muestra.</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">var=</span><span class="fu">fct_lump</span>(var, <span class="at">n=</span><span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
 <section id="editar-el-texto-stringr" class="level2">
-<h2 class="anchored" data-anchor-id="editar-el-texto-stringr">Editar el texto (Stringr)</h2>
+<h2 class="anchored" data-anchor-id="editar-el-texto-stringr">Editar el texto (stringr)</h2>
+<p>A la hora de modificar variables que contienen texto, uno de los paquetes de mayor utilidad es <code>stringer</code>. Entre sus funciones principales se sitúan las siguientes:</p>
+<ul>
+<li><p>Contar caracteres (o palabras):</p>
+<ul>
+<li><code>str_length()</code>: indica el número de caracteres (letras, números, espacios…)</li>
+<li><code>str_count(variable/vector, boundary("letra/palabra"))</code>: indica el número de veces que se repite la palabra o carácter de interés dentro de un terminado vector o variable.</li>
+</ul></li>
+<li><p>Combinar palabras: <code>str_c(x, collapse=",")</code>. Une varias palabras o elementos usando como unión el símbolo que se indique (en este caso las separaría con una coma).</p></li>
+<li><p>Recortar texto: <code>str_sub(x, 1, 2)</code>. El primer número indica el primer caracter a partir del cual se recortará el texto, y el segundo hasta dónde se recortará.</p></li>
+<li><p>Detectar patrones:</p>
+<ul>
+<li><code>str_detect(x, pattern = "")</code>: devuelve el valor TRUE o FALSO si se localiza el texto indicado.</li>
+<li><code>str_count(x, pattern = "")</code>: indica cuántas veces se repite el patrón en cada string.</li>
+<li><code>str_extract(x, pattern = "")</code>: saca una lista con los patrones establecidos <em>(también existe el comando <code>str_extract_all(x, pattern = "")</code>)</em></li>
+</ul></li>
+<li><p>Reemplazar texto:</p>
+<ul>
+<li><code>str_replace(x, pattern = "", replacement = "")</code></li>
+<li><code>str_replace_all(x, pattern = "", replacement = "")</code></li>
+</ul></li>
+<li><p>Dividir texto: <code>str_split(x, ",")</code> (es mejor usar separate, del paquete dplyr).</p></li>
+<li><p>Cambiar el formato del texto:</p>
+<ul>
+<li><code>str_to_upper(x)</code> - todo el texto en mayúsculas.</li>
+<li><code>str_to_lower(x)</code> - todo el texto en minúsculas.</li>
+<li><code>str_to_title(x)</code> - la primera letra de cada palabra en mayúsculas (muy útil para los nombres).</li>
+<li><code>str_to_sentence(x)</code> - solo la primera letra de la primera palabra en mayúsculas.</li>
+</ul></li>
+<li><p>Eliminar espacios blancos de más (al principio y el final de las palabras/frases): <code>str_trim(x)</code>.</p></li>
+<li><p>Asegurar la misma longitud de todos los textos: <code>str_pad(x, 3)</code>.</p></li>
+</ul>
+<p>Si dentro de los comandos se quieren buscar o modificar determinados caracteres especiales, como la ? o el espacio, entre otros, estos deben escribirse del siguiente modo:</p>
+<p><img src="images/clipboard-937780431.png" class="img-fluid"></p>
+<section id="chuleta-stringr" class="level3">
+<h3 class="anchored" data-anchor-id="chuleta-stringr">Chuleta stringr</h3>
+<p><img src="images/clipboard-2240321631.png" class="img-fluid"></p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

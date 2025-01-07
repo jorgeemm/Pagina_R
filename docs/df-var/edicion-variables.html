@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../df-var/ficheros-datos.qmd"> 
+    <a class="nav-link active" href="../df-var/apertura-datos.html" aria-current="page"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
@@ -391,6 +391,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">votosFO_porcentaje =</span> votos_FO<span class="sc">/</span>votostotales<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Usar el comando <a href="https://jorgeemm.github.io/Pagina_R/df-var/group_by.html#summarise"><code>summarise</code></a> dentro del <code>mutate</code>.</li>
+</ul>
 </section>
 <section id="el-comando-case_when" class="level3">
 <h3 class="anchored" data-anchor-id="el-comando-case_when">El comando case_when</h3>
@@ -449,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 <section id="variables-categóricas" class="level3">
 <h3 class="anchored" data-anchor-id="variables-categóricas">Variables categóricas</h3>
-<p>Las <strong>variables categóricas</strong> se recodifidan del siguiente modo:</p>
+<p>Las <strong>variables categóricas</strong> se recodifican del siguiente modo:</p>
 <ol type="1">
 <li>Transformándolas en una variable numérica:</li>
 </ol>

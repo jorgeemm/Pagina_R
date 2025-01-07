@@ -4,8 +4,79 @@ title: "Unir bases de datos"
 
 ## Añadir casos (unión vertical)
 
+Se usa el comando `bind_rows`, del paquete `dplyr` (en tidyverse). Añade las filas de una base de datos a las de otra, teniendo en cuenta lo siguiente:
+
+-   **Si el nombre de alguna variable coincide** en ambos df, **los fusiona en una única columna**, añadiendo juntos los valores de ambas bases de datos.
+
+-   **Si existen variables de distinto nombre**, **rellena con NA** los valores del df donde esta no existe.
+
+Ejemplo:
+
+```{r}
+#| include: false
+library(dplyr)
+```
+
+```{r}
+df1 <- data.frame(var1 = 1:3, var2 = c("x", "y", "z"))
+df2 <- data.frame(var1 = 4:5, var2 = c("w", "v"))
+df3 <- data.frame(var1 = 6:7, var3 = c("m", "n"))
+
+union_df <- bind_rows(df1, df2, df3)
+
+print(union_df)
+```
+
+Para verificar si el nombre de las variables en los df son iguales se usa el siguiente comando. El comando se debe ejecutar dos veces cambiando el nombre de las variables, para ver así qué variables están en el primer df pero no en el segundo, y lo contrario.
+
+-   Variables que están en df1 pero no en df3:
+
+```{r}
+setdiff(names(df1), names(df3))
+```
+
+-   Variables que están en df3 pero no en df1:
+
+```{r}
+setdiff(names(df3), names(df1))
+```
+
+::: callout-important
+## Atención
+
+Conviene crear una nueva variable en cada df antes de unirlos que indique la procedencia de los datos (ej.: el nombre del df, el año, el mes...)
+:::
+
 ------------------------------------------------------------------------
 
 ## Añadir variables (unión horizontal)
+
+Se usan las funciones `_join()` de `dplyr`. El objetivo final es tener una base de datos ampliada con un número mayor de variables. Para que funciones, debe haber al menos una variable común en ambos df. Estas son conocidas como claves, y pueden ser:
+
+-   **Primary key** es la variable que permite identificar cada una de las filas (algo único para cada fila). Siempre tiene que exitir.
+-   **Foreing key**: cualquier variable que sea común en dos bases de datos y que por tanto permita unirlas.
+
+Es recomendable trabajar con marcos de datos donde foreign key identifique la unidad de observación de la base de datos.
+
+Existen varias funciones que permiten la unión horizontal, y varían en función del número de observaciones que se conservan tras la fusión.
+
+### Principales argumentos
+
+-   x = : indica una de las bases de datos.
+-   y = : indica la otra base de datos.
+-   by = : indica la(s) variable(s) que permiten unir las bases de datos. Si no se especifica by = , R detecta las variables comunes entre marcos de datos (menos recomendable).
+-   keep = : T o F, para indicar si se quieren preservar la(s) variable(s) especificadas en el argumento by.
+
+### Funciones
+
+-   `left_join()`: añade la información de los datos ***y*** al marco ***x***. Se mantienen todas las observaciones de x, añadiendo únicamente la información de las variables de y para las que existen coincidencias en x.
+
+-   `right_join()`: similar a left_join, pero añadiendo los datos de ***x*** al df ***y***.
+
+-   `inner_join()`: se mantienen solo las observaciones de ***x*** e ***y*** donde existen coincidencias en ambos df, combinando todas las variables de ambos marcos.
+
+-   `full_join()`: combina toda la información de las dos bases de datos, tanto en el número de variables como de casos, incluso cuando no existen coincidencias entre ***x*** e ***y***.
+
+*inner_join() es una opción más conservadora full_join(), ya que en el caso de haber algún caso que no sea común lo omite, mientras que en el segundo se unen todos los casos.*
 
 ------------------------------------------------------------------------

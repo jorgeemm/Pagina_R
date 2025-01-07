@@ -32,6 +32,8 @@ filter(!(datos$recuerdo %in% c("Cs","Otros")))
 ```
 
 ::: callout-tip
+## Consejo
+
 Al usar tanto *filter* como *select*, conviene guardar los cambios dentro de un nuevo objeto y dejar el dataset original sin modificar.
 :::
 

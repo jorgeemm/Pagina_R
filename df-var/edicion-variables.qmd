@@ -86,6 +86,8 @@ datos <- datos %>%
   mutate(votosFO_porcentaje = votos_FO/votostotales*100)
 ```
 
+-   Usar el comando [`summarise`](https://jorgeemm.github.io/Pagina_R/df-var/group_by.html#summarise) dentro del `mutate`.
+
 ### El comando case_when
 
 Permite crear nuevas variables a partir de secuencias lógicas múltiples.
@@ -130,7 +132,7 @@ Datos <- Datos %>%
 
 ### Variables categóricas
 
-Las **variables categóricas** se recodifidan del siguiente modo:
+Las **variables categóricas** se recodifican del siguiente modo:
 
 1.  Transformándolas en una variable numérica:
 

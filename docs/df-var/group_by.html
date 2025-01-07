@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../df-var/ficheros-datos.qmd"> 
+    <a class="nav-link active" href="../df-var/apertura-datos.html" aria-current="page"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="utilidad-del-comando" class="level2">
 <h2 class="anchored" data-anchor-id="utilidad-del-comando">Utilidad del comando</h2>
 <p><code>group_by</code> es un comando del paquete <code>tidyverse</code> que permite agrupar todas las observaciones de una base de datos a partir de los valores concretos de una de sus variables. Esto lo vuelve un comando de gran utilidad a la hora de modificar y crear nuevas bases de datos a partir de las ya existentes, o para crear nuevas variables. También es muy útil a la hora de obtener resúmenes de la información existente.</p>
-<p>El comando por sí solo no genera ninguna transformación visible en la base de datos, pero sí lo hace invisiblemente. Por eso, después de realizar las transformaciones necesarias a partir del <code>group_by</code> es necesario desagrupar para evitar posibles problemas futuros. Para esto se usa la función <code>ungruop()</code>.</p>
+<p>El comando por sí solo no genera ninguna transformación visible en la base de datos, pero sí lo hace invisiblemente. Por eso, después de realizar las transformaciones a partir del <code>group_by</code> es recomendable desagrupar para evitar posibles problemas futuros. Para esto se usa la función <code>ungruop()</code>.</p>
 </section>
 <section id="summarise" class="level2">
 <h2 class="anchored" data-anchor-id="summarise">summarise</h2>

@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="menu-text">Introducción a R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../df-var/ficheros-datos.qmd"> 
+    <a class="nav-link active" href="../df-var/apertura-datos.html" aria-current="page"> 
 <span class="menu-text">Bases de datos y variables</span></a>
   </li>  
   <li class="nav-item">
@@ -259,8 +259,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#ª-estrategia-excluir-del-analisis" id="toc-ª-estrategia-excluir-del-analisis" class="nav-link active" data-scroll-target="#ª-estrategia-excluir-del-analisis">1ª Estrategia: Excluir del analisis</a></li>
+  <li><a href="#ª-estrategia-imputación-simple" id="toc-ª-estrategia-imputación-simple" class="nav-link" data-scroll-target="#ª-estrategia-imputación-simple">2ª Estrategia: Imputación simple</a></li>
+  <li><a href="#ª-estrategia-imputación-predictiva" id="toc-ª-estrategia-imputación-predictiva" class="nav-link" data-scroll-target="#ª-estrategia-imputación-predictiva">3ª Estrategia: Imputación predictiva</a></li>
+  <li><a href="#ª-estrategia-imputación-multiple" id="toc-ª-estrategia-imputación-multiple" class="nav-link" data-scroll-target="#ª-estrategia-imputación-multiple">4ª Estrategia: Imputación multiple</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -269,8 +278,71 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+<p>Antes de afrontar un análisis es clave ser consciente de los NA y su distribución porque pueden sesgar los resultados.</p>
+<p><strong>Missing Completely at Ramdon (MCAR)</strong></p>
+<ul>
+<li><p>Si están uniformemente distribuidos</p>
+<ul>
+<li>No correlacionan con otras variables</li>
+<li>La existencia de NAs es aleatoria</li>
+</ul></li>
+<li><p>No sesgaran los resultados porque la probabilidad de observar NA es igual para todas las unidades.</p></li>
+</ul>
+<p><strong>Missing at Random (MAR)</strong></p>
+<ul>
+<li>La probabilidad de observar NA en una variable está relacionada con otra información disponible.</li>
+<li>Hay varias estrategias
+<ul>
+<li>Excluir el modelo
+<ul>
+<li>controlando por las varuables que afecctan a la posibilidad de NA.</li>
+</ul></li>
+<li>Imputar valores a las unidades con NA.
+<ul>
+<li>Asignar un valor a partir de otra información disponible.</li>
+</ul></li>
+</ul></li>
+</ul>
+<section id="ª-estrategia-excluir-del-analisis" class="level2">
+<h2 class="anchored" data-anchor-id="ª-estrategia-excluir-del-analisis">1ª Estrategia: Excluir del analisis</h2>
+<ul>
+<li><p>Todas las observaciones con algún NA en alguna variable</p></li>
+<li><p>Las observaciones con NA en las variables relevantes.</p></li>
+</ul>
+</section>
+<section id="ª-estrategia-imputación-simple" class="level2">
+<h2 class="anchored" data-anchor-id="ª-estrategia-imputación-simple">2ª Estrategia: Imputación simple</h2>
+<ul>
+<li><p><strong>Media/mediana</strong>: asignar el valor media(an) de la variable.</p>
+<p>Con esto puedo estar introduciendo sesgos. Si tengo pocos casos es una manera rápida de hacerlo y como son pocas observaciones el sesgo será pequeño.</p></li>
+<li><p><strong>Interpolar valores</strong>: solo es válido para datos panel.</p>
+<ul>
+<li>Usar na.approx() del parquete <code>zoo</code>.</li>
+</ul></li>
+<li><p><strong>Asignar el anterior/siguiente valor</strong> : también en datos panel.</p>
+<p>Puedo asignar para esa unidad especígicamente cual sería la interpolación para esa unidad en ese momento en concreto. También puedo coger el valor que tenía el año pasado y ponerselo en este.</p>
+<p>Usar fil()</p></li>
+<li><p>Hot Deck: remplazar con un valor aleatorio a partir de un subconjunto de datos muy parecido al del resto de observaciones.</p>
+<p>Numeros aleatorios a los valores NA que estén distribuidos igual que el resto de observaciones.</p></li>
+</ul>
+</section>
+<section id="ª-estrategia-imputación-predictiva" class="level2">
+<h2 class="anchored" data-anchor-id="ª-estrategia-imputación-predictiva">3ª Estrategia: Imputación predictiva</h2>
+<ul>
+<li><p>A partir de modelos de regresión</p></li>
+<li><p>Modelos de regresión estocástica: ídem + error temr</p></li>
+<li><p>Impuestación de matching: calcula un promedio de k valores en observaciones muy parecidoas a la que tiene NA.</p></li>
+</ul>
+</section>
+<section id="ª-estrategia-imputación-multiple" class="level2">
+<h2 class="anchored" data-anchor-id="ª-estrategia-imputación-multiple">4ª Estrategia: Imputación multiple</h2>
+<ul>
+<li><p>Similar a alguna anterior pero generando varias bases de datos, analizándolas por separado y comnando los resultados.</p></li>
+<li><p>Paquetes: mice &amp; Amelia.</p></li>
+</ul>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

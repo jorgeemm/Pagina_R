@@ -1,3 +1,63 @@
 ---
 title: "Casos perdidos (NA)"
 ---
+
+Antes de afrontar un análisis es clave ser consciente de los NA y su distribución porque pueden sesgar los resultados.
+
+**Missing Completely at Ramdon (MCAR)**
+
+-   Si están uniformemente distribuidos
+
+    -   No correlacionan con otras variables
+    -   La existencia de NAs es aleatoria
+
+-   No sesgaran los resultados porque la probabilidad de observar NA es igual para todas las unidades.
+
+**Missing at Random (MAR)**
+
+-   La probabilidad de observar NA en una variable está relacionada con otra información disponible.
+-   Hay varias estrategias
+    -   Excluir el modelo
+        -   controlando por las varuables que afecctan a la posibilidad de NA.
+    -   Imputar valores a las unidades con NA.
+        -   Asignar un valor a partir de otra información disponible.
+
+## 1ª Estrategia: Excluir del analisis
+
+-   Todas las observaciones con algún NA en alguna variable
+
+-   Las observaciones con NA en las variables relevantes.
+
+## 2ª Estrategia: Imputación simple
+
+-   **Media/mediana**: asignar el valor media(an) de la variable.
+
+    Con esto puedo estar introduciendo sesgos. Si tengo pocos casos es una manera rápida de hacerlo y como son pocas observaciones el sesgo será pequeño.
+
+-   **Interpolar valores**: solo es válido para datos panel.
+
+    -   Usar na.approx() del parquete `zoo`.
+
+-   **Asignar el anterior/siguiente valor** : también en datos panel.
+
+    Puedo asignar para esa unidad especígicamente cual sería la interpolación para esa unidad en ese momento en concreto. También puedo coger el valor que tenía el año pasado y ponerselo en este.
+
+    Usar fil()
+
+-   Hot Deck: remplazar con un valor aleatorio a partir de un subconjunto de datos muy parecido al del resto de observaciones.
+
+    Numeros aleatorios a los valores NA que estén distribuidos igual que el resto de observaciones.
+
+## 3ª Estrategia: Imputación predictiva
+
+-   A partir de modelos de regresión
+
+-   Modelos de regresión estocástica: ídem + error temr
+
+-   Impuestación de matching: calcula un promedio de k valores en observaciones muy parecidoas a la que tiene NA.
+
+## 4ª Estrategia: Imputación multiple
+
+-   Similar a alguna anterior pero generando varias bases de datos, analizándolas por separado y comnando los resultados.
+
+-   Paquetes: mice & Amelia.

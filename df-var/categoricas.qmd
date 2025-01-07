@@ -7,6 +7,10 @@ setwd(here::here())
 source("00_datos/source.R")
 ```
 
+Un factor es una variable categórica compuesta por dos elementos, los valores numéricos (levels) y las valores de texto o etiquetas asociadas a dichos números (labels). Este tipo de variables son especialmente relevantes cuando se están empleando variables categóricas **ordinales**. El orden establecido en los levels será el empleado tanto a la hora de realizar gráficos o tablas como durante los análisis de regresión (siendo el número más bajo el que se usará como categoría de referencia).
+
+Los factores se pueden crear tanto a partir de variables numéricas como de carácter. Para ello se usan las funciones `factor`, `as.factor` y `as_factor`. Por defecto, estos comandos establecen los niveles de las categorías en función del orden alfabético. Por ello es más recomendable establecer los levels de forma manual, especialmente si estos son relevantes.
+
 ## Añadir etiquetas
 
 Ver las etiquetas de una variable: `attr(datos$var, "labels")`:
@@ -57,4 +61,96 @@ val_labels(datos$ideol)
 
 ------------------------------------------------------------------------
 
-## Editar el texto (Stringr)
+## Edición de factores (forcast)
+
+Para modificar variables de tipo factor se usa el paquete `forcast`, incluido en `tidyverse`. Algunas de sus funciones son:
+
+#### Reordenar los levels
+
+La función `fct_recode` permite cambiar los nombres de las categorías.
+
+``` r
+datos <- datos %>% mutate(var=fct_recode(var, "nuevo_nombre1"="nombre_original1", "nuevo_nombre2"="nombre_original2"))
+```
+
+Para **cambiar el orden manualmente** se usa el comando `fct_relevel`. Opciones:
+
+-   Indicar solo un nivel como el primero, manteniendo el resto iguales:
+
+    ``` r
+    datos <- datos %>% mutate(var=fct_relevel(var,"categoría_1")) 
+    ```
+
+-   Modificar el orden de todas las categorías:
+
+    ``` r
+    datos <- datos %>% mutate(var=fct_relevel(var, c("cat_1", "cat_2", "cat_3"))) 
+    ```
+
+Reordenar las categorías según su frecuencia (habitual cuando se quiere graficar ordenando de mayor a menor). La función es `fct_infreq`:
+
+``` r
+datos <- datos %>% mutate(var=fct_infreq(var))
+```
+
+-   El nuevo orden también se puede establecer según la frecuencia de una segunda variable:
+
+    ``` r
+    datos <- datos %>% mutate(var=fct_infreq(var, var2))
+    ```
+
+`fct_lump` sirve para disminuir el número de categorías, convirtiendo las menos frecuentes en la categoría "otros". Sus argumentos son:
+
+-   `n` para indicar el número de categorías que quieres que tenga la variable final
+-   `prop` para conservar únicamente las categorías que representen más de un x% de la muestra.
+
+``` r
+datos <- datos %>% mutate(var=fct_lump(var, n=3))
+```
+
+------------------------------------------------------------------------
+
+## Editar el texto (stringr)
+
+A la hora de modificar variables que contienen texto, uno de los paquetes de mayor utilidad es `stringer`. Entre sus funciones principales se sitúan las siguientes:
+
+-   Contar caracteres (o palabras):
+
+    -   `str_length()`: indica el número de caracteres (letras, números, espacios...)
+    -   `str_count(variable/vector, boundary("letra/palabra"))`: indica el número de veces que se repite la palabra o carácter de interés dentro de un terminado vector o variable.
+
+-   Combinar palabras: `str_c(x, collapse=",")`. Une varias palabras o elementos usando como unión el símbolo que se indique (en este caso las separaría con una coma).
+
+-   Recortar texto: `str_sub(x, 1, 2)`. El primer número indica el primer caracter a partir del cual se recortará el texto, y el segundo hasta dónde se recortará.
+
+-   Detectar patrones:
+
+    -   `str_detect(x, pattern = "")`: devuelve el valor TRUE o FALSO si se localiza el texto indicado.
+    -   `str_count(x, pattern = "")`: indica cuántas veces se repite el patrón en cada string.
+    -   `str_extract(x, pattern = "")`: saca una lista con los patrones establecidos *(también existe el comando `str_extract_all(x, pattern = "")`)*
+
+-   Reemplazar texto:
+
+    -   `str_replace(x, pattern = "", replacement = "")`
+    -   `str_replace_all(x, pattern = "", replacement = "")`
+
+-   Dividir texto: `str_split(x, ",")` (es mejor usar separate, del paquete dplyr).
+
+-   Cambiar el formato del texto:
+
+    -   `str_to_upper(x)` - todo el texto en mayúsculas.
+    -   `str_to_lower(x)` - todo el texto en minúsculas.
+    -   `str_to_title(x)` - la primera letra de cada palabra en mayúsculas (muy útil para los nombres).
+    -   `str_to_sentence(x)` - solo la primera letra de la primera palabra en mayúsculas.
+
+-   Eliminar espacios blancos de más (al principio y el final de las palabras/frases): `str_trim(x)`.
+
+-   Asegurar la misma longitud de todos los textos: `str_pad(x, 3)`.
+
+Si dentro de los comandos se quieren buscar o modificar determinados caracteres especiales, como la ? o el espacio, entre otros, estos deben escribirse del siguiente modo:
+
+![](images/clipboard-937780431.png)
+
+### Chuleta stringr
+
+![](images/clipboard-2240321631.png)
