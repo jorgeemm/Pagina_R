@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ggplot básico – Página R</title>
+<title>Ejemplos – Página R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../graficos/g-visual.html" rel="next">
+<link href="../graficos/g-otros.html" rel="prev">
 <link href="../01_img/icono.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -197,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">ggplot básico</h1>
+          <h1 class="quarto-secondary-nav-title">Ejemplos</h1>
         </a>     
     </div>
   </nav>
@@ -206,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">ggplot básico</h1>
+      <h1 class="title d-none d-lg-block">Ejemplos</h1>
                       </div>
   </div>
     
@@ -226,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../graficos/g-intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../graficos/g-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ggplot básico</span></a>
   </div>
 </li>
@@ -268,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../graficos/g-galeria.html" class="sidebar-item-text sidebar-link">
+  <a href="../graficos/g-galeria.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Ejemplos</span></a>
   </div>
 </li>
@@ -282,19 +248,10 @@ document.addEventListener('DOMContentLoaded', function() {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#el-paquete-ggplot" id="toc-el-paquete-ggplot" class="nav-link active" data-scroll-target="#el-paquete-ggplot">El paquete ggplot</a></li>
-  <li><a href="#añadir-datos-a-un-gráfico" id="toc-añadir-datos-a-un-gráfico" class="nav-link" data-scroll-target="#añadir-datos-a-un-gráfico">Añadir datos a un gráfico</a>
-  <ul class="collapse">
-  <li><a href="#donde-colocar-el-aes" id="toc-donde-colocar-el-aes" class="nav-link" data-scroll-target="#donde-colocar-el-aes">¿Donde colocar el <code>aes()</code>?</a></li>
-  </ul></li>
-  <li><a href="#otros-recursos" id="toc-otros-recursos" class="nav-link" data-scroll-target="#otros-recursos">Otros recursos</a></li>
-  <li><a href="#tipos-de-gráficos" id="toc-tipos-de-gráficos" class="nav-link" data-scroll-target="#tipos-de-gráficos">Tipos de gráficos</a>
-  <ul class="collapse">
-  <li><a href="#líneas" id="toc-líneas" class="nav-link" data-scroll-target="#líneas">Líneas</a></li>
-  <li><a href="#puntos" id="toc-puntos" class="nav-link" data-scroll-target="#puntos">Puntos</a></li>
-  <li><a href="#barras" id="toc-barras" class="nav-link" data-scroll-target="#barras">Barras</a></li>
-  </ul></li>
-  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link" data-scroll-target="#cheat-sheet">Cheat sheet</a></li>
+  <li><a href="#gráficos-de-líneas" id="toc-gráficos-de-líneas" class="nav-link active" data-scroll-target="#gráficos-de-líneas">Gráficos de líneas:</a></li>
+  <li><a href="#gráficos-de-barras" id="toc-gráficos-de-barras" class="nav-link" data-scroll-target="#gráficos-de-barras">Gráficos de barras:</a></li>
+  <li><a href="#gráficos-de-mancuernas" id="toc-gráficos-de-mancuernas" class="nav-link" data-scroll-target="#gráficos-de-mancuernas">Gráficos de mancuernas:</a></li>
+  <li><a href="#otros-gráficos" id="toc-otros-gráficos" class="nav-link" data-scroll-target="#otros-gráficos">Otros gráficos:</a></li>
   </ul>
 </nav>
     </div>
@@ -305,239 +262,108 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-<section id="el-paquete-ggplot" class="level2">
-<h2 class="anchored" data-anchor-id="el-paquete-ggplot">El paquete ggplot</h2>
-<p><code>ggplot</code> es un paquete incluido en <code>tidyverse</code> que sirve para hacer gráficos.</p>
-<p>Para usarlo, basta con escribir la función <code>ggplot()</code> e ir encadenando otras funciones que añadirán detalles al gráfico usando como enlace el +. Esta concatenación de comandos funciona como un lienzo, donde los comandos que añadas posteriormente añadirán detalles por encima de los anteriores. Es decir, el comando que esté más abajo en la secuencia será el que más adelante se visualice en el gráfico, y el primer comando situado tras el <code>ggplot()</code> el que se situará más al fondo.</p>
-<div class="line-block">Por ejemplo, los dos gráficos mostrados a continuación tienen las mismas líneas de código, pero en el de la izquierda el comando que dibuja las barras se ha escrito el primero, y en el de la derecha el segundo, después de la línea:</div>
-<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GRAFICO 1</span></span>
-<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data =</span> penguins,</span>
-<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-5" class="code-annotation-target"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">75</span>,</span>
-<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-7" class="code-annotation-target"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GRAFICO 2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">75</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="gráficos-de-líneas" class="level2">
+<h2 class="anchored" data-anchor-id="gráficos-de-líneas"><a href="g-lineas.html">Gráficos de líneas:</a></h2>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="cell-annotation">
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="3,4" data-code-annotation="1">Comando para el gráfico de barras.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="5,6" data-code-annotation="2">Comando para la línea roja.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="7" data-code-annotation="3">Cambia el fondo de gris a blanco.</span>
-</dd>
-</dl>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-right">
 <figure class="figure">
-<p><img src="g-intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<p><img src="01_img/lineas_relleno.png" class="zoomable img-fluid quarto-figure quarto-figure-right figure-img" width="375"></p>
 </figure>
 </div>
 </div>
-</div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="g-intro_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<p><img src="01_img/lineas_valoracion.png" class="zoomable img-fluid quarto-figure quarto-figure-left figure-img" width="375"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Los gráficos mostrados, salvo que se indique lo contrario, se han realizado con los datos de la librería <code>palmerpenguins</code>.</p>
-</div>
-</div>
-</div>
-<p>Entre los componentes básicos de los gráficos de ggplot se encuentran:</p>
-<ul>
-<li><p><strong>Capas (layer)</strong>: son los elementos que se van añadiendo a la gráfica para crear el gráfico (<em>geom_</em>).</p></li>
-<li><p><strong>Escalas (scales)</strong>: permiten modificar algunos aspectos más visuales de los gráficos, como los ejes, las formas, los tamaños y los colores.</p></li>
-<li><p><strong>Coordenadas (coord)</strong>: modificaciones adicionales para modificar los ejes o el tipo de gráfico (p.&nbsp;ej. pasar el eje x al y, ).</p></li>
-<li><p><strong>Facet</strong>: permite emplear una variable extra para dividir al gráfico original en subgráficos.</p></li>
-<li><p><strong>Tema (theme)</strong>: modificaciones estéticas sobre el fondo, el tipo y tamaño de la fuente, el grid…</p></li>
-</ul>
 </section>
-<section id="añadir-datos-a-un-gráfico" class="level2">
-<h2 class="anchored" data-anchor-id="añadir-datos-a-un-gráfico">Añadir datos a un gráfico</h2>
-<ol type="1">
-<li><p><strong>Añadir la base de datos</strong>:</p>
-<ol type="1">
-<li><p>Antes del comando <code>ggplot</code>.Esta opción es muy útil ya que permite editar los datos de la base en la misma sucesión de comandos en la que se incluye el gráfico, sin necesidad de crear nuevos objetos:</p>
-<div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2">2</button><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">Se un el comando ggplot al df gracias a un pipe.</span>
-</dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="2,3" data-code-annotation="2">Gráfico</span>
-</dd>
-</dl></li>
-<li><p>Dentro del comando <code>ggplot</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Dentro del comando del gráfico. Especialmente útil si se usan varias bases de datos distintas en el mismo gráfico.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(penguins,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol></li>
-<li><p><strong>Añadir las variables (aes)</strong>:</p>
-<ol type="1">
-<li>Dos variables: aes(x = var_x, y = var_y)</li>
-</ol>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="g-intro_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
+<section id="gráficos-de-barras" class="level2">
+<h2 class="anchored" data-anchor-id="gráficos-de-barras"><a href="g-barras.html">Gráficos de barras:</a></h2>
+<div>
+
 </div>
-</div>
-</div>
-<ol start="2" type="1">
-<li><p>Más de dos variables: aes(x = var_x, y = var_y, color/fill/shape/size/linetype = var_z)</p></li>
-<li><p>También se pueden añadir variables extra dividiendo los gráficos mediante el uso de [<code>facet</code>](g-otras-transformaciones.html)</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> body_mass_g,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> species,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">shape =</span> species)) <span class="sc">+</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="g-intro_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div></li>
-</ol></li>
-</ol>
-<section id="donde-colocar-el-aes" class="level3">
-<h3 class="anchored" data-anchor-id="donde-colocar-el-aes">¿Donde colocar el <code>aes()</code>?</h3>
-<p>El aes se puede situar tanto dentro del comando <code>ggplot()</code> como dentro de los comandos específicos de cada gráfico <code>geom_x()</code>. Es muy importante tener en cuenta dónde situar las variables, ya que dependerá del gráfico que se está realizando. El aes irá dentro de <code>ggplot()</code> cuando las variables sean las mismas en todas las capas de <code>geom_</code> que se vayan a emplear. Si existe alguna variable que sea particular de una de las capas, el aes que incluye esta variable debe ir dentro del <code>geom_</code>.</p>
-<div class="line-block">P. ej., si quieres que los puntos del fondo tengan color en función de una tercera variable pero las líneas que se sitúan encima no (izquierda) el color irá en el aes() del geom_point(). En cambio, si quieres que tanto los puntos como las líneas se muestren en función de la tercera variable, color va dentro del aes() de ggplot().</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GRÁFICO 1</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> body_mass_g)) <span class="sc">+</span> </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># GRÁFICO 2</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, </span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> body_mass_g, </span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> species)) <span class="sc">+</span> </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-right">
 <figure class="figure">
-<p><img src="g-intro_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<p><img src="01_img/barras_dobles_ideol.png" class="zoomable img-fluid quarto-figure quarto-figure-right figure-img" width="375"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="01_img/barras_dobles.png" class="zoomable img-fluid quarto-figure quarto-figure-left figure-img" width="375"></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+</div>
+</section>
+<section id="gráficos-de-mancuernas" class="level2">
+<h2 class="anchored" data-anchor-id="gráficos-de-mancuernas"><a href="g-mancuernas.html">Gráficos de mancuernas:</a></h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-right">
 <figure class="figure">
-<p><img src="g-intro_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<p><img src="01_img/puntos_posicion_partidos.png" class="zoomable img-fluid quarto-figure quarto-figure-right figure-img" width="375"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="0_img/puntos_posicion_edad_ideol.png" class="zoomable img-fluid quarto-figure quarto-figure-left figure-img" width="375"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+</section>
+<section id="otros-gráficos" class="level2">
+<h2 class="anchored" data-anchor-id="otros-gráficos"><a href="g-otros.html">Otros gráficos:</a></h2>
+<div>
+
 </div>
-<hr>
-</section>
-</section>
-<section id="otros-recursos" class="level2">
-<h2 class="anchored" data-anchor-id="otros-recursos">Otros recursos</h2>
-<p>Páginas con explicaciones sobre ggplot y muchos ejemplos:</p>
-<ul>
-<li><p><a href="https://r-graph-gallery.com/index.html">The R Graph Galery</a></p></li>
-<li><p><a href="https://r-charts.com/es/">R Charts</a> - en español</p></li>
-<li><p><a href="https://elartedeldato.com/ggplot2/">El arte del dato bien contado</a> - en español</p></li>
-</ul>
-<p>Páginas para elegir colores:</p>
-<ul>
-<li><p>Generadores de paletas:</p>
-<ul>
-<li><p><a href="https://coolors.co/" class="uri">https://coolors.co/</a></p></li>
-<li><p><a href="https://r-charts.com/es/generador-paletas-colores/" class="uri">https://r-charts.com/es/generador-paletas-colores/</a></p></li>
-</ul></li>
-<li><p>Selector de colores: <a href="https://unscart.com/extension/color-picker/" class="uri">https://unscart.com/extension/color-picker/</a></p></li>
-</ul>
-<hr>
-</section>
-<section id="tipos-de-gráficos" class="level2">
-<h2 class="anchored" data-anchor-id="tipos-de-gráficos">Tipos de gráficos</h2>
-<section id="líneas" class="level3">
-<h3 class="anchored" data-anchor-id="líneas">Líneas</h3>
-</section>
-<section id="puntos" class="level3">
-<h3 class="anchored" data-anchor-id="puntos">Puntos</h3>
-</section>
-<section id="barras" class="level3">
-<h3 class="anchored" data-anchor-id="barras">Barras</h3>
-<hr>
-</section>
-</section>
-<section id="cheat-sheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheat-sheet">Cheat sheet</h2>
-<p><img src="01_img/chuleta_ggplot_1.png" class="img-fluid"></p>
-<p><img src="01_img/chuleta_ggplot_2.png" class="img-fluid"></p>
-<p><a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf">Enlace a la chuleta</a></p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01_img/puntos_barras.png" class="zoomable img-fluid quarto-figure quarto-figure-center figure-img" width="375"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="images/clipboard-3495054274.png" class="zoomable img-fluid quarto-figure quarto-figure-right figure-img" width="375"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/clipboard-2387205880.png" class="zoomable img-fluid quarto-figure quarto-figure-left figure-img" width="375"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -1149,11 +975,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-alt-theme" value="dark_dimmed">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../graficos/g-otros.html" class="pagination-link" aria-label="Otros gráficos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Otros gráficos</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../graficos/g-visual.html" class="pagination-link" aria-label="Modificaciones estéticas">
-        <span class="nav-page-text">Modificaciones estéticas</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -83,13 +83,16 @@ website:
             - analisis/predicciones-lineal.qmd
             - analisis/reg-logistica.qmd
  
-    - title: "Gráficos"
+    - title: "Gráficos - ggplot"
       contents:
         - graficos/g-intro.qmd
+        - graficos/g-visual.qmd
+        - graficos/g-otras-transformaciones.qmd
         - graficos/g-lineas.qmd
         - graficos/g-barras.qmd
         - graficos/g-mancuernas.qmd
         - graficos/g-otros.qmd
+        - graficos/g-galeria.qmd
 
 
 format:
@@ -103,13 +106,7 @@ format:
     toc: true
     toc-title: "Contenido"
     code-annotations: hover # Para que las anotaciones en el código (# <1>) aparezcan solo al pasar el ratón por encima, y no estén siempre debajo del chunk
-    language: 
-      es:
-        callout-tip-title: "Consejo"
-        callout-note-title: "Nota"
-        callout-warning-title: "Advertencia"
-        callout-important-title: "Importante"
-        callout-caution-title: "Precaución"
+    language: es
     include-in-header:
       - text: |
           <style>

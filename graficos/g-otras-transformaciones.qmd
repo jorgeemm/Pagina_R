@@ -1,0 +1,13 @@
+---
+title: "Otras transformaciones"
+---
+
+::: callout-warning
+## ATENCIÓN
+
+Pagina en construcción
+:::
+
+## Coord-flip
+
+## Facet-wrap

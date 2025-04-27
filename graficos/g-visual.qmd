@@ -1,0 +1,11 @@
+---
+title: "Modificaciones estéticas"
+---
+
+::: callout-warning
+## AVTENCIÓN
+
+Página en construcción
+:::
+
+Modificar el aspecto de los gráficos: en el color y el tamaño especificar cuándo hay que poner el color dentro del aes y cuándo va fuera. Poner juntos un ejemplo de cada para que se vea la diferencia.

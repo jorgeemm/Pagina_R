@@ -1,37 +1,200 @@
 ---
-title: "Ejemplos"
+title: "ggplot básico"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
 ---
 
-## [Gráficos de líneas:](g-lineas.html)
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## El paquete ggplot
+
+`ggplot` es un paquete incluido en `tidyverse` que sirve para hacer gráficos.
+
+Para usarlo, basta con escribir la función `ggplot()` e ir encadenando otras funciones que añadirán detalles al gráfico usando como enlace el +. Esta concatenación de comandos funciona como un lienzo, donde los comandos que añadas posteriormente añadirán detalles por encima de los anteriores. Es decir, el comando que esté más abajo en la secuencia será el que más adelante se visualice en el gráfico, y el primer comando situado tras el `ggplot()` el que se situará más al fondo.
+
+| Por ejemplo, los dos gráficos mostrados a continuación tienen las mismas líneas de código, pero en el de la izquierda el comando que dibuja las barras se ha escrito el primero, y en el de la derecha el segundo, después de la línea:
 
 ::: {layout-ncol="2"}
-![](01_img/lineas_relleno.png){.zoomable fig-align="right" width="375"}
+```{r}
+# GRAFICO 1
+ggplot() +
+  geom_bar(data = penguins, #<1>
+           aes(x = species)) + #<1>
+  geom_hline(yintercept = 75, #<2>
+             color = "red") + #<2>
+  theme_minimal() #<3>
+  
+```
 
-![](01_img/lineas_valoracion.png){.zoomable fig-align="left" width="375"}
+1.  Comando para el gráfico de barras.
+2.  Comando para la línea roja.
+3.  Cambia el fondo de gris a blanco.
+
+```{r}
+# GRAFICO 2
+ggplot() +
+  geom_hline(yintercept = 75,
+             color = "red") +
+  geom_bar(data = penguins,
+           aes(x = species)) +
+  theme_minimal()
+```
 :::
 
-## [Gráficos de barras:](g-barras.html)
+::: {.callout-note appearance="simple" collapse="true"}
+## Nota
+
+Los gráficos mostrados, salvo que se indique lo contrario, se han realizado con los datos de la librería `palmerpenguins`.
+:::
+
+Entre los componentes básicos de los gráficos de ggplot se encuentran:
+
+-   **Capas (layer)**: son los elementos que se van añadiendo a la gráfica para crear el gráfico (*geom\_*).
+
+-   **Escalas (scales)**: permiten modificar algunos aspectos más visuales de los gráficos, como los ejes, las formas, los tamaños y los colores.
+
+-   **Coordenadas (coord)**: modificaciones adicionales para modificar los ejes o el tipo de gráfico (p. ej. pasar el eje x al y, ).
+
+-   **Facet**: permite emplear una variable extra para dividir al gráfico original en subgráficos.
+
+-   **Tema (theme)**: modificaciones estéticas sobre el fondo, el tipo y tamaño de la fuente, el grid...
+
+## Añadir datos a un gráfico
+
+1.  **Añadir la base de datos**:
+
+    1.  Antes del comando `ggplot`.Esta opción es muy útil ya que permite editar los datos de la base en la misma sucesión de comandos en la que se incluye el gráfico, sin necesidad de crear nuevos objetos:
+
+        ``` r
+        penguins %>% #<1>
+        ggplot() + #<2>
+          geom_bar(aes(x = species)) + #<2>
+        ```
+
+        1.  Se un el comando ggplot al df gracias a un pipe.
+        2.  Gráfico
+
+    2.  Dentro del comando `ggplot`:
+
+        ``` r
+        ggplot(penguins) + 
+          geom_bar(aes(x = species))
+        ```
+
+    3.  Dentro del comando del gráfico. Especialmente útil si se usan varias bases de datos distintas en el mismo gráfico.
+
+        ``` r
+        ggplot() + 
+          geom_bar(penguins,
+                   aes(x = species))
+        ```
+
+2.  **Añadir las variables (aes)**:
+
+    1.  Dos variables: aes(x = var_x, y = var_y)
+
+    ```{r}
+    ggplot(penguins) +
+      geom_point(aes(x = flipper_length_mm, 
+                     y = body_mass_g)) +
+      theme_minimal()
+    ```
+
+    2.  Más de dos variables: aes(x = var_x, y = var_y, color/fill/shape/size/linetype = var_z)
+
+    3.  También se pueden añadir variables extra dividiendo los gráficos mediante el uso de \[`facet`\](g-otras-transformaciones.html)
+
+        ```{r}
+        ggplot(penguins) +
+          geom_point(aes(x = flipper_length_mm, 
+                         y = body_mass_g,
+                         color = species,
+                         shape = species)) +
+          theme_minimal()
+        ```
+
+### ¿Donde colocar el `aes()`?
+
+El aes se puede situar tanto dentro del comando `ggplot()` como dentro de los comandos específicos de cada gráfico `geom_x()`. Es muy importante tener en cuenta dónde situar las variables, ya que dependerá del gráfico que se está realizando. El aes irá dentro de `ggplot()` cuando las variables sean las mismas en todas las capas de `geom_` que se vayan a emplear. Si existe alguna variable que sea particular de una de las capas, el aes que incluye esta variable debe ir dentro del `geom_`.
+
+| P. ej., si quieres que los puntos del fondo tengan color en función de una tercera variable pero las líneas que se sitúan encima no (izquierda) el color irá en el aes() del geom_point(). En cambio, si quieres que tanto los puntos como las líneas se muestren en función de la tercera variable, color va dentro del aes() de ggplot().
 
 ::: {layout-ncol="2"}
-![](01_img/barras_dobles_ideol.png){.zoomable fig-align="right" width="375"}
+```{r}
+# GRÁFICO 1
 
-![](01_img/barras_dobles.png){.zoomable fig-align="left" width="375"}
+penguins %>% 
+  ggplot(aes(x = flipper_length_mm, 
+             y = body_mass_g)) + 
+  geom_point(aes(color = species)) +
+  geom_smooth(
+    method = "lm",
+    se = FALSE) +
+  theme_minimal()
+```
+
+```{r}
+# GRÁFICO 2
+
+penguins %>% 
+  ggplot(aes(x = flipper_length_mm, 
+             y = body_mass_g, 
+             color = species)) + 
+  geom_point() +
+  geom_smooth(
+    method = "lm",
+    se = FALSE) +
+  theme_minimal()
+```
 :::
 
-## [Gráficos de mancuernas:](g-mancuernas.html)
+------------------------------------------------------------------------
 
-::: {layout-ncol="2"}
-![](01_img/puntos_posicion_partidos.png){.zoomable fig-align="right" width="375"}
+## Otros recursos
 
-![](0_img/puntos_posicion_edad_ideol.png){.zoomable fig-align="left" width="375"}
-:::
+Páginas con explicaciones sobre ggplot y muchos ejemplos:
 
-## [Otros gráficos:](g-otros.html)
+-   [The R Graph Galery](https://r-graph-gallery.com/index.html)
 
-::: {layout-ncol="3"}
-![](01_img/puntos_barras.png){.zoomable fig-align="center" width="375"}
+-   [R Charts](https://r-charts.com/es/) - en español
 
-![](images/clipboard-3495054274.png){.zoomable fig-align="right" width="375"}
+-   [El arte del dato bien contado](https://elartedeldato.com/ggplot2/) - en español
 
-![](images/clipboard-2387205880.png){.zoomable fig-align="left" width="375"}
-:::
+Páginas para elegir colores:
+
+-   Generadores de paletas:
+
+    -   <https://coolors.co/>
+
+    -   <https://r-charts.com/es/generador-paletas-colores/>
+
+-   Selector de colores: <https://unscart.com/extension/color-picker/>
+
+------------------------------------------------------------------------
+
+## Tipos de gráficos
+
+### Líneas
+
+### Puntos
+
+### Barras
+
+------------------------------------------------------------------------
+
+## Cheat sheet
+
+![](01_img/chuleta_ggplot_1.png)
+
+![](01_img/chuleta_ggplot_2.png)
+
+[Enlace a la chuleta](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)
