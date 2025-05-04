@@ -24,8 +24,8 @@ Para usarlo, basta con escribir la función `ggplot()` e ir encadenando otras fu
 | Por ejemplo, los dos gráficos mostrados a continuación tienen las mismas líneas de código, pero en el de la izquierda el comando que dibuja las barras se ha escrito el primero, y en el de la derecha el segundo, después de la línea:
 
 ::: {layout-ncol="2"}
-```{r}
-# GRAFICO 1
+```{r, fig.cap="Gráfico 1"}
+# Gráfico 1
 ggplot() +
   geom_bar(data = penguins, #<1>
            aes(x = species)) + #<1>
@@ -39,8 +39,8 @@ ggplot() +
 2.  Comando para la línea roja.
 3.  Cambia el fondo de gris a blanco.
 
-```{r}
-# GRAFICO 2
+```{r, fig.cap="Gráfico 2"}
+# Gráfico 2
 ggplot() +
   geom_hline(yintercept = 75,
              color = "red") +
@@ -50,7 +50,7 @@ ggplot() +
 ```
 :::
 
-::: {.callout-note appearance="simple" collapse="true"}
+::: {.callout-note collapse="true" appearance="simple"}
 ## Nota
 
 Los gráficos mostrados, salvo que se indique lo contrario, se han realizado con los datos de la librería `palmerpenguins`.
@@ -67,6 +67,8 @@ Entre los componentes básicos de los gráficos de ggplot se encuentran:
 -   **Facet**: permite emplear una variable extra para dividir al gráfico original en subgráficos.
 
 -   **Tema (theme)**: modificaciones estéticas sobre el fondo, el tipo y tamaño de la fuente, el grid...
+
+------------------------------------------------------------------------
 
 ## Añadir datos a un gráfico
 
@@ -111,7 +113,7 @@ Entre los componentes básicos de los gráficos de ggplot se encuentran:
 
     2.  Más de dos variables: aes(x = var_x, y = var_y, color/fill/shape/size/linetype = var_z)
 
-    3.  También se pueden añadir variables extra dividiendo los gráficos mediante el uso de \[`facet`\](g-otras-transformaciones.html)
+    3.  También se pueden añadir variables extra dividiendo los gráficos mediante el uso de [`facet`](graficos/g-otras-transformaciones.html).
 
         ```{r}
         ggplot(penguins) +
@@ -183,11 +185,11 @@ Páginas para elegir colores:
 
 ## Tipos de gráficos
 
-### Líneas
+### [Correlaciones](graficos/g-puntos.html) (puntos)
 
-### Puntos
+### [Distribuciones](graficos/g-distribucion.html) (barras, histogramas, cajas/violines)
 
-### Barras
+### Evolución (líneas)
 
 ------------------------------------------------------------------------
 

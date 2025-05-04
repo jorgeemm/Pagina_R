@@ -121,16 +121,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 background: #f0f3f5;
       }
 </style>
-<style>
-/* Estilos para todo el documento */
-body {
-  text-align: justify;
-}
-/* Estilos específicos para la tabla de contenidos */
-.toc-actions, .toc .nav, .toc .nav > li > a {
-  text-align: left !important;
-}
-</style>
 <script>
 // Añadir funcionalidad de zoom para imágenes
 document.addEventListener('DOMContentLoaded', function() {
@@ -224,54 +214,74 @@ document.addEventListener('DOMContentLoaded', function() {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">ggplot</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../graficos/g-intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">ggplot básico</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../graficos/g-visual.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Modificaciones estéticas</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../graficos/g-otras-transformaciones.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Otras transformaciones</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../graficos/g-puntos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Correlaciones (gráficos puntos)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../graficos/g-lineas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gráficos de líneas</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../graficos/g-barras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gráficos de barras</span></a>
+  <a href="../graficos/g-distribucion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distribuciones</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../graficos/g-mancuernas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gráficos de mancuernas</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../graficos/g-otros.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Otros gráficos</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../graficos/g-galeria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ejemplos</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">graficos/datawraper.qmd</span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -290,9 +300,9 @@ document.addEventListener('DOMContentLoaded', function() {
   <li><a href="#otros-recursos" id="toc-otros-recursos" class="nav-link" data-scroll-target="#otros-recursos">Otros recursos</a></li>
   <li><a href="#tipos-de-gráficos" id="toc-tipos-de-gráficos" class="nav-link" data-scroll-target="#tipos-de-gráficos">Tipos de gráficos</a>
   <ul class="collapse">
-  <li><a href="#líneas" id="toc-líneas" class="nav-link" data-scroll-target="#líneas">Líneas</a></li>
-  <li><a href="#puntos" id="toc-puntos" class="nav-link" data-scroll-target="#puntos">Puntos</a></li>
-  <li><a href="#barras" id="toc-barras" class="nav-link" data-scroll-target="#barras">Barras</a></li>
+  <li><a href="#correlaciones-puntos" id="toc-correlaciones-puntos" class="nav-link" data-scroll-target="#correlaciones-puntos">Correlaciones (puntos)</a></li>
+  <li><a href="#distribuciones-barras-histogramas-cajasviolines" id="toc-distribuciones-barras-histogramas-cajasviolines" class="nav-link" data-scroll-target="#distribuciones-barras-histogramas-cajasviolines">Distribuciones (barras, histogramas, cajas/violines)</a></li>
+  <li><a href="#evolución-líneas" id="toc-evolución-líneas" class="nav-link" data-scroll-target="#evolución-líneas">Evolución (líneas)</a></li>
   </ul></li>
   <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link" data-scroll-target="#cheat-sheet">Cheat sheet</a></li>
   </ul>
@@ -310,14 +320,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><code>ggplot</code> es un paquete incluido en <code>tidyverse</code> que sirve para hacer gráficos.</p>
 <p>Para usarlo, basta con escribir la función <code>ggplot()</code> e ir encadenando otras funciones que añadirán detalles al gráfico usando como enlace el +. Esta concatenación de comandos funciona como un lienzo, donde los comandos que añadas posteriormente añadirán detalles por encima de los anteriores. Es decir, el comando que esté más abajo en la secuencia será el que más adelante se visualice en el gráfico, y el primer comando situado tras el <code>ggplot()</code> el que se situará más al fondo.</p>
 <div class="line-block">Por ejemplo, los dos gráficos mostrados a continuación tienen las mismas líneas de código, pero en el de la izquierda el comando que dibuja las barras se ha escrito el primero, y en el de la derecha el segundo, después de la línea:</div>
-<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GRAFICO 1</span></span>
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico 1</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data =</span> penguins,</span>
 <span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-5" class="code-annotation-target"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">75</span>,</span>
 <span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-7" class="code-annotation-target"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GRAFICO 2</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico 2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">75</span>,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
@@ -346,7 +356,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="g-intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<p><img src="g-intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Gráfico 1</figcaption>
 </figure>
 </div>
 </div>
@@ -355,7 +366,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="g-intro_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<p><img src="g-intro_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Gráfico 2</figcaption>
 </figure>
 </div>
 </div>
@@ -386,6 +398,7 @@ Nota
 <li><p><strong>Facet</strong>: permite emplear una variable extra para dividir al gráfico original en subgráficos.</p></li>
 <li><p><strong>Tema (theme)</strong>: modificaciones estéticas sobre el fondo, el tipo y tamaño de la fuente, el grid…</p></li>
 </ul>
+<hr>
 </section>
 <section id="añadir-datos-a-un-gráfico" class="level2">
 <h2 class="anchored" data-anchor-id="añadir-datos-a-un-gráfico">Añadir datos a un gráfico</h2>
@@ -433,7 +446,7 @@ Nota
 </div>
 <ol start="2" type="1">
 <li><p>Más de dos variables: aes(x = var_x, y = var_y, color/fill/shape/size/linetype = var_z)</p></li>
-<li><p>También se pueden añadir variables extra dividiendo los gráficos mediante el uso de [<code>facet</code>](g-otras-transformaciones.html)</p>
+<li><p>También se pueden añadir variables extra dividiendo los gráficos mediante el uso de <a href="graficos/g-otras-transformaciones.html"><code>facet</code></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, </span>
@@ -522,14 +535,14 @@ Nota
 </section>
 <section id="tipos-de-gráficos" class="level2">
 <h2 class="anchored" data-anchor-id="tipos-de-gráficos">Tipos de gráficos</h2>
-<section id="líneas" class="level3">
-<h3 class="anchored" data-anchor-id="líneas">Líneas</h3>
+<section id="correlaciones-puntos" class="level3">
+<h3 class="anchored" data-anchor-id="correlaciones-puntos"><a href="graficos/g-puntos.html">Correlaciones</a> (puntos)</h3>
 </section>
-<section id="puntos" class="level3">
-<h3 class="anchored" data-anchor-id="puntos">Puntos</h3>
+<section id="distribuciones-barras-histogramas-cajasviolines" class="level3">
+<h3 class="anchored" data-anchor-id="distribuciones-barras-histogramas-cajasviolines"><a href="graficos/g-distribucion.html">Distribuciones</a> (barras, histogramas, cajas/violines)</h3>
 </section>
-<section id="barras" class="level3">
-<h3 class="anchored" data-anchor-id="barras">Barras</h3>
+<section id="evolución-líneas" class="level3">
+<h3 class="anchored" data-anchor-id="evolución-líneas">Evolución (líneas)</h3>
 <hr>
 </section>
 </section>

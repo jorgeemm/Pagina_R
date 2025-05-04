@@ -1,0 +1,135 @@
+---
+title: "Correlaciones (gráficos puntos)"
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Comando básico
+
+Para crear gráficos de líneas se usa el comando `geom_point()`, y dentro del `aes()` se deben incluir dos variables (x, y) de carácter numérico.
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = flipper_length_mm, 
+             y = body_mass_g)) + 
+  geom_point()
+```
+
+## Modificaciones
+
+### Añadir una tercera variable
+
+#### Cambiando el color de los puntos
+
+Dentro del `aes()`, se usa la opción `color = variable`
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = flipper_length_mm, 
+             y = body_mass_g,
+             color = species)) + 
+  geom_point()
+```
+
+#### Cambiando la forma de los puntos
+
+Dentro del `aes()`, se usa la opción `shape = variable`
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = flipper_length_mm, 
+             y = body_mass_g,
+             shape = species)) + 
+  geom_point()
+```
+
+#### Cambiar ambos a la vez
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = flipper_length_mm, 
+             y = body_mass_g,
+             color = species,
+             shape = species)) + 
+  geom_point()
+```
+
+### Evitar el solapamiento de puntos
+
+Cuando los puntos están muy juntos entre sí, puede resultar complicado distinguir unos de otros, especialmente si no todos los puntos tienen el mismo tamaño. Esto se puede solucionar combinando los comandos shape, fill y color.
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = flipper_length_mm,
+             y = body_mass_g,
+             size = bill_depth_mm)) +
+  geom_point(shape = 21, #<1>
+             fill = "#17589D", #<2>
+             color = "#FFFFFF") #<3>
+```
+
+1.  shape = 21 indica que los símbolos deben ser circulares y con borde, lo que permite usar la opción de fill y de color.
+2.  fill establece el color de relleno de los círculos, azul en este caso.
+3.  color indica el color del borde de los círculos. Al añadir un borde blanco, es más fácil diferenciar unos puntos de otros.
+
+------------------------------------------------------------------------
+
+## Añadir una línea de regresión
+
+Para añadir una línea que indique las relaciones mostradas por el gráfico de puntos se superpone el gráfico `geom_smooth()` al `geom_point()`.
+
+```{r}
+ggplot(penguins, 
+       aes(x = flipper_length_mm,
+           y = body_mass_g))+
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+### Opciones de `geom_smooth`
+
+-   `method`: indica el tipo de función que se emplea a la hora de dibujar la línea. Si no se especifica, se seleccionará por defecto aquel que minimice el error. (*lm indica un modelo lineal*)
+
+-   `se`: puede ser TRUE si se quiere dejar el sombreado que indica el error, o FALSE si únicamente se quiere mostrar la línea.
+
+-   `linewidth`:
+
+Si se está dividiendo el gráfico en función de una tercera variable, es muy importante tener en cuenta dónde se especifica esta dentro del `aes`, ya que puede ser que a pesar de la división sólo interese mostrar una línea de regresión, o que queramos mostrar más.
+
+#### Una única línea
+
+En el aes de ggplot se indican únicamente las variables comunes a los dos gráficos (x e y), mientras que si se quiere añadir una tercera variable para indicar el color se hará en un nuevo aes dentro de geom_point.
+
+```{r}
+ggplot(penguins, 
+       aes(x = flipper_length_mm,
+           y = body_mass_g))+
+  geom_point(aes(color = species))+
+  geom_smooth(method = "lm",
+              se = FALSE)
+```
+
+#### Varias líneas en función de una tercera variable
+
+En este caso, el color se incluiría también dentro del es de ggplot, ya que lo que se busca es aplicar la división a todos los gráficos que se muestran en la imagen final.
+
+```{r}
+ggplot(penguins, 
+       aes(x = flipper_length_mm,
+           y = body_mass_g,
+           color = species))+
+  geom_point()+
+  geom_smooth(method = "lm",
+              se = FALSE)
+```
+
+------------------------------------------------------------------------
+
+## Ejemplos

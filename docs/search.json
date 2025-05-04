@@ -149,9 +149,10 @@
     "href": "graficos/g-visual.html",
     "title": "Modificaciones estéticas",
     "section": "",
-    "text": "AVTENCIÓN\n\n\n\nPágina en construcción\n\n\nModificar el aspecto de los gráficos: en el color y el tamaño especificar cuándo hay que poner el color dentro del aes y cuándo va fuera. Poner juntos un ejemplo de cada para que se vea la diferencia.\n\n\n\n Back to top",
+    "text": "Para editar los colores de un gráfico se utilizan dos comandos, color y fill. Cada uno de ellos se utiliza con un tipo de gráfico distinto:\n\n\n\n\n\n\n\ncolor\nfill\n\n\n\n\n\ngeom_point\ngeom_bar (bordes)\n\n\ngeom_point - algunos tipos de shape\ngeom_bar (relleno)\n\n\n\n\n\n\nTanto el fill como el color pueden ir dentro o fuera del aes(). Se colocarán dentro de este (color = variable) si lo que se busca es dividir el gráfico en función de una tercera variable. En cambio, se situará fuera (color = “color”) si se quiere colorear todo el gráfico igual, sin añadir nuevas divisiones ni variables.\n\n\n\npenguins %&gt;% \n  ggplot() + \n  geom_point(aes(x = flipper_length_mm, \n             y = body_mass_g,\n             color = species))\n\n\n\n\n\n\n\n\n\n\n\n\npenguins %&gt;% \n  ggplot() + \n  geom_point(aes(x = flipper_length_mm, \n             y = body_mass_g),\n             color = \"red\")\n\n\n\n\n\n\n\n\n\n\n\n\nAunque los colores se pueden nombrar con su nombre en inglés, lo más cómo es utilizar el código hexadecimal (“red” = “#FF0000”), ya que permite un mayor control sobre los colores que se están empleando.\n\n\n\n\n\n\n¿Cómo funciona el código Hex?\n\n\n\n\n\nEl sistema hexadecimal no va del 0 al 9, sino de 0 a F. Cada cifra va del 0 al 9, y después se pasa de la A a la F (16 cifras por símbolo).\nPartiendo de esta lógica, el código Hex está compuesto por 3 conjuntos de 2 símbolos cada uno, los cuales representa a uno de los colores básicos. Los dos primeros serán indican la presencia de rojo, los segundos el verde y los últimos el azul. Por tanto, cada par va del 00 al FF, de tal forma que cuanto más alta sea la cifra indicada, mayor será la presencia de ese color básico en la mezcla.\nEstos conjuntos indican la cantidad de cada uno de los colores que debe mostrar la pantalla. Por tanto, si los tres están al mínimo (#000000), se mostrará el color negro, mientras que si están al máximo (#FFFFFF) será blanco.\nAdemás, a estos tres grupos de colores se puede añadir otro par de números (en esta ocasión de 00 a 99) para indicar la transparencia del color indicado, aunque en ggplot esta forma de añadir la transparencia no suele funcionar.\n\n\n\n\n\n\nSi lo que se quiere es indicar una paleta de colores, porque se está coloreando el gráfico en función de otra variable, se puede generar un vector manual con los colores concretos a usar para cada valor, o usar alguna de las múltiples paletas de colores que ya existen en ggplot.",
     "crumbs": [
       "Gráficos",
+      "ggplot",
       "Modificaciones estéticas"
     ]
   },
@@ -293,37 +294,37 @@
   {
     "objectID": "df-var/edicion-variables.html",
     "href": "df-var/edicion-variables.html",
-    "title": "Edición de variables",
+    "title": "Renombrar y recodificar",
     "section": "",
     "text": "Opción 1:\ndatos &lt;- rename(datos, nombre_nuevo = nombre_viejo)\nOpción 2:\ndatos &lt;- datos %&gt;% rename(nombre_nuevo = nombre_viejo)\nSe puede cambiar el nombre de varias variables a la vez:\n\ncolnames(Datos)\n\n[1] \"pclass\"   \"survived\" \"name\"     \"sex\"      \"age\"     \n\nDatos&lt;-Datos %&gt;% rename(\n  clase=pclass,\n  nombre=name,\n  sexo=sex,\n  edad=age)\n\n\ncolnames(Datos)\n\n[1] \"clase\"    \"survived\" \"nombre\"   \"sexo\"     \"edad\"    \n\n\nOpción 3:\nSe pueden renombrar las variables directamente al abrir la base de datos gracias al pipe:\ndatos &lt;- read_xlsx(\"dirección_datos-xlsx\") %&gt;% \n  rename(nombre_nuevo = nombre_viejo,\n         nombre_nuevo = nombre_viejo,\n         ...)",
     "crumbs": [
       "Bases de datos y variables",
       "Edición de variables",
-      "Edición de variables"
+      "Renombrar y recodificar"
     ]
   },
   {
     "objectID": "df-var/edicion-variables.html#renombrar-una-variable",
     "href": "df-var/edicion-variables.html#renombrar-una-variable",
-    "title": "Edición de variables",
+    "title": "Renombrar y recodificar",
     "section": "",
     "text": "Opción 1:\ndatos &lt;- rename(datos, nombre_nuevo = nombre_viejo)\nOpción 2:\ndatos &lt;- datos %&gt;% rename(nombre_nuevo = nombre_viejo)\nSe puede cambiar el nombre de varias variables a la vez:\n\ncolnames(Datos)\n\n[1] \"pclass\"   \"survived\" \"name\"     \"sex\"      \"age\"     \n\nDatos&lt;-Datos %&gt;% rename(\n  clase=pclass,\n  nombre=name,\n  sexo=sex,\n  edad=age)\n\n\ncolnames(Datos)\n\n[1] \"clase\"    \"survived\" \"nombre\"   \"sexo\"     \"edad\"    \n\n\nOpción 3:\nSe pueden renombrar las variables directamente al abrir la base de datos gracias al pipe:\ndatos &lt;- read_xlsx(\"dirección_datos-xlsx\") %&gt;% \n  rename(nombre_nuevo = nombre_viejo,\n         nombre_nuevo = nombre_viejo,\n         ...)",
     "crumbs": [
       "Bases de datos y variables",
       "Edición de variables",
-      "Edición de variables"
+      "Renombrar y recodificar"
     ]
   },
   {
     "objectID": "df-var/edicion-variables.html#recodificar-una-variable-o-crear-una-nueva",
     "href": "df-var/edicion-variables.html#recodificar-una-variable-o-crear-una-nueva",
-    "title": "Edición de variables",
+    "title": "Renombrar y recodificar",
     "section": "Recodificar una variable (o crear una nueva)",
     "text": "Recodificar una variable (o crear una nueva)\nPara poder recodificar y crear varaibles se usa el comando mutate (de dplyr). Este es de gran utilidad si se usa junto a comandos que permiten añadir condiciones lógicas como ifelse o case_when.\n\nPasos previos\nAntes de recodificar una variable es necesario conocer cómo es la variable original. Para ello:\n\nSe mira de qué tipo es la variable (numérica -numeric/dbl- o factor) gracias al comando class:\n\n\nclass(Datos$edad)\n\n[1] \"numeric\"\n\n\n\nTambién conviene realizar una tabla para conocer el contenido de la variable, así como su distribución:\n\n\ntable(Datos$clase, useNA=\"ifany\") #La opción useNA=\"ifany\" es opcional, y se añade para que en la tabla se muestren también los valores perdidos.\n\n\n  1   2   3 \n322 273 702 \n\n\n\n\nNueva variable a partir de operaciones sobre otras existentes\n\nEj1.: calcular la edad de los encuestados a partir del año de nacimiento\n\ndatos &lt;- datos %&gt;% \n  mutate(edad = año_actual - año_nacimiento)\n\nEj2.: crear una variable para el porcentaje de voto de un partido a partir de los votos totales:\n\ndatos &lt;- datos %&gt;% \n  mutate(votosFO_porcentaje = votos_FO/votostotales*100)\n\nUsar el comando summarise dentro del mutate.\n\n\n\nEl comando case_when\nPermite crear nuevas variables a partir de secuencias lógicas múltiples.\nDatos &lt;- Datos %&gt;%\n  mutate(edad = case_when(\n1    edad == 29 ~ 30,\n2    edad == 2 ~ 3,\n3    TRUE ~ edad))\n\n1\n\nReemplaza 29 por 30\n\n2\n\nReemplaza 2 por 3\n\n3\n\nMantiene iguales los valores que no cambian\n\n\n\nDatos &lt;- Datos %&gt;%\n  mutate(clase_rec = case_when(\n1    clase %in% c(2, 3) ~ 0,\n    TRUE ~ clase)) \n\ntable(Datos$clase_rec)\n\n\n1\n\nSi ‘clase’ es 2 o 3, asigna “0”\n\n\n\n\n\n  0   1 \n975 322 \n\n\nLa opción TRUE en este comando significa “todos los demás valores”. Si no se añadiera, todos los valores que no coinciden con las condiciones se enviarían a perdidos (NA).\n\n\nEl comando ifelse\nEl comando ifelse es una secuencia lógica con tres elementos. Un primer número, que es la categoría que se quiere transformar, un segundo número, que es en el que se transforma, y una tercera condición para el resto de valores. Esta puede ser otro número, NA o otra secuencia de ifelse.\nDatos &lt;- Datos %&gt;%\n  mutate(edad = ifelse(edad == 29, 30, ifelse(edad == 2, 3, edad)))\n\nDatos &lt;- Datos %&gt;%\n  mutate(clase_rec2 = ifelse(clase == 1, 1,\n                             ifelse(clase %in% c(2, 3), 0, NA)))\n\n\nVariables categóricas\nLas variables categóricas se recodifican del siguiente modo:\n\nTransformándolas en una variable numérica:\n\n#Por separado:\nDatos &lt;- Datos %&gt;% \n  mutate(sexo = as.numeric(sexo)) %&gt;% \n  mutate(sexo = case_when(\n    sexo == 1 ~ 0,\n    sexo == 2 ~ 1,\n    TRUE ~ sexo\n  ))\n  \n#A la vez:\nDatos &lt;- Datos %&gt;% \n  mutate(as.numeric(sexo) = case_when(\n    sexo == 1 ~ 0,\n    sexo == 2 ~ 1,\n    TRUE ~ sexo\n  ))\nEs la opción más útil si se quiere modificar una variable con muchas categorías\n\nEscribiendo las etiquetas entre ““:\n\nDatos &lt;- Datos %&gt;%\n  mutate(sexo = case_when(\n    sexo == \"female\" ~ \"mujer\",  \n    sexo == \"male\" ~ \"hombre\",   \n    TRUE ~ sexo                  \n  ))\nEsta opción es la más cómoda si la variable tiene pocas categorías.\n\nEspecificando los niveles que se quieren modificar:\n\ndatos &lt;- datos %&gt;%\n  mutate(estudios_universitarios = case_when(\n1    estudios %in% levels(estudios)[1:5] ~ 0,\n2    estudios %in% levels(estudios)[6] ~ 1,\n    TRUE ~ NA_real_                           \n  ))\n\n1\n\nAgrupar niveles 1 a 5 en 0\n\n2\n\nTransformar el nivel 6 en 1\n\n\nEsta opción es útil si se quiere convertir en dicotómica una variable con muchas categorías, aunque la primera opción es igual de buena en estos casos\n\n\nEjemplos útiles\nOtros ejemplos de recodificar variables:\n\nSe pueden utilizar símbolos lógicos como el &gt;, &lt;, |, & etc a la hora de recodificar variables\n\ndatos&lt;-datos %&gt;%\n  mutate(municipio_cat=ifelse(población&gt;=20000,\"Ciudad\",\"Pueblo\") %&gt;% \n           as.factor())\n\nTambién se pueden realizar operaciones entre variables al mismo tiempo que se recodifican. Ej.: calcular el apoyo en cada municipio a los partidos principales:\n\nelec23 &lt;- elec23 %&gt;% \n  mutate(apoyo = case_when(\n    CA==\"Galicia\" ~ PP+BNG+PSOE+SUMAR+VOX,\n    CA==\"Cataluña\" ~ PP+PSOE+SUMAR+VOX+JxCAT+ERC,\n    CA==\"País Vasco\" ~ PP+PSOE+SUMAR+VOX+PNV+BILDU,\n    T ~ PP+PSOE+SUMAR+VOX),\n  apoyo=apoyo/Votantes*100)\n\n\nOtras opciones de mutate\n\nmutate_if. Se hacen cambios en múltiples variables que cumplan con una característica especificada. Es especialmente útil para transformar variables de un tipo a otro. Por ejemplo:\n\nConvertir todas las variables de tipo factor a carácter: mutate_if(is.factor, as.character)\nEstandardizar (=0, sd=1) todas las variables numéricas del dataset: mutate_if(is.numeric, scale)\nCuando se estandariza, el valor 0 de una observación implica que esta se corresponde a la media, y el 1 que esa observación está un punto por encima de la desviación típica.\n\nmutate_at. Cambia diferentes varaibles especificadas en un vector específico.\n\nEstandarizar una variable: mutate_at (c(\"n\", \"edad\"), scale)\nConvertir una escala en logarítmica: mutate_at (c(“pib\", “poblacion\"), log)\n\nmutate_all. Permite hacer cambios en todas las variables de un dataframe. Ej.: mutate_all(as.character)\nacross. Permite hacer cambios a varias variables a la vez dentro de la función básica de mutate. Ejs.:\n\nmutate(across(c(n, edad), round))\nmutate(across(where(is.numeric), round))\nmutate(across(starts_with(“nombr\"), tolower))",
     "crumbs": [
       "Bases de datos y variables",
       "Edición de variables",
-      "Edición de variables"
+      "Renombrar y recodificar"
     ]
   },
   {
@@ -1038,9 +1039,10 @@
     "href": "graficos/g-intro.html",
     "title": "ggplot básico",
     "section": "",
-    "text": "ggplot es un paquete incluido en tidyverse que sirve para hacer gráficos.\nPara usarlo, basta con escribir la función ggplot() e ir encadenando otras funciones que añadirán detalles al gráfico usando como enlace el +. Esta concatenación de comandos funciona como un lienzo, donde los comandos que añadas posteriormente añadirán detalles por encima de los anteriores. Es decir, el comando que esté más abajo en la secuencia será el que más adelante se visualice en el gráfico, y el primer comando situado tras el ggplot() el que se situará más al fondo.\nPor ejemplo, los dos gráficos mostrados a continuación tienen las mismas líneas de código, pero en el de la izquierda el comando que dibuja las barras se ha escrito el primero, y en el de la derecha el segundo, después de la línea:\n# GRAFICO 1\nggplot() +\n1  geom_bar(data = penguins,\n           aes(x = species)) +\n2  geom_hline(yintercept = 75,\n             color = \"red\") +\n3  theme_minimal()\n# GRAFICO 2\nggplot() +\n  geom_hline(yintercept = 75,\n             color = \"red\") +\n  geom_bar(data = penguins,\n           aes(x = species)) +\n  theme_minimal()\n\n\n\n\n\n1\n\nComando para el gráfico de barras.\n\n2\n\nComando para la línea roja.\n\n3\n\nCambia el fondo de gris a blanco.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNota\n\n\n\n\n\nLos gráficos mostrados, salvo que se indique lo contrario, se han realizado con los datos de la librería palmerpenguins.\n\n\n\nEntre los componentes básicos de los gráficos de ggplot se encuentran:\n\nCapas (layer): son los elementos que se van añadiendo a la gráfica para crear el gráfico (geom_).\nEscalas (scales): permiten modificar algunos aspectos más visuales de los gráficos, como los ejes, las formas, los tamaños y los colores.\nCoordenadas (coord): modificaciones adicionales para modificar los ejes o el tipo de gráfico (p. ej. pasar el eje x al y, ).\nFacet: permite emplear una variable extra para dividir al gráfico original en subgráficos.\nTema (theme): modificaciones estéticas sobre el fondo, el tipo y tamaño de la fuente, el grid…",
+    "text": "ggplot es un paquete incluido en tidyverse que sirve para hacer gráficos.\nPara usarlo, basta con escribir la función ggplot() e ir encadenando otras funciones que añadirán detalles al gráfico usando como enlace el +. Esta concatenación de comandos funciona como un lienzo, donde los comandos que añadas posteriormente añadirán detalles por encima de los anteriores. Es decir, el comando que esté más abajo en la secuencia será el que más adelante se visualice en el gráfico, y el primer comando situado tras el ggplot() el que se situará más al fondo.\nPor ejemplo, los dos gráficos mostrados a continuación tienen las mismas líneas de código, pero en el de la izquierda el comando que dibuja las barras se ha escrito el primero, y en el de la derecha el segundo, después de la línea:\n# Gráfico 1\nggplot() +\n1  geom_bar(data = penguins,\n           aes(x = species)) +\n2  geom_hline(yintercept = 75,\n             color = \"red\") +\n3  theme_minimal()\n# Gráfico 2\nggplot() +\n  geom_hline(yintercept = 75,\n             color = \"red\") +\n  geom_bar(data = penguins,\n           aes(x = species)) +\n  theme_minimal()\n\n\n\n\n\n1\n\nComando para el gráfico de barras.\n\n2\n\nComando para la línea roja.\n\n3\n\nCambia el fondo de gris a blanco.\n\n\n\n\n\n\n\nGráfico 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNota\n\n\n\n\n\nLos gráficos mostrados, salvo que se indique lo contrario, se han realizado con los datos de la librería palmerpenguins.\n\n\n\nEntre los componentes básicos de los gráficos de ggplot se encuentran:\n\nCapas (layer): son los elementos que se van añadiendo a la gráfica para crear el gráfico (geom_).\nEscalas (scales): permiten modificar algunos aspectos más visuales de los gráficos, como los ejes, las formas, los tamaños y los colores.\nCoordenadas (coord): modificaciones adicionales para modificar los ejes o el tipo de gráfico (p. ej. pasar el eje x al y, ).\nFacet: permite emplear una variable extra para dividir al gráfico original en subgráficos.\nTema (theme): modificaciones estéticas sobre el fondo, el tipo y tamaño de la fuente, el grid…",
     "crumbs": [
       "Gráficos",
+      "ggplot",
       "ggplot básico"
     ]
   },
@@ -1049,9 +1051,10 @@
     "href": "graficos/g-intro.html#el-paquete-ggplot",
     "title": "ggplot básico",
     "section": "",
-    "text": "ggplot es un paquete incluido en tidyverse que sirve para hacer gráficos.\nPara usarlo, basta con escribir la función ggplot() e ir encadenando otras funciones que añadirán detalles al gráfico usando como enlace el +. Esta concatenación de comandos funciona como un lienzo, donde los comandos que añadas posteriormente añadirán detalles por encima de los anteriores. Es decir, el comando que esté más abajo en la secuencia será el que más adelante se visualice en el gráfico, y el primer comando situado tras el ggplot() el que se situará más al fondo.\nPor ejemplo, los dos gráficos mostrados a continuación tienen las mismas líneas de código, pero en el de la izquierda el comando que dibuja las barras se ha escrito el primero, y en el de la derecha el segundo, después de la línea:\n# GRAFICO 1\nggplot() +\n1  geom_bar(data = penguins,\n           aes(x = species)) +\n2  geom_hline(yintercept = 75,\n             color = \"red\") +\n3  theme_minimal()\n# GRAFICO 2\nggplot() +\n  geom_hline(yintercept = 75,\n             color = \"red\") +\n  geom_bar(data = penguins,\n           aes(x = species)) +\n  theme_minimal()\n\n\n\n\n\n1\n\nComando para el gráfico de barras.\n\n2\n\nComando para la línea roja.\n\n3\n\nCambia el fondo de gris a blanco.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNota\n\n\n\n\n\nLos gráficos mostrados, salvo que se indique lo contrario, se han realizado con los datos de la librería palmerpenguins.\n\n\n\nEntre los componentes básicos de los gráficos de ggplot se encuentran:\n\nCapas (layer): son los elementos que se van añadiendo a la gráfica para crear el gráfico (geom_).\nEscalas (scales): permiten modificar algunos aspectos más visuales de los gráficos, como los ejes, las formas, los tamaños y los colores.\nCoordenadas (coord): modificaciones adicionales para modificar los ejes o el tipo de gráfico (p. ej. pasar el eje x al y, ).\nFacet: permite emplear una variable extra para dividir al gráfico original en subgráficos.\nTema (theme): modificaciones estéticas sobre el fondo, el tipo y tamaño de la fuente, el grid…",
+    "text": "ggplot es un paquete incluido en tidyverse que sirve para hacer gráficos.\nPara usarlo, basta con escribir la función ggplot() e ir encadenando otras funciones que añadirán detalles al gráfico usando como enlace el +. Esta concatenación de comandos funciona como un lienzo, donde los comandos que añadas posteriormente añadirán detalles por encima de los anteriores. Es decir, el comando que esté más abajo en la secuencia será el que más adelante se visualice en el gráfico, y el primer comando situado tras el ggplot() el que se situará más al fondo.\nPor ejemplo, los dos gráficos mostrados a continuación tienen las mismas líneas de código, pero en el de la izquierda el comando que dibuja las barras se ha escrito el primero, y en el de la derecha el segundo, después de la línea:\n# Gráfico 1\nggplot() +\n1  geom_bar(data = penguins,\n           aes(x = species)) +\n2  geom_hline(yintercept = 75,\n             color = \"red\") +\n3  theme_minimal()\n# Gráfico 2\nggplot() +\n  geom_hline(yintercept = 75,\n             color = \"red\") +\n  geom_bar(data = penguins,\n           aes(x = species)) +\n  theme_minimal()\n\n\n\n\n\n1\n\nComando para el gráfico de barras.\n\n2\n\nComando para la línea roja.\n\n3\n\nCambia el fondo de gris a blanco.\n\n\n\n\n\n\n\nGráfico 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNota\n\n\n\n\n\nLos gráficos mostrados, salvo que se indique lo contrario, se han realizado con los datos de la librería palmerpenguins.\n\n\n\nEntre los componentes básicos de los gráficos de ggplot se encuentran:\n\nCapas (layer): son los elementos que se van añadiendo a la gráfica para crear el gráfico (geom_).\nEscalas (scales): permiten modificar algunos aspectos más visuales de los gráficos, como los ejes, las formas, los tamaños y los colores.\nCoordenadas (coord): modificaciones adicionales para modificar los ejes o el tipo de gráfico (p. ej. pasar el eje x al y, ).\nFacet: permite emplear una variable extra para dividir al gráfico original en subgráficos.\nTema (theme): modificaciones estéticas sobre el fondo, el tipo y tamaño de la fuente, el grid…",
     "crumbs": [
       "Gráficos",
+      "ggplot",
       "ggplot básico"
     ]
   },
@@ -1060,9 +1063,10 @@
     "href": "graficos/g-intro.html#añadir-datos-a-un-gráfico",
     "title": "ggplot básico",
     "section": "Añadir datos a un gráfico",
-    "text": "Añadir datos a un gráfico\n\nAñadir la base de datos:\n\nAntes del comando ggplot.Esta opción es muy útil ya que permite editar los datos de la base en la misma sucesión de comandos en la que se incluye el gráfico, sin necesidad de crear nuevos objetos:\n1penguins %&gt;%\n2ggplot() +\n  geom_bar(aes(x = species)) +\n\n1\n\nSe un el comando ggplot al df gracias a un pipe.\n\n2\n\nGráfico\n\n\nDentro del comando ggplot:\nggplot(penguins) + \n  geom_bar(aes(x = species))\nDentro del comando del gráfico. Especialmente útil si se usan varias bases de datos distintas en el mismo gráfico.\nggplot() + \n  geom_bar(penguins,\n           aes(x = species))\n\nAñadir las variables (aes):\n\nDos variables: aes(x = var_x, y = var_y)\n\n\nggplot(penguins) +\n  geom_point(aes(x = flipper_length_mm, \n                 y = body_mass_g)) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nMás de dos variables: aes(x = var_x, y = var_y, color/fill/shape/size/linetype = var_z)\nTambién se pueden añadir variables extra dividiendo los gráficos mediante el uso de [facet](g-otras-transformaciones.html)\n\nggplot(penguins) +\n  geom_point(aes(x = flipper_length_mm, \n                 y = body_mass_g,\n                 color = species,\n                 shape = species)) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n¿Donde colocar el aes()?\nEl aes se puede situar tanto dentro del comando ggplot() como dentro de los comandos específicos de cada gráfico geom_x(). Es muy importante tener en cuenta dónde situar las variables, ya que dependerá del gráfico que se está realizando. El aes irá dentro de ggplot() cuando las variables sean las mismas en todas las capas de geom_ que se vayan a emplear. Si existe alguna variable que sea particular de una de las capas, el aes que incluye esta variable debe ir dentro del geom_.\nP. ej., si quieres que los puntos del fondo tengan color en función de una tercera variable pero las líneas que se sitúan encima no (izquierda) el color irá en el aes() del geom_point(). En cambio, si quieres que tanto los puntos como las líneas se muestren en función de la tercera variable, color va dentro del aes() de ggplot().\n# GRÁFICO 1\n\npenguins %&gt;% \n  ggplot(aes(x = flipper_length_mm, \n             y = body_mass_g)) + \n  geom_point(aes(color = species)) +\n  geom_smooth(\n    method = \"lm\",\n    se = FALSE) +\n  theme_minimal()\n# GRÁFICO 2\n\npenguins %&gt;% \n  ggplot(aes(x = flipper_length_mm, \n             y = body_mass_g, \n             color = species)) + \n  geom_point() +\n  geom_smooth(\n    method = \"lm\",\n    se = FALSE) +\n  theme_minimal()",
+    "text": "Añadir datos a un gráfico\n\nAñadir la base de datos:\n\nAntes del comando ggplot.Esta opción es muy útil ya que permite editar los datos de la base en la misma sucesión de comandos en la que se incluye el gráfico, sin necesidad de crear nuevos objetos:\n1penguins %&gt;%\n2ggplot() +\n  geom_bar(aes(x = species)) +\n\n1\n\nSe un el comando ggplot al df gracias a un pipe.\n\n2\n\nGráfico\n\n\nDentro del comando ggplot:\nggplot(penguins) + \n  geom_bar(aes(x = species))\nDentro del comando del gráfico. Especialmente útil si se usan varias bases de datos distintas en el mismo gráfico.\nggplot() + \n  geom_bar(penguins,\n           aes(x = species))\n\nAñadir las variables (aes):\n\nDos variables: aes(x = var_x, y = var_y)\n\n\nggplot(penguins) +\n  geom_point(aes(x = flipper_length_mm, \n                 y = body_mass_g)) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nMás de dos variables: aes(x = var_x, y = var_y, color/fill/shape/size/linetype = var_z)\nTambién se pueden añadir variables extra dividiendo los gráficos mediante el uso de facet.\n\nggplot(penguins) +\n  geom_point(aes(x = flipper_length_mm, \n                 y = body_mass_g,\n                 color = species,\n                 shape = species)) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n¿Donde colocar el aes()?\nEl aes se puede situar tanto dentro del comando ggplot() como dentro de los comandos específicos de cada gráfico geom_x(). Es muy importante tener en cuenta dónde situar las variables, ya que dependerá del gráfico que se está realizando. El aes irá dentro de ggplot() cuando las variables sean las mismas en todas las capas de geom_ que se vayan a emplear. Si existe alguna variable que sea particular de una de las capas, el aes que incluye esta variable debe ir dentro del geom_.\nP. ej., si quieres que los puntos del fondo tengan color en función de una tercera variable pero las líneas que se sitúan encima no (izquierda) el color irá en el aes() del geom_point(). En cambio, si quieres que tanto los puntos como las líneas se muestren en función de la tercera variable, color va dentro del aes() de ggplot().\n# GRÁFICO 1\n\npenguins %&gt;% \n  ggplot(aes(x = flipper_length_mm, \n             y = body_mass_g)) + \n  geom_point(aes(color = species)) +\n  geom_smooth(\n    method = \"lm\",\n    se = FALSE) +\n  theme_minimal()\n# GRÁFICO 2\n\npenguins %&gt;% \n  ggplot(aes(x = flipper_length_mm, \n             y = body_mass_g, \n             color = species)) + \n  geom_point() +\n  geom_smooth(\n    method = \"lm\",\n    se = FALSE) +\n  theme_minimal()",
     "crumbs": [
       "Gráficos",
+      "ggplot",
       "ggplot básico"
     ]
   },
@@ -1074,6 +1078,7 @@
     "text": "Otros recursos\nPáginas con explicaciones sobre ggplot y muchos ejemplos:\n\nThe R Graph Galery\nR Charts - en español\nEl arte del dato bien contado - en español\n\nPáginas para elegir colores:\n\nGeneradores de paletas:\n\nhttps://coolors.co/\nhttps://r-charts.com/es/generador-paletas-colores/\n\nSelector de colores: https://unscart.com/extension/color-picker/",
     "crumbs": [
       "Gráficos",
+      "ggplot",
       "ggplot básico"
     ]
   },
@@ -1082,9 +1087,10 @@
     "href": "graficos/g-intro.html#tipos-de-gráficos",
     "title": "ggplot básico",
     "section": "Tipos de gráficos",
-    "text": "Tipos de gráficos\n\nLíneas\n\n\nPuntos\n\n\nBarras",
+    "text": "Tipos de gráficos\n\nPuntos\n\n\nLíneas\n\n\nBarras",
     "crumbs": [
       "Gráficos",
+      "ggplot",
       "ggplot básico"
     ]
   },
@@ -1096,6 +1102,7 @@
     "text": "Cheat sheet\n\n\nEnlace a la chuleta",
     "crumbs": [
       "Gráficos",
+      "ggplot",
       "ggplot básico"
     ]
   },
@@ -1251,6 +1258,114 @@
     "crumbs": [
       "Introducción a R",
       "Operaciones básicas"
+    ]
+  },
+  {
+    "objectID": "graficos/g-puntos.html",
+    "href": "graficos/g-puntos.html",
+    "title": "Gráficos de puntos",
+    "section": "",
+    "text": "Para crear gráficos de líneas se usa el comando geom_point(), y dentro del aes() se deben incluir dos variables (x, y) de carácter numérico.\n\npenguins %&gt;% \n  ggplot(aes(x = flipper_length_mm, \n             y = body_mass_g)) + \n  geom_point()",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Gráficos de puntos"
+    ]
+  },
+  {
+    "objectID": "graficos/g-puntos.html#comando-básico",
+    "href": "graficos/g-puntos.html#comando-básico",
+    "title": "Gráficos de puntos",
+    "section": "",
+    "text": "Para crear gráficos de líneas se usa el comando geom_point(), y dentro del aes() se deben incluir dos variables (x, y) de carácter numérico.\n\npenguins %&gt;% \n  ggplot(aes(x = flipper_length_mm, \n             y = body_mass_g)) + \n  geom_point()",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Gráficos de puntos"
+    ]
+  },
+  {
+    "objectID": "graficos/g-puntos.html#modificaciones-más-relevantes",
+    "href": "graficos/g-puntos.html#modificaciones-más-relevantes",
+    "title": "Gráficos de puntos",
+    "section": "Modificaciones más relevantes",
+    "text": "Modificaciones más relevantes\n\nAñadir una tercera variable\n\nCambiando el color de los puntos\n\n\nCambiando la forma de los puntos",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Gráficos de puntos"
+    ]
+  },
+  {
+    "objectID": "graficos/g-puntos.html#añadir-una-línea-de-regresión",
+    "href": "graficos/g-puntos.html#añadir-una-línea-de-regresión",
+    "title": "Gráficos de puntos",
+    "section": "Añadir una línea de regresión",
+    "text": "Añadir una línea de regresión",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Gráficos de puntos"
+    ]
+  },
+  {
+    "objectID": "graficos/g-puntos.html#ejemplos",
+    "href": "graficos/g-puntos.html#ejemplos",
+    "title": "Gráficos de puntos",
+    "section": "Ejemplos",
+    "text": "Ejemplos",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Gráficos de puntos"
+    ]
+  },
+  {
+    "objectID": "graficos/g-visual.html#colores",
+    "href": "graficos/g-visual.html#colores",
+    "title": "Modificaciones estéticas",
+    "section": "",
+    "text": "Para editar los colores de un gráfico se utilizan dos comandos, color y fill. Cada uno de ellos se utiliza con un tipo de gráfico distinto:\n\n\n\n\n\n\n\ncolor\nfill\n\n\n\n\n\ngeom_point\ngeom_bar (bordes)\n\n\ngeom_point - algunos tipos de shape\ngeom_bar (relleno)\n\n\n\n\n\n\nTanto el fill como el color pueden ir dentro o fuera del aes(). Se colocarán dentro de este (color = variable) si lo que se busca es dividir el gráfico en función de una tercera variable. En cambio, se situará fuera (color = “color”) si se quiere colorear todo el gráfico igual, sin añadir nuevas divisiones ni variables.\n\n\n\npenguins %&gt;% \n  ggplot() + \n  geom_point(aes(x = flipper_length_mm, \n             y = body_mass_g,\n             color = species))\n\n\n\n\n\n\n\n\n\n\n\n\npenguins %&gt;% \n  ggplot() + \n  geom_point(aes(x = flipper_length_mm, \n             y = body_mass_g),\n             color = \"red\")\n\n\n\n\n\n\n\n\n\n\n\n\nAunque los colores se pueden nombrar con su nombre en inglés, lo más cómo es utilizar el código hexadecimal (“red” = “#FF0000”), ya que permite un mayor control sobre los colores que se están empleando.\n\n\n\n\n\n\n¿Cómo funciona el código Hex?\n\n\n\n\n\nEl sistema hexadecimal no va del 0 al 9, sino de 0 a F. Cada cifra va del 0 al 9, y después se pasa de la A a la F (16 cifras por símbolo).\nPartiendo de esta lógica, el código Hex está compuesto por 3 conjuntos de 2 símbolos cada uno, los cuales representa a uno de los colores básicos. Los dos primeros serán indican la presencia de rojo, los segundos el verde y los últimos el azul. Por tanto, cada par va del 00 al FF, de tal forma que cuanto más alta sea la cifra indicada, mayor será la presencia de ese color básico en la mezcla.\nEstos conjuntos indican la cantidad de cada uno de los colores que debe mostrar la pantalla. Por tanto, si los tres están al mínimo (#000000), se mostrará el color negro, mientras que si están al máximo (#FFFFFF) será blanco.\nAdemás, a estos tres grupos de colores se puede añadir otro par de números (en esta ocasión de 00 a 99) para indicar la transparencia del color indicado, aunque en ggplot esta forma de añadir la transparencia no suele funcionar.\n\n\n\n\n\n\nSi lo que se quiere es indicar una paleta de colores, porque se está coloreando el gráfico en función de otra variable, se puede generar un vector manual con los colores concretos a usar para cada valor, o usar alguna de las múltiples paletas de colores que ya existen en ggplot.",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Modificaciones estéticas"
+    ]
+  },
+  {
+    "objectID": "graficos/g-visual.html#forma",
+    "href": "graficos/g-visual.html#forma",
+    "title": "Modificaciones estéticas",
+    "section": "Forma",
+    "text": "Forma\nPara modificar la forma de los puntos de un gráfico se utiliza la opción shape. Esta opción se emplea principalmente con los gráficos de puntos (geom_point()). Las formas existentes son las siguientes:\n\n\n\n\n\n\n\nAtención\n\n\n\nToda la lógica usada para modificar la forma es la misma explicada en el apartado del color (lo más importante es tener claro si se quiere situar la opción dentro o fuera del aes.\nAsimismo, en el caso de que se situara dentro, se podría generar un vector personalizado para establecer qué forma se corresponde con qué valore de la variable divisiva.",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Modificaciones estéticas"
+    ]
+  },
+  {
+    "objectID": "graficos/g-visual.html#transparencia",
+    "href": "graficos/g-visual.html#transparencia",
+    "title": "Modificaciones estéticas",
+    "section": "Transparencia",
+    "text": "Transparencia\nSe añade con la opción alpha = numero. La cifra va de 0 a 1, y cuanto más elevada sea menor será la transparencia.\n\nggplot(penguins) +\n  geom_bar(aes(x = species), \n           fill = \"red\",\n           alpha = 0.5)",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Modificaciones estéticas"
+    ]
+  },
+  {
+    "objectID": "graficos/g-visual.html#tamaño-de-las-líneas",
+    "href": "graficos/g-visual.html#tamaño-de-las-líneas",
+    "title": "Modificaciones estéticas",
+    "section": "Tamaño de las líneas",
+    "text": "Tamaño de las líneas\nSe añade con la opción linewidth = numero. La cifra va de 0 a 1, y cuanto más elevada sea mayor será el grosor de la línea.",
+    "crumbs": [
+      "Gráficos",
+      "ggplot",
+      "Modificaciones estéticas"
     ]
   }
 ]

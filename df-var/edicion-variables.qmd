@@ -1,5 +1,5 @@
 ---
-title: "Edición de variables"
+title: "Renombrar y recodificar"
 ---
 
 ```{r include=FALSE}

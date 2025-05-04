@@ -1,10 +1,140 @@
 ---
-title: "Gráficos de barras"
+title: "Distribuciones"
+subtitle: "Gráficos de barras, histogramas, cajas y violines"
 ---
 
-## Barras divididas según una tercera variable
+```{r}
+#| include: false
+library(tidyverse)
+library(palmerpenguins)
+```
 
-### Distribución ideológica de los votantes según el partido
+## Barras - var. categóricas
+
+El comando básico el `geom_bar()`. Dentro del `aes` se incluye únicamente la variable (categórica) x, ya que lo que este gráfico permite ver la frecuencia de cada categoría de una variable.
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = species)) +
+  geom_bar()
+```
+
+### Modificaciones
+
+#### Añadir color a los bordes
+
+El color se especifica en `color`.
+
+```{r}
+ggplot(penguins) +
+  geom_bar(aes(x = species), 
+           color = "red")
+```
+
+#### Añadir color al relleno
+
+El color se especifica en `fill`.
+
+```{r}
+ggplot(penguins) +
+  geom_bar(aes(x = species), 
+           fill = "red")
+```
+
+**Se pueden usar ambos a la vez**
+
+```{r}
+ggplot(penguins) +
+  geom_bar(aes(x = species), 
+           color = "black",
+           fill = "red")
+```
+
+#### Añadir transparencia al relleno
+
+Se usa `alpha`.
+
+```{r}
+ggplot(penguins) +
+  geom_bar(aes(x = species), 
+           color = "black",
+           fill = "red",
+           alpha = 0.7)
+```
+
+#### Modificar el tamaño del borde
+
+Con `linewidth`:
+
+```{r}
+ggplot(penguins) +
+  geom_bar(aes(x = species), 
+           color = "black",
+           fill = "red",
+           alpha = 0.7,
+           linewidth = 0.2)
+```
+
+## Histogramas - var. numérica
+
+El comando básico el `geom_histogram()`. Dentro del `aes` se incluye únicamente la variable (numérica) x, ya que lo que este gráfico permite ver la distribución de la frecuencia de una variable.
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = bill_length_mm)) +
+  geom_histogram()
+```
+
+### Modificaciones
+
+#### Estéticas
+
+Las mismas que en los gráficos de barras (relleno, transparencia, tamaño y color del borde...)
+
+#### Elegir el número de columnas
+
+Se emplea la opción `binwidth`, que establece las unidades mostradas en cada barra. Por tanto, si binwidth = 2, dividirá la barra de dos en dos unidades, mientras que si es igual a 10 cada barra agrupará 10 cifras. Es decir, a mayor tamaño de binwidth, menor número de barras.
+
+::: {layout-ncol="2"}
+```{r, fig.cap="binwidth = 2"}
+penguins %>% 
+  ggplot(aes(x = bill_length_mm)) +
+  geom_histogram(binwidth = 2)
+```
+
+```{r, fig.cap="binwidth = 4"}
+penguins %>% 
+  ggplot(aes(x = bill_length_mm)) +
+  geom_histogram(binwidth = 4)
+```
+:::
+
+## Densidades - var. numéricas
+
+El comando básico el `geom_density()`. Dentro del `aes` se incluye únicamente la variable (numérica) x, ya que lo que este gráfico permite ver la distribución de la frecuencia de una variable.
+
+Es un gráfico muy similar al histograma, pero en lugar de mostrar la frecuencia mediante barras lo hace a partir de una línea continua.
+
+```{r}
+ggplot(penguins) +
+  geom_density(aes(x = bill_length_mm))
+```
+
+### Dividir el gráfico en función de una variable categórica
+
+```{r}
+penguins %>% 
+  ggplot() +
+  geom_density(aes(x = bill_length_mm,
+                   group = species,
+                   color = species))
+```
+
+## Ejemplos
+
+#### Barras divididas según una tercera variable
+
+**Distribución ideológica de los votantes según el partido**
 
 ::: panel-tabset
 ### Gráfico
@@ -57,7 +187,7 @@ ggplot(datos, aes(x = ideol, y = freq, fill = partido)) +
 ```
 :::
 
-### Pertenencia a una generación u otra según el género
+**Pertenencia a una generación u otra según el género**
 
 ::: panel-tabset
 ### Gráfico
@@ -111,7 +241,7 @@ ggplot(brecha_gen, aes(x = gen, y = porcentaje, fill = genero)) +
 ```
 :::
 
-### Barras divididas para 4 categorías
+#### Barras divididas para 4 categorías
 
 ::: panel-tabset
 ### Gráfico
